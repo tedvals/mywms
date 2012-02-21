@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="StorageLocationLabels" columnCount="2" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="281" columnSpacing="5" leftMargin="14" rightMargin="14" topMargin="61" bottomMargin="61">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="offset" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="120">
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank" hyperlinkType="None">
+				<reportElement x="0" y="8" width="48" height="64">
+					<printWhenExpression><![CDATA[(new Boolean($F{offset} != null))]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.awt.Image"><![CDATA[((((Integer)$F{offset}).intValue()< 0) ? (de.linogistix.los.location.report.StorageLocationLabelReportBean.getDownArrow()) : null)]]></imageExpression>
+			</image>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle" hyperlinkType="None">
+				<reportElement positionType="Float" x="59" y="8" width="217" height="64" forecolor="#000000">
+					<printWhenExpression><![CDATA[new Boolean( $F{name}!=null )]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.awt.Image"><![CDATA[(de.linogistix.los.util.ImageAndBarcodeHelper.create128A(195, 60, $F{name},false,true))]]></imageExpression>
+			</image>
+			<textField hyperlinkType="None">
+				<reportElement positionType="Float" x="59" y="72" width="217" height="43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="36"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

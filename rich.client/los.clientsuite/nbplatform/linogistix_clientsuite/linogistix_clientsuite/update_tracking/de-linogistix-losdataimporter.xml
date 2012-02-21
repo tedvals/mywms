@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.losdataimporter">
+    <module_version install_time="1329723109875" last="true" origin="installer" specification_version="1.0">
+        <file crc="2546350418" name="config/Modules/de-linogistix-losdataimporter.xml"/>
+        <file crc="3291632446" name="modules/de-linogistix-losdataimporter.jar"/>
+        <file crc="2328122985" name="modules/docs/de-linogistix-losdataimporter.jar"/>
+    </module_version>
+</module>

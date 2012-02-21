@@ -1,0 +1,203 @@
+<project name="project-ejb" default="project-ejb.compile" basedir="./..">
+
+	<!-- read defaults -->
+	<property file="project-ejb/build.properties" />
+
+	<property name="project-ejb.src.dir" location="project-ejb/src" />
+	<property name="project-ejb.test.dir" location="project-ejb/test" />
+	<property name="project-ejb.lib.dir" location="project-ejb/lib" />
+	<property name="project-ejb.meta-inf.dir" location="project-ejb/META-INF" />
+
+	<property name="project-ejb.build.dir" location="project-ejb/build" />
+	<property name="project-ejb.classes.dir" location="${project-ejb.build.dir}/classes" />
+	<property name="project-ejb.properties.dir" location="${project-ejb.classes.dir}/de/linogistix/los/reference/res" />
+	<property name="project-ejb.component.dir" location="${project-ejb.build.dir}/component" />
+
+	<property name="project-ejb.test.classes.dir" location="${project-ejb.build.dir}/testclasses" />
+
+	<property name="mywms.home" location="./mywms.as" />
+	<property name="mywms.comp.dir" location="${mywms.home}/build/component" />
+
+	<property name="los.common-ejb.home" location="./los.common-ejb" />
+	<property name="los.common-ejb.lib.dir" location="${los.common-ejb.home}/lib" />
+	<property name="los.common-ejb.comp.dir" location="${los.common-ejb.home}/build/component" />
+
+	<property name="los.location-ejb.home" location="./los.location-ejb" />
+	<property name="los.location-ejb.lib.dir" location="${los.location-ejb.home}/lib" />
+	<property name="los.location-ejb.comp.dir" location="${los.location-ejb.home}/build/component" />
+
+	<property name="los.inventory-ejb.home" location="./los.inventory-ejb" />
+	<property name="los.inventory-ejb.lib.dir" location="${los.inventory-ejb.home}/lib" />
+	<property name="los.inventory-ejb.comp.dir" location="${los.inventory-ejb.home}/build/component" />
+
+	<property name="los.stocktaking-ejb.home" location="./los.stocktaking-ejb" />
+	<property name="los.stocktaking-ejb.lib.dir" location="${los.stocktaking-ejb.home}/lib" />
+	<property name="los.stocktaking-ejb.comp.dir" location="${los.stocktaking-ejb.home}/build/component" />
+	
+	<property name="los.mobile.home" location="./los.mobile" />
+
+	<path id="classpath">
+
+		<fileset dir="${jboss.home}/client">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${jboss.home}/server/default/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${jboss.home}/server/default/deploy/ejb3.deployer">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${project-ejb.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${mywms.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.common-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.location-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.inventory-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.stocktaking-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.mobile.home}/build/component">
+			<include name="*comp.jar" />
+		</fileset>
+
+	</path>
+
+	<path id="testclasspath">
+
+		<fileset dir="${jboss.home}/client">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${jboss.home}/server/default/lib">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${jboss.home}/server/default/deploy/ejb3.deployer">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${project-ejb.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+
+		<fileset dir="${mywms.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.common-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.location-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.inventory-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+		<fileset dir="${los.stocktaking-ejb.comp.dir}">
+			<include name="*comp.jar" />
+		</fileset>
+
+		<pathelement location="${project-ejb.classes.dir}" />
+
+	</path>
+
+	<target name="project-ejb.compile" description="Compiling sources with source level 1.5">
+		<mkdir dir="${project-ejb.classes.dir}" />
+		<javac source="1.5" debug="true" srcdir="${project-ejb.src.dir}" destdir="${project-ejb.classes.dir}">
+			<classpath refid="classpath" />
+		</javac>
+		
+		<mkdir dir="${project-ejb.properties.dir}" />
+		<tstamp/>
+		<propertyfile
+			file="${project-ejb.properties.dir}/VersionBundle.properties" 
+			comment="Updated by build script">
+	        <entry key="build.date" value="${DSTAMP} " />
+	        <entry key="build.time" value="${TSTAMP} " />
+	    	<entry key="user.name" value="${user.name}"/>
+		</propertyfile>
+		
+	</target>
+
+	<target name="project-ejb.compile-tests" depends="project-ejb.compile" description="Compile all test classes with source level 1.5">
+		<mkdir dir="${project-ejb.test.classes.dir}" />
+		<javac source="1.5" debug="true" srcdir="${project-ejb.test.dir}" destdir="${project-ejb.test.classes.dir}">
+			<classpath refid="testclasspath" />
+		</javac>
+	</target>
+
+	<!-- This task will create a myWMS-comp.jar .
+		 It is intended for usage in a custom enterprise application.
+	-->
+	<target name="project-ejb.package.component" depends="project-ejb.compile" description="Package a los-comp.jar for usage in a custom .ear">
+
+		<mkdir dir="${project-ejb.component.dir}" />
+
+		<jar jarfile="${project-ejb.component.dir}/project-par.jar">
+			<fileset dir="${project-ejb.classes.dir}">
+				<include name="**/model/*.class" />
+				<include name="de/linogistix/**/*.properties" />
+			</fileset>
+
+			<metainf dir="${project-ejb.meta-inf.dir}">
+				<include name="**/persistence.xml" />
+			</metainf>
+		</jar>
+
+		<jar jarfile="${project-ejb.component.dir}/project-ejb3.jar">
+			<fileset dir="${project-ejb.classes.dir}">
+				<include name="**/*.class" />
+				<exclude name="**/model/*.class" />
+				<include name="de/linogistix/**/*.properties" />
+			</fileset>
+			<fileset dir="${project-ejb.src.dir}">
+				<include name="de/linogistix/**/*.properties" />
+			</fileset>
+
+			<metainf dir="${project-ejb.meta-inf.dir}">
+				<include name="**/jboss.xml" />
+			</metainf>
+		</jar>
+		
+		<mkdir dir="${project-ejb.build.dir}/lib"/>
+		<jar jarfile="${project-ejb.build.dir}/lib/project-client.jar">
+			<fileset dir="${project-ejb.classes.dir}">
+				<include name="**/*.class" />
+			</fileset>
+		</jar>
+		
+	</target>
+
+	<target name="project-ejb.clean" description="Clean all .class and .jar files">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project-ejb.classes.dir}" />
+		</delete>
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project-ejb.test.classes.dir}" />
+		</delete>
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project-ejb.component.dir}" />
+		</delete>
+		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project-ejb.build.dir}/lib" />
+		</delete>
+		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project-ejb.build.dir}/deploy" />
+		</delete>
+
+	</target>
+
+</project>

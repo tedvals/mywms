@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="srcServer"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-api-3.1.4.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-api-3.2.0.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-impl-3.1.4.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-impl-3.2.0.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-ui-3.1.4.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/richfaces-ui-3.2.0.GA.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/los.common-ejb"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/los.inventory-ejb"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/los.location-ejb"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/los.stocktaking-ejb"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mywms.as"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.generic.runtimeTarget/JBoss v4.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="/los.common-ejb/lib/jasperreports-3.0.0.jar"/>
+	<classpathentry kind="output" path="eclipse-out"/>
+</classpath>

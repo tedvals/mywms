@@ -1,0 +1,14 @@
+We use the following archives of other open source projects:
+
+commons-collections-2.1.1.jar
+commons-logging-1.0.4.jar
+dom4j-1.6.1.jar
+ejb3-persistence.jar
+freemarker.jar
+hibernate3.jar
+hibernate-annotations.jar
+hibernate-commons-annotations.jar
+hibernate-entitymanager.jar
+hibernate-tools.jar
+hsqldb.jar
+postgresql-8.2-504.jdbc3.jar

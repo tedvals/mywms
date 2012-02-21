@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.wmsprocesses">
+    <module_version install_time="1329723112359" last="true" origin="installer" specification_version="1.0">
+        <file crc="390314725" name="config/Modules/de-linogistix-wmsprocesses.xml"/>
+        <file crc="2972372331" name="modules/de-linogistix-wmsprocesses.jar"/>
+        <file crc="3436174242" name="modules/docs/de-linogistix-wmsprocesses.jar"/>
+    </module_version>
+</module>

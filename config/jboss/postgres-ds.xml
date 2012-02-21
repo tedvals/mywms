@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  JBoss Server Configuration                                           -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: postgres-ds.xml 71535 2008-04-01 07:05:03Z adrian@jboss.org $ -->
+<!-- ==================================================================== -->
+<!--  Datasource config for Postgres                                      -->
+<!-- ==================================================================== -->
+
+
+<datasources>
+  <local-tx-datasource>
+    <jndi-name>DefaultDS</jndi-name>
+    <connection-url>jdbc:postgresql://localhost:5432/los.reference</connection-url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <user-name>jboss</user-name>
+    <password>jboss</password>
+      <metadata>
+         <type-mapping>PostgreSQL 8.2</type-mapping>
+      </metadata> 
+  </local-tx-datasource>
+
+</datasources>

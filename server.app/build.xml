@@ -1,0 +1,212 @@
+
+<project name="LOS Reference Server App" default="ear.package" basedir=".">
+
+	<property file="build.properties" />
+
+	<property name="project.build.dir" location="deploy" />
+	<property name="project.ear.dir" location="${project.build.dir}/${project.ear.name}" />
+	<property name="project.war.dir" location="${project.build.dir}/los-mobile.war" />
+	<property name="project.deploy.dir" location="${jboss.home}/server/default/deploy/${project.ear.name}" />
+
+	<property name="project.meta-inf.dir" location="META-INF" />
+	<property name="project.config.dir" location="./../config" />
+
+	<property name="mywms.home" location="./mywms.as" />
+	<property name="mywms.comp.dir" location="${mywms.home}/build/component" />
+
+	<property name="los.common-ejb.home" location="./los.common-ejb" />
+	<property name="los.common-ejb.lib.dir" location="${los.common-ejb.home}/lib" />
+	<property name="los.common-ejb.comp.dir" location="${los.common-ejb.home}/build/component" />
+
+	<property name="los.location-ejb.home" location="./los.location-ejb" />
+	<property name="los.location-ejb.lib.dir" location="${los.location-ejb.home}/lib" />
+	<property name="los.location-ejb.comp.dir" location="${los.location-ejb.home}/build/component" />
+
+	<property name="los.inventory-ejb.home" location="./los.inventory-ejb" />
+	<property name="los.inventory-ejb.lib.dir" location="${los.inventory-ejb.home}/lib" />
+	<property name="los.inventory-ejb.comp.dir" location="${los.inventory-ejb.home}/build/component" />
+
+	<property name="los.stocktaking-ejb.home" location="./los.stocktaking-ejb" />
+	<property name="los.stocktaking-ejb.comp.dir" location="${los.stocktaking-ejb.home}/build/component" />
+	
+	<property name="los-mobile.home" location="./los.mobile" />
+
+	<target name="project.package">
+
+		<ant antfile="project-ejb/build.xml" target="project-ejb.package.component" />
+
+		<mkdir dir="${project.build.dir}" />
+		<mkdir dir="${project.ear.dir}" />
+		<mkdir dir="${project.ear.dir}/META-INF" />
+		<mkdir dir="${project.ear.dir}/lib" />
+
+		<!-- The META-INF dir of the .ear -->
+		<copy todir="${project.ear.dir}/META-INF">
+			<fileset dir="${project.meta-inf.dir}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+
+		<!-- The EJB components of the .ear -->
+		<copy todir="${project.ear.dir}">
+			<fileset dir="${los.common-ejb.comp.dir}">
+				<include name="*-comp.jar" />
+			</fileset>
+			<fileset dir="${los.location-ejb.comp.dir}">
+				<include name="*-comp.jar" />
+			</fileset>
+			<fileset dir="${los.inventory-ejb.comp.dir}">
+				<include name="*-comp.jar" />
+			</fileset>
+			<fileset dir="${los.stocktaking-ejb.comp.dir}">
+				<include name="*-comp.jar" />
+			</fileset>
+			<fileset dir="${mywms.comp.dir}">
+				<include name="*-comp.jar" />
+			</fileset>
+			<fileset dir="project-ejb/build/component">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${los-mobile.home}/build/component">
+				<include name="*-comp.jar" />
+			</fileset>
+		</copy>
+
+		<!-- The libraries of the .ear -->
+		<copy todir="${project.ear.dir}/lib">
+			<fileset dir="${los.common-ejb.lib.dir}">
+				<include name="*.*" />
+				<exclude name="junit*.jar" />
+				<exclude name="los.bss*.jar" />
+				<exclude name="wstx*.jar" />
+			</fileset>
+			<fileset dir="${los.location-ejb.lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="${los.inventory-ejb.lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+	</target>
+
+
+	<target name="ear.package" depends="project.package" description="Package the web application and the ejb application into ear">
+
+		<!-- The web apps of the .war -->
+		<mkdir dir="${project.war.dir}" />
+		
+		<copy todir="${project.war.dir}">
+			<fileset dir="${los-mobile.home}/build/war">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${project.war.dir}/META-INF" overwrite="true">
+			<fileset dir="${project.config.dir}/server.app" includes="appserver.properties" />
+		</copy>
+
+		<!-- Ensure appserver.properties are always modified -->
+		<touch file="${project.war.dir}/META-INF/appserver.properties" />
+
+
+
+	</target>
+
+	<target name="ear.deploy.local" depends="ear.package" description="Deploy .ear to local JBoss">
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.ear.dir}/los-mobile.war" />
+		</delete>
+		
+		<jar jarfile="${project.ear.dir}/los-mobile.war" update="true" duplicate="add">
+			<fileset dir="${project.war.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</jar>
+
+		<mkdir dir="${project.deploy.dir}" />
+		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.deploy.dir}/los-mobile.war" />
+		</delete>
+
+		<copy todir="${project.deploy.dir}">
+			<fileset dir="${project.ear.dir}" includes="**/**" />
+		</copy>
+
+		<touch file="${project.deploy.dir}/META-INF/application.xml" />
+
+	</target>
+	
+	<target name="web.deploy.exploded" depends="ear.package" description="Deploy only extracted webapp">
+		
+		<mkdir dir="${project.deploy.dir}" />
+		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.ear.dir}" includes="los-mobile.war" />
+		</delete>
+		
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.deploy.dir}" includes="los-mobile.war" />
+		</delete>
+		
+		<mkdir dir="${project.deploy.dir}/los-mobile.war" />
+
+		<copy todir="${project.deploy.dir}/los-mobile.war" overwrite="true">
+			<fileset dir="${project.war.dir}" includes="**/**" />
+		</copy>
+<!--
+		<touch file="${project.deploy.dir}/los-mobile.war/WEB-INF/web.xml" />
+		<touch file="${project.deploy.dir}/META-INF/application.xml" />
+-->
+	</target>
+	
+	<target name="ear.undeploy.local" description="Undeploy Enterprise Application from local JBoss">
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.deploy.dir}/lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</delete>
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.deploy.dir}" />
+		</delete>
+
+	</target>
+
+
+	<target name="components.build" description="Call package.component on all subprojects">
+
+		<ant antfile="${mywms.home}/build.xml" target="mywms.package.component" />
+		<ant antfile="${los.common-ejb.home}/build.xml" target="common.package.component" />
+		<ant antfile="${los.location-ejb.home}/build.xml" target="location.package.component" />
+		<ant antfile="${los.inventory-ejb.home}/build.xml" target="inventory.package.component" />
+		<ant antfile="${los.stocktaking-ejb.home}/build.xml" target="stocktaking.package.component" />
+		<ant antfile="${los-mobile.home}/build.xml" target="los-mobile.compile" />
+
+		<ant antfile="project-ejb/build.xml" target="project-ejb.package.component" />
+
+	</target>
+
+	<target name="components.clean" description="Call clean on all subprojects">
+
+		<ant antfile="${mywms.home}/build.xml" target="mywms.clean" />
+
+		<ant antfile="${los.common-ejb.home}/build.xml" target="common.clean" />
+		<ant antfile="${los.location-ejb.home}/build.xml" target="location.clean" />
+		<ant antfile="${los.inventory-ejb.home}/build.xml" target="inventory.clean" />
+		<ant antfile="${los.stocktaking-ejb.home}/build.xml" target="stocktaking.clean" />
+
+		<ant antfile="${los-mobile.home}/build.xml" target="los-mobile.clean" />
+
+		<ant antfile="project-ejb/build.xml" target="project-ejb.clean" />
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${project.build.dir}" />
+		</delete>
+
+	</target>
+
+</project>

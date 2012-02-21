@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>myWMS LOS - Getting started with release 1.2</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Unix)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20101130;15124100">
+	<META NAME="Info 1" CONTENT="">
+	<META NAME="Info 2" CONTENT="">
+	<META NAME="Info 3" CONTENT="">
+	<META NAME="Info 4" CONTENT="">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1>Getting started with setting up your programming environment to
+myWMS LOS Release 1.3</H1>
+<P STYLE="margin-bottom: 0cm">This is a description how to set up
+myWMS LOS on the current trunk. For the releases have a look to the
+installation instructions of the release.</P>
+<H2>Requirements</H2>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Download and unpack myWMS LOS 1.3
+	Source.<BR>You will find it on
+	<A HREF="http://sourceforge.net/projects/mywmslos/files/">sourceforge.net/projects/mywmslos/files/</A>.<BR>Extract
+	the archive (<CODE>myWMS-LOS-1.3-source.tar.gz</CODE>) to any
+	preferred directory. Have a look that there is no space inside the
+	directory name. This could lead to errors. Below we will call it
+	<CODE>$source</CODE>. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Download and install the Java
+	SDK.<BR>You will find it on <A HREF="http://java.sun.com/">java.sun.com</A>.<BR>Checked
+	version is: 'SUN JAVA SDK version 1.6 update 22'.</P>
+	<P STYLE="margin-bottom: 0cm">Beware that we need the SDK, not the
+	JRE. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Download and install the JBoss
+	application server.<BR>You will find it on <A HREF="http://www.jboss.org/">www.jboss.org</A>.<BR>The
+	checked version is 4.2.3 for jdk-1.6</P>
+	<P STYLE="margin-bottom: 0cm">Copy the content of jboss archive to
+	<CODE>$source/jboss-4.2.3.GA</CODE> 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Download and install the Eclipse
+	programming IDE.<BR>You will find it on <A HREF="http://www.eclipse.org/">www.eclipse.org</A>.<BR>The
+	checked version is 3.6, Eclipse Helios 'Eclipse IDE for Java EE
+	Developers'.</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Download and install the Netbeans
+	programming IDE.<BR>You will find it on <A HREF="http://www.netbeans.org/">www.netbeans.org</A>.<BR>The
+	currently used version is Netbeans 6.8.<BR>
+	</P>
+	<LI><P>Download and Install the PostgreSQL database.<BR>You will
+	find it on <A HREF="http://www.postgres.org/">www.postgres.org</A>.<BR>Checked
+	versions are 8.2, 8.3, 8.4 
+	</P>
+    <LI><P>We are using several other open source projects for this application.<BR>
+    In several <code>INFO.TXT</code>-files it is shown, which archives are needed.<br>
+    We do not ship these archives. Please download them from the sites of the referenced projects
+    and copy them to the designated locations.<br>
+    </P>
+</UL>
+<H2>Setup Server</H2>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Configure database.</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Create a new role named 'jboss'
+		with password 'jboss' 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Create a new database named
+		'los.reference' with owner 'jboss' 
+		</P>
+	</UL>
+	<P>These names and passwords are used in some scripts. If you use
+	different names, you have to change the login and data-source
+	scripts.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Configure JBoss.</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Copy <CODE>postgres-ds.xml</CODE>
+		from <CODE>$source/config/jboss/</CODE> to
+		<CODE>$source/jboss-4.2.3.GA/server/default/deploy/</CODE>. <BR>This
+		will configure the database access. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Copy <CODE>login-config.xml</CODE>
+		from <CODE>$source/config/jboss/</CODE> to
+		<CODE>$source/jboss-4.2.3.GA/server/default/conf/</CODE>.<BR>Maybe
+		you have to overwrite the existing one. <BR>This will configure the
+		authentication rules. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Copy the content of
+		<CODE>$source/config/jboss/jms/</CODE> to
+		<CODE>$source/jboss-4.2.3.GA/server/default/deploy/jms/</CODE>.<BR>Make
+		sure to delete all files with names like <CODE>hsql*</CODE>. These
+		are configurations for JMS connetions using a hypersonic database.
+		It will not work to use two different databases. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Copy <CODE>postgresql-8.2.504.jdbc3.jar</CODE>
+		from <CODE>$source/database/lib/</CODE> to
+		<CODE>$source/jboss-4.2.3.GA/server/default/lib/</CODE>.<BR>Maybe
+		that it is necessary to use a different appropriate driver for your
+		version of the database server. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Create a folder <CODE>workspace</CODE>
+	for an Eclipse and Netbeans workspace in <CODE>$source</CODE>. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Start Eclipse and select created
+	folder <CODE>workspace</CODE> as Eclipse Workspace. (If 'Selecting
+	workspace dialog' is not shown on startup choose switch workspace
+	command in 'File' - Menu.) 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Open 'Servers' view with 'Window -
+	Show View' or 'Window - Show View - Others'. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Create a new server runtime.<BR>Open
+	context menu in 'Server'-view, choose 'New'. Choose 'Jboss - JBoss
+	v4.2', browse to your JBoss directory within the project
+	(<CODE>$source/jboss-4.2.3.GA</CODE>). 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Right click on the JBoss server
+	and choose open. Open 'Timeouts' and set 'Start'-parameter to 500.
+	Close the tab and confirm to save the changes. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Setup mywms.as module in Eclipse. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Create a new Project (Menu 'File
+		- New - Project') and select 'Java Project'. Click 'Next' and
+		choose option 'Create project from existing source'. Browse to
+		<CODE>$source/server.app/mywms.as</CODE>. It is important to choose
+		'Next', not 'Finish'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Assign a new folder as the
+		'Default output folder' of the Eclipse project. To do so click
+		'Browse', then check the root of the directory-tree and select
+		'Create New Folder ...' and name it <CODE>eclipse-out</CODE>. Press
+		'OK'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">After clicking 'Finish' a dialog
+		appears asking you to remove the old location <CODE>mywms.as/bin</CODE>.<BR>It
+		is important to choose 'No'. Otherwise you will loose content of
+		the 'bin'-folder. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">You are maybe asked to change to
+		a certain view. You can check the 'remember my decision'-box and
+		press OK. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Open the context menu on
+		'mywms.as' project and choose 'Build Path / Add Libraries'. Choose
+		'Server Runtime' and select 'JBoss v4.2' and press 'Finish'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Now the project should be shown
+		without any errors. Any warnings can be ignored. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Project setup for
+	'los.common-ejb'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Repeat the first four steps from
+		'Setup mywms.as module in Eclipse' but choose 'los.common-ejb'
+		instead of 'mywms.as'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">To configure the build path open
+		the context menu on 'los.common-ejb'-project and choose 'Build Path
+		- Configure Build Path'. Switch to the 'Libraries'-tab and choose
+		'Add Library' and add 'JBoss v4.2' as 'Server Runtime'. Press
+		'Finish'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Choose 'Add' in 'Projects'-tab
+		and add mywms.as project. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Project setup for
+	'los.location-ejb'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Repeat the first four steps from
+		'Setup mywms.as module in Eclipse' but choose 'los.location-ejb'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Choose 'Add' in 'Projects'-tab
+		and click 'select all'. Press 'OK'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Switch to 'Libraries'-tab and
+		click 'Add Library...'. First add 'Server Runtime - Jboss v4.2' and
+		secondly add 'JUnit' and choose the 'JUnit 3' as 'JUnit library
+		version'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Lastly click 'Add JARs...' and
+		select <CODE>los.common-ejb/lib/jasperreports-3.0.0.jar</CODE> and
+		click 'OK'. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Project setup for
+	'los.inventory-ejb'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Repeat all steps from Project
+		setup for 'los.location-ejb' for 'los.inventory-ejb'. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Project setup for
+	'los.stocktaking-ejb'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Repeat all steps from Project
+		setup for 'los.location-ejb' for 'los.stocktaking-ejb'. 
+		</P>
+	</UL>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">Repeat project setup for
+	'los.mobile'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm"><A NAME="DDE_LINK"></A>Repeat all
+		steps from Project setup for 'los.location-ejb' for 'los.mobile'. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">There is another module for
+	customization. So repeat project setup for 'project-ejb'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Repeat all steps from Project
+		setup for 'los.location-ejb' for 'los.project-ejb'.</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">To access build file
+	<CODE>$source/server.app/build.xml</CODE> it is necessary to create
+	a new Project in Eclipse. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Choose 'File - New - Project'. In
+		the project type selection wizard select 'General/Project'. It is
+		important not to create a new 'Java Project'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Name it 'LOS Reference Server
+		App' and disable option 'Use default location'. Browse to and
+		select <CODE>$source/server.app</CODE> and press 'Finish'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Open Ant view with 'Window - Show
+		View - Ant'. Drag 'build.xml' from newly created project into the
+		'Ant'-view. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Run target 'components.build',
+		'ear.package' and 'ear.deploy.local' . This will build all LOS
+		server modules and deploy them to JBoss. Maybe you have to grant
+		JavaVM access to the internet. 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Create a new plain project, not a
+	java-project, like the step before and name it 'LOS Reference DB'. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Disable 'Use default location'
+		and browse to <CODE>$source/database/postgres</CODE> and check
+		'OK', then 'Finish'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">For advanced user: Maybe you want
+		to check <CODE>connection.properties</CODE> to configure another
+		database. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Drag 'build.xml' from the newly
+		created project into the 'Ant'-view. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Start the server ('Window - Show
+		View - Other - Server - Servers', right click in 'Server'-view on
+		the 'Jboss v4.2 at localhost [Stopped]' and select 'Start'). 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Run
+		'postgres.local.createSchema'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Run 'postgres.local.init'. 
+		</P>
+	</UL>
+	<P></P>
+	<P>--- Now all LOS Server Modules are available to you.</P>
+	<LI><P STYLE="margin-bottom: 0cm">Point a web browser to
+	'<A HREF="http://localhost:8080/los-mobile">http://localhost:8080/los-mobile</A>'.</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P>Now you should be able to login with 'admin', 'admin'. 
+	</P>
+</UL>
+<H2>Setup Client (Netbeans)</H2>
+<UL>
+	<LI><P STYLE="margin-bottom: 0cm">If you wish to work with
+	workspaces in Netbeans too, you have to do a little workaround,
+	because Netbeans is not aware of workspaces. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Start Netbeans with parameter
+		<CODE>--userdir $source/workspace</CODE> 
+		</P>
+	</UL>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Choose 'File / Open Project' and
+	browse to <CODE>$source/rich.client/los.clientsuite</CODE>. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">You will get a project called
+	'LinogistiX LOS Client'. To see the content of the suite expand
+	'LinogistiX LOS Client / Modules'. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">Open context menu on the project
+	and choose 'Build All'. 
+	</P>
+	<P STYLE="margin-bottom: 0cm"></P>
+	<LI><P STYLE="margin-bottom: 0cm">There is another netbeans suite
+	available called 'LOS Reference Client'<BR>This is a reference
+	implementation of the basic 'LinogistiX LOS Client'. To start this
+	application, you first have to create a netbeans platform based on
+	the 'LinogistiX LOS Client' and than you can build and start the
+	reference-implementation. 
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0cm">Open the context menu on the
+		project 'Linogistix LOS Client'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Select 'Build ZIP Distribution'. 
+		</P>
+		<P STYLE="margin-bottom: 0cm"></P>
+		<LI><P STYLE="margin-bottom: 0cm"><A NAME="DDE_LINK2"></A>Choose
+		'File / Open Project' and browse to
+		<CODE>$source/rich.client/</CODE><CODE>los.reference</CODE>. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">You will get a project called
+		'LOS Reference Client'. 
+		</P>
+		<LI><P STYLE="margin-bottom: 0cm">Open the context menu on the
+		project 'LOS Reference Client'. and choose 'Properties'.</P>
+		<P STYLE="margin-bottom: 0cm"><A NAME="DDE_LINK3"></A>Navigate to
+		the Libraries category ans select 'Manage Platforms...'.</P>
+		<P STYLE="margin-bottom: 0cm">Choose 'Add Platform...'</P>
+		<P STYLE="margin-bottom: 0cm">Navigate to
+		<CODE>$source/rich.client/los.clientsuite/nbplatform/linogistix_clientsuite
+		</CODE>and Choose 'Close'.</P>
+		<P STYLE="margin-bottom: 0cm">Now you are able to select the
+		NetBeans Platform 'Linogistix LOS Client'</P>
+		<P STYLE="margin-bottom: 0cm">Make sure that all platform modules
+		are included!</P>
+		<P STYLE="margin-bottom: 0cm">Finish this step eith 'OK'.</P>
+		<LI><P STYLE="margin-bottom: 0cm"><A NAME="DDE_LINK1"></A>Open the
+		context menu on the project 'LOS Reference Client'. and choose
+		'Run'. On start up a login dialog is displayed and you should be
+		able to log in with 'admin', 'admin' 
+		</P>
+	</UL>
+	<P></P>
+</UL>
+<H2></H2>
+<H2>Upgrade from an older release</H2>
+<P>The stucture of the database may have changed. In the folder
+<CODE>$source/database/postgres</CODE> you will find a file named
+<CODE>changes.sql</CODE>. This is a SQL script to adapt a postgres
+database.</P>
+<P><B>Attention!! When you execute </B><CODE><B>changes.sql</B></CODE><B>
+the database is changed! Be sure to have a proper backup!</B> 
+</P>
+<P>There are several reasons, why this file may not work on your
+installation. So please check every statement and compare the
+database structure manually. 
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

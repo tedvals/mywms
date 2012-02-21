@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "http://www.netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    
+    <!-- Define location actions -->
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="de-linogistix-inventory-report-queryinventory-QueryInventoryAction.instance"/>
+            <file name="de-linogistix-inventory-browser-action-LotProcessDatesAction.instance"/>
+            <file name="de-linogistix-inventory-browser-action-ReplenishIfNeededAction.instance"/>
+        </folder>
+        
+        <folder name="BOBrowser">
+            <folder name="StockUnits">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOStockUnitNirwanaAction.instance"/>
+                    <file name="de-linogistix-common-bobrowser-action-BOLockAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="Lots">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOLotExtinguishAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="LOSUnitLoads">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-location-bobrowser-action-BOUnitLoadNirwanaAction.hidden"/>
+                    <file name="de-linogistix-inventory-browser-action-BOUnitLoadNirwanaAction.instance"/>
+                    <file name="de-linogistix-common-bobrowser-action-BOLockAction.instance"/>
+                    <file name="de-linogistix-wmsprocesses-unitloadtransfer-UnitLoadTransferAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="LOSAdvices">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOAdviceFinishAction.instance"/>
+                    <file name="de-linogistix-inventory-browser-action-BOAdviceRemoveAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="Orders">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOOrderStartAction.instance"/>
+                    <file name="de-linogistix-inventory-browser-action-BOOrderRemoveAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="PickingRequests">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOPickRequestRemoveAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="LOSGoodsOutRequests">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOGoodsOutFinishAction.instance"/>
+                    <file name="de-linogistix-inventory-browser-action-BOGoodsOutRemoveAction.instance"/>
+                </folder>
+            </folder>
+
+            <folder name="LOSStorageRequests">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOStorageRequestCancelAction.instance"/>
+                    <file name="de-linogistix-inventory-browser-action-BOStorageRequestRemoveAction.instance"/>
+                </folder>
+            </folder>
+
+            <folder name="ExtinguishOrders">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOOrderStartAction.instance"/>
+                    <file name="de-linogistix-inventory-browser-action-BOOrderRemoveAction.instance"/>
+                </folder>
+            </folder>
+            <folder name="ReplenishRequests">
+                <folder name="MasterActions">
+                    <file name="de-linogistix-inventory-browser-action-BOOrderRemoveAction.instance"/>
+                </folder>
+            </folder>
+
+        </folder>
+    </folder>
+    
+    <folder name="Menu">
+        <folder name="LOSActions">
+             <file name="Sep-599[javax-swing-JSeparator].instance">
+                <attr name="position" intvalue="599"/>
+            </file>
+            <file name="BOLotProcessDatesAction.shadow">
+                <attr name="position" intvalue="600"/>
+                <attr name="originalFile" stringvalue="Actions/Window/de-linogistix-inventory-browser-action-LotProcessDatesAction.instance"/>
+            </file>
+            <file name="BOReplenishIfNeededAction.shadow">
+                <attr name="position" intvalue="610"/>
+                <attr name="originalFile" stringvalue="Actions/Window/de-linogistix-inventory-browser-action-ReplenishIfNeededAction.instance"/>
+            </file>
+        </folder>
+        
+        <folder name="LOSReport">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+            <attr name="position" intvalue="400"/>
+            
+            <file name="de-linogistix-inventory-report-queryinventory-QueryInventoryAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/de-linogistix-inventory-report-queryinventory-QueryInventoryAction.instance"/>
+            </file>
+        </folder>
+        
+    
+    </folder>
+    
+
+    
+    
+    <!-- Configuration of generic LOS Entity Browser -->
+    <folder name="BOBrowser">
+        <folder name="MasterData">
+            <folder name="InventoryMasterData">
+                <!-- Localizing key : BOBrowser/MasterData/Inventory -->
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+                <attr name="position" intvalue="300"/>
+                <file name="de-linogistix-inventory-browser-bo-BOItemData.instance">
+                    <attr name="position" intvalue="100"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOItemDataNumber.instance">
+                        <attr name="position" intvalue="150"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOItemUnit.instance">
+                    <attr name="position" intvalue="200"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOBom.instance">
+                        <attr name="position" intvalue="250"/>
+                </file>
+            </folder>
+        </folder>
+        <folder name="InventoryData">
+            <file name="de-linogistix-inventory-browser-bo-BOLot.instance">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOStockUnit.instance">
+                <attr name="position" intvalue="200"/>
+            </file>
+        </folder>
+        <folder name="TransactionData">
+            <file name="de-linogistix-inventory-browser-bo-BOLOSStockUnitRecord.instance">
+                <attr name="position" intvalue="900"/>
+            </file>
+        </folder>
+        
+        <folder name="GoodsIn">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+            <attr name="position" intvalue="560"/>
+            
+            <file name="de-linogistix-inventory-browser-bo-BOLOSAdvice.instance">
+                <attr name="position" intvalue="100"/>
+            </file>
+            
+            <!--
+            <file name="de-linogistix-inventory-browser-bo-BOLOSUnitLoadAdvice.instance">
+                <attr name="position" intvalue="200"/>
+            </file>
+            
+            <file name="de-linogistix-inventory-browser-bo-BOLOSUnitLoadAdvicePosition.instance">
+                <attr name="position" intvalue="300"/>
+            </file>
+            -->
+            
+            <file name="de-linogistix-inventory-browser-bo-BOLOSGoodsReceipt.instance">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOLOSGoodsReceiptPosition.instance">
+                <attr name="position" intvalue="200"/>
+                <attr name="showInExplorer" boolvalue="true"/>
+            </file>
+
+           
+        </folder>
+        
+        <folder name="GoodsOut">
+            <!-- Localizing key : BOBrowser/Order -->
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+            <attr name="position" intvalue="600"/>
+            
+            <file name="de-linogistix-inventory-browser-bo-BOOrder.instance">
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOOrderRequest.instance">
+                <attr name="position" intvalue="350"/>
+                <attr name="showInExplorer" boolvalue="false"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOOrderRequestPosition.instance">
+                <attr name="position" intvalue="400"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOPickingRequest.instance">
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOPickingRequestPosition.instance">
+                <attr name="position" intvalue="600"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOLOSGoodsOutRequest.instance">
+                <attr name="position" intvalue="700"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOLOSGoodsOutRequestPosition.instance">
+                <attr name="position" intvalue="800"/>
+            </file>
+        </folder>
+        
+        <folder name="InternalOrders">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+            <attr name="position" intvalue="650"/>
+            
+            <file name="de-linogistix-inventory-browser-bo-BOLOSStorageRequest.instance">
+                <attr name="position" intvalue="100"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOExtinguishOrder.instance">
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOExtinguishRequest.instance">
+                <attr name="position" intvalue="201"/>
+                <attr name="showInExplorer" boolvalue="false"/>
+            </file>
+            <file name="de-linogistix-inventory-browser-bo-BOReplenishRequest.instance">
+                <attr name="position" intvalue="300"/>
+            </file>
+           
+        </folder>
+
+        
+        <folder name="Documents">
+                 <!-- Localizing key : BOBrowser/Documents -->
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="de.linogistix.inventory.res.Bundle"/>
+            <attr name="position" intvalue="700"/>
+                
+                <file name="de-linogistix-inventory-browser-bo-BOPickReceipt.instance">
+                    <attr name="position" intvalue="100"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOPickReceiptPosition.instance">
+                    <attr name="position" intvalue="200"/>
+                    <attr name="showInExplorer" boolvalue="false"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOOrderReceipt.instance">
+                    <attr name="position" intvalue="300"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOOrderReceiptPosition.instance">
+                    <attr name="position" intvalue="400"/>
+                    <attr name="showInExplorer" boolvalue="false"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOStockUnitLabel.instance">
+                    <attr name="position" intvalue="500"/>
+                </file>
+            </folder>
+    </folder>
+</filesystem>

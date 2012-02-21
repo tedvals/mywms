@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: de.linogistix.los.inventory.ejb
+OpenIDE-Module-Localizing-Bundle: de/linogistix/los/inventory/ejb/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

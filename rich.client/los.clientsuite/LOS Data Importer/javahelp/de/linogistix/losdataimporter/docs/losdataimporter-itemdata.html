@@ -1,0 +1,85 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artikel importieren</title>
+        <link rel="stylesheet" href="nbdocs:/org/netbeans/modules/usersguide/ide.css" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2 id='section-ImportItemData-Import'> Importieren von Artikeln</h2>
+        <p>Über den Menüpunkt &quot;<code>Datei-Importieren-Artikel</code>&quot; können XML Dateien im Microsoft Excel 2003 XML Format eingelesen werden.
+            Eine Vorlage findet sich <a class="attachment" href="itemdata.xml">hier</a>.
+            
+        </p>
+        <h4 id='section-ImportItemData-Vorgehen'>Vorgehen:</h4>
+        <ol>
+            <li> Herunterladen der Vorlage
+            </li>
+            <li> Öffnen der Vorlage in Microstoft Excel, OpenOffice.org Calc oder in einem XML Editor
+            </li>
+            <li> Bearbeiten der Datei (Pro Artikel einen Zeile) und speichern <b>(im Microsoft Excel 2003 XML Format!)</b>
+            </li>
+            <li> Importieren dieser Datei
+            </li>
+        </ol>
+        
+        <p> 
+            <h4 id='section-ImportItemData-AufbauDerDatei'>Aufbau der Datei</h4>
+        </p>
+        <table class="wikitable" border="1">
+            <tr><th>Mandant</th><th>Nummer</th><th>Name</th><th>Beschreibung</th><th>LHM-Typ</th><th>Chargenpflicht</th><th>Einheit\</th></tr>
+            <tr><td>System-Mandant</td><td>217400000</td><td>Artikel xy</td><td>Artikel xy im Detail</td><td>EURO</td><td>JA</td><td>Stk</td></tr>
+            
+        </table>
+        <dl>
+            <dt><b>Mandant</b></dt>
+            <dd>Der Mandant, dem der Artikel gehört<br>
+                Leeres Feld: Es wird der System-Mandant zugeordnet</dd>
+        </dl>
+        <dl>
+            <dt><b>Nummer</b></dt>
+            <dd>Die Nummer des Artikels.<br>
+                Pflichtfeld.</dd>
+        </dl>
+        <dl>
+            <dt><b>Name</b></dt>
+            <dd>Der Name des Artikels<br>
+                Leeres Feld: Es wird die Artikelnummer als Name verwendet</dd>
+        </dl>
+        <dl>
+            <dt><b>Beschreibung</b></dt>
+            <dd>Die Beschreibung des Artikels</dd>
+        </dl>
+        <dl>
+            <dt><b>LHM-Typ</b></dt>
+            <dd>Der Standard-LHM-Typ des Artikels</dd>
+        </dl>
+        <dl>
+            <dt><b>Chargenpflicht</b></dt>
+            <dd>Für chargenpflichtige Artikel: JA.<br>
+                Ansonsten wird der Artikel nicht chargenpflichtig</dd>
+        </dl>
+        <dl>
+            <dt><b>Einheit</b></dt>
+            <dd>Die Einheit des Artikels.<br>
+                Leeres Feld: Es wird die Standard-Einheit verwendet</dd>
+        </dl>
+        <p></p>
+        
+    </body>
+</html>
+<!--
+Tip: to create a link which will open in an external web browser, try:
+<object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+<param name="content" value="http://www.netbeans.org/">
+<param name="text" value="<html><u>http://www.netbeans.org/</u></html>">
+<param name="textFontSize" value="medium">
+<param name="textColor" value="blue">
+</object>
+To create a link to a help set from another module, you need to know the code name base and path, e.g.:
+<a href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/configure/configure_options.html">Using the Options Window</a>
+(This link will behave sanely if that module is disabled or missing.)
+-->

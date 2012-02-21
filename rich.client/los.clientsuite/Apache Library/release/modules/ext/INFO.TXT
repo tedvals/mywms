@@ -1,0 +1,11 @@
+We use the following archives of other open source projects:
+
+commons-beanutils-bean-collections.jar
+commons-beanutils-core.jar
+commons-beanutils.jar
+commons-collections-3.2.jar
+commons-digester-1.8.jar
+commons-javaflow-20060411.jar
+commons-logging.jar
+commons-validator-1.1.4.jar
+log4j.jar

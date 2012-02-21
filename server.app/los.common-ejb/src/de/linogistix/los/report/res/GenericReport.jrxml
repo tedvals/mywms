@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="GenericReport" printOrder="Horizontal" pageWidth="842" pageHeight="595" columnWidth="567" leftMargin="25" rightMargin="25" topMargin="61" bottomMargin="61">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="de.linogistix.los.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="LOS_DATE" class="java.util.Date"/>
+	<parameter name="A1" class="java.lang.String"/>
+	<parameter name="A2" class="java.lang.String"/>
+	<parameter name="A3" class="java.lang.String"/>
+	<parameter name="A4" class="java.lang.String"/>
+	<parameter name="A5" class="java.lang.String"/>
+	<parameter name="A6" class="java.lang.String"/>
+	<parameter name="A7" class="java.lang.String"/>
+	<parameter name="A8" class="java.lang.String"/>
+	<parameter name="A9" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="c1" class="java.lang.String"/>
+	<field name="c2" class="java.lang.String"/>
+	<field name="c3" class="java.lang.String"/>
+	<field name="c4" class="java.lang.String"/>
+	<field name="c5" class="java.lang.String"/>
+	<field name="c6" class="java.lang.String"/>
+	<field name="c7" class="java.lang.String"/>
+	<field name="c8" class="java.lang.String"/>
+	<field name="c9" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="37"/>
+	</title>
+	<pageHeader>
+		<band height="71">
+			<textField isBlankWhenNull="true" hyperlinkType="None">
+				<reportElement x="672" y="0" width="120" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{LOS_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="597" y="0" width="75" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Datum]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="764" y="20" width="28" height="20"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="672" y="20" width="79" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="-34" width="792" height="34"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$P{LOS_NAME}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="597" y="20" width="75" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Seite]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="276" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A4}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="188" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A3}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="100" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A2}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="364" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A5}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="452" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A6}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="540" y="50" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A7}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="628" y="50" width="80" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A8}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="708" y="50" width="80" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A9}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="751" y="20" width="13" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="28">
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="-21" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{A1}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="100" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c2}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="452" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c6}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="364" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c5}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="540" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c7}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="628" y="4" width="80" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c8}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="708" y="4" width="80" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c9}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="276" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c4}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="4" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c1}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="188" y="4" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{c3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

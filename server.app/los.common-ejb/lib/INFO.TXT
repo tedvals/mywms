@@ -1,0 +1,17 @@
+We use the following archives of other open source projects:
+
+barbecue-1.1.jar
+commons-beanutils-bean-collections.jar
+commons-beanutils-core.jar
+commons-beanutils.jar
+commons-collections-3.2.jar
+commons-digester-1.8.jar
+commons-logging.jar
+commons-validator-1.1.4.jar
+iReport.jar
+itext-1.02b.jar
+jasperreports-3.0.0.jar
+jsch-0.1.39.jar
+junit-3.8.2.jar
+poi-2.5.1-final-20040804.jar
+wstx-3.2.4.jar

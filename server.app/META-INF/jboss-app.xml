@@ -1,0 +1,4 @@
+<jboss-app>
+	<loader-repository>de.linogistix.los.reference:loader=los.reference.ear</loader-repository>
+	 <module-order>strict</module-order>
+</jboss-app>

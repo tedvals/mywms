@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/2">
+            <code-name-base>antlr</code-name-base>
+            <suite-component/>
+            <module-dependencies/>
+            <public-packages>
+                <package>antlr</package>
+                <package>antlr.actions.cpp</package>
+                <package>antlr.actions.csharp</package>
+                <package>antlr.actions.java</package>
+                <package>antlr.actions.python</package>
+                <package>antlr.build</package>
+                <package>antlr.collections</package>
+                <package>antlr.collections.impl</package>
+                <package>antlr.debug</package>
+                <package>antlr.debug.misc</package>
+                <package>antlr.preprocessor</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/antlr-2.7.5.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/antlr-2.7.5.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

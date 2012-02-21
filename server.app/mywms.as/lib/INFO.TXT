@@ -1,0 +1,3 @@
+itext-1.4.jar
+log4j.jar
+postgresql-8.0-311.jdbc3.jar

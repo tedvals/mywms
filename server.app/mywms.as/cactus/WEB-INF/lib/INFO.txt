@@ -1,0 +1,7 @@
+We use the following archives of other open source projects:
+
+aspectjrt-1.2.1.jar
+cactus-1.7.2.jar
+commons-httpclient-2.0.2.jar
+commons-logging-1.0.4.jar
+junit-3.8.1.jar

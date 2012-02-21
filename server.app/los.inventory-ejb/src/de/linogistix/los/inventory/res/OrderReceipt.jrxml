@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="StorageLocationLabels" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="61" bottomMargin="61">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="de.linogistix.los.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="LOS_ORDERNUMBER" class="java.lang.String"/>
+	<parameter name="LOS_PICKNUMBER" class="java.lang.String"/>
+	<parameter name="LOS_DATE" class="java.util.Date"/>
+	<parameter name="LOS_STATE" class="java.lang.String"/>
+	<field name="articleRef" class="java.lang.String"/>
+	<field name="articleDescr" class="java.lang.String"/>
+	<field name="lotRef" class="java.lang.String"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="amountordered" class="java.math.BigDecimal"/>
+	<field name="pos" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band height="263">
+			<textField hyperlinkType="None">
+				<reportElement x="435" y="56" width="125" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LOS_ORDERNUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" hyperlinkType="None">
+				<reportElement x="435" y="149" width="125" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{LOS_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="56" width="75" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Bestellung]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="149" width="75" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Datum]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="435" y="172" width="125" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER} + " / " + $V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="249" y="9" width="311" height="34"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lieferschein]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hyperlinkType="None">
+				<reportElement x="0" y="192" width="249" height="35"/>
+				<imageExpression class="java.awt.Image"><![CDATA[(de.linogistix.los.util.ImageAndBarcodeHelper.create128A(9999, 34, $P{LOS_ORDERNUMBER},false,true))]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="169" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="100" y="169" width="149" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LOS_STATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="239" width="67" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Artikel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="239" width="100" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Charge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="239" width="100" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Menge SOLL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="239" width="100" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Menge IST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="239" width="160" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Artikel Bezeichnung]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="258" width="560" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="363" y="172" width="72" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Seite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="239" width="33" height="20"/>
+				<textElement/>
+				<text><![CDATA[Pos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="28">
+			<textField hyperlinkType="None">
+				<reportElement x="33" y="6" width="67" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{articleRef}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true" hyperlinkType="None">
+				<reportElement x="100" y="6" width="160" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{articleDescr}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="260" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{lotRef}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="360" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{amountordered}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="460" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="None">
+				<reportElement x="0" y="6" width="33" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{pos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,12 @@
+We use the following archives of other open source projects:
+
+activation.jar
+antlr.jar
+ejb3-persistence.jar
+hibernate3.jar
+javassist.jar
+jbossall-client.jar
+jboss-ejb3x.jar
+jboss-jaxrpc.jar
+jboss-jaxws.jar
+jbossmq-client.jar

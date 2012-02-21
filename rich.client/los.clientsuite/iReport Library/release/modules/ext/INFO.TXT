@@ -1,0 +1,10 @@
+We use the following archives of other open source projects:
+
+barbecue-1.1.jar
+iReport.jar
+iText-2.1.0.jar
+jasperreports-3.1.4.jar
+jdt-compiler-3.1.1.jar
+jsch-0.1.39.jar
+poi-3.2-FINAL-20081019.jar
+

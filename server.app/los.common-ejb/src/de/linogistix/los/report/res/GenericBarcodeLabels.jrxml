@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="StorageLocationLabels" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="61" bottomMargin="61">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<field name="label" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band/>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="120">
+			<image scaleImage="Clip" hAlign="Left" vAlign="Middle" hyperlinkType="None">
+				<reportElement positionType="Float" x="10" y="8" width="547" height="74" forecolor="#000000">
+					<printWhenExpression><![CDATA[new Boolean( $F{label}!=null )]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.awt.Image"><![CDATA[(de.linogistix.los.util.ImageAndBarcodeHelper.create128A(542, 70, $F{label},false,true))]]></imageExpression>
+			</image>
+			<textField hyperlinkType="None">
+				<reportElement positionType="Float" x="37" y="83" width="520" height="27"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{label}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,8 @@
+We use the following archives of other open source projects:
+
+activation.jar
+jaxb-api.jar
+jaxb-impl.jar
+jaxb-xjc.jar
+stax-api.jar
+wstx.jar

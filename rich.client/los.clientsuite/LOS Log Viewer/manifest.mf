@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: de.linogistix.logviewer
+OpenIDE-Module-Layer: de/linogistix/logviewer/layer.xml
+OpenIDE-Module-Localizing-Bundle: de/linogistix/logviewer/res/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

@@ -22,8 +22,7 @@
 		<path location="${hibernate.lib.dir}/dom4j-1.6.1.jar" />
 		<path location="${hibernate.lib.dir}/commons-logging-1.0.4.jar" />
 		<path location="${hibernate.lib.dir}/commons-collections-2.1.1.jar" />
-
-		<path location="${hibernate.lib.dir}/postgresql-9.1-901.jdbc3.jar" />
+		<path location="${hibernate.lib.dir}/ojdbc14.jar" />
 		<path location="${hibernate.lib.dir}/hsqldb.jar" />
 
 	</path>

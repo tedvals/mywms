@@ -4,7 +4,7 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
                
         <property name="hibernate.connection.url">postgresql://localhost:5432/los.reference</property>
@@ -37,3 +37,10 @@
         
     </session-factory>
 </hibernate-configuration>
+
+<property name=”hibernate.connection.driver_class”>oracle.jdbc.driver.OracleDriver</property>
+<property name=”hibernate.connection.url”>jdbc:oracle:thin:@host:1521:databaseName</property>
+<property name=”hibernate.connection.username”>YOURSCHEMA</property>
+<property name=”hibernate.connection.password”>YOURPASSWORD</property>
+<property name=”hibernate.default_schema”>YOURSCHEMA</property>
+<property name=”hibernate.dialect”>org.hibernate.dialect.OracleDialect</property>

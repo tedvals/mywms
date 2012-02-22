@@ -332,7 +332,7 @@
    <!-- The configurable Xid factory.  For use with Oracle, set pad to true -->
    <mbean code="org.jboss.tm.XidFactory"
       name="jboss:service=XidFactory">
-      <!--attribute name="Pad">true</attribute-->
+      <attribute name="Pad">true</attribute>
    </mbean>
 
    <!--

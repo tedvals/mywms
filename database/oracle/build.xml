@@ -1,4 +1,4 @@
-<project name="LOS Reference DB" default="postgres.SQLCreateScript" basedir=".">
+<project name="LOS Reference DB Oracle" default="postgres.SQLCreateScript" basedir=".">
 
 	<property file="conection.properties" />
 

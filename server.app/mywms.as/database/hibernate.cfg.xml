@@ -5,10 +5,10 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
                
-        <property name="hibernate.connection.url">postgresql://localhost:5432/los.reference</property>
-        <property name="hibernate.default_schema">public</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:los</property>
+        <property name="hibernate.default_schema">JBOSS</property>
         <property name="hibernate.connection.username">jboss</property>
         <property name="hibernate.connection.password">jboss</property>
                 
@@ -37,10 +37,3 @@
         
     </session-factory>
 </hibernate-configuration>
-
-<property name=”hibernate.connection.driver_class”>oracle.jdbc.driver.OracleDriver</property>
-<property name=”hibernate.connection.url”>jdbc:oracle:thin:@host:1521:databaseName</property>
-<property name=”hibernate.connection.username”>YOURSCHEMA</property>
-<property name=”hibernate.connection.password”>YOURPASSWORD</property>
-<property name=”hibernate.default_schema”>YOURSCHEMA</property>
-<property name=”hibernate.dialect”>org.hibernate.dialect.OracleDialect</property>

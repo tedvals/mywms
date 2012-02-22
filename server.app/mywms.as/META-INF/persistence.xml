@@ -22,7 +22,7 @@
      -->
 
     <property name="hibernate.dialect"
-             value="org.hibernate.dialect.PostgreSQLDialect" />
+             value="org.hibernate.dialect.Oracle10gDialect" />
   </properties>
   
   </persistence-unit>

@@ -307,7 +307,7 @@ CREATE TABLE los_itemdata_number (
     entity_lock integer,
     modified timestamp without time zone,
     version integer NOT NULL,
-    index integer NOT NULL,
+    "index" integer NOT NULL,
     manufacturername character varying(255),
     number character varying(255) NOT NULL,
     itemdata_id bigint NOT NULL,
@@ -1442,7 +1442,7 @@ COPY los_avisreq (id, additionalcontent, created, entity_lock, modified, version
 -- Data for Name: los_bom; Type: TABLE DATA; Schema: public; Owner: jboss
 --
 
-COPY los_bom (id, additionalcontent, created, entity_lock, modified, version, amount, index, pickable, parent_id, child_id) FROM stdin;
+COPY los_bom (id, additionalcontent, created, entity_lock, modified, version, amount, "index", pickable, parent_id, child_id) FROM stdin;
 \.
 
 
@@ -1506,7 +1506,7 @@ COPY los_inventory (id, additionalcontent, created, entity_lock, modified, versi
 -- Data for Name: los_itemdata_number; Type: TABLE DATA; Schema: public; Owner: jboss
 --
 
-COPY los_itemdata_number (id, additionalcontent, created, entity_lock, modified, version, index, manufacturername, number, itemdata_id, client_id) FROM stdin;
+COPY los_itemdata_number (id, additionalcontent, created, entity_lock, modified, version, "index", manufacturername, number, itemdata_id, client_id) FROM stdin;
 \.
 
 

@@ -27,7 +27,7 @@ import org.mywms.facade.FacadeException;
 @Entity
 @Table(name = "los_itemdata_number", uniqueConstraints = { 
 		@UniqueConstraint(columnNames = {
-				"number","itemdata_id" }) })
+				"\"NUMBER\"","itemdata_id" }) })
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ItemDataNumber extends BasicClientAssignedEntity
 {
@@ -38,7 +38,7 @@ public class ItemDataNumber extends BasicClientAssignedEntity
     private ItemData itemData;
     private int index = 0;
     
-    @Column(nullable = false)
+    @Column(nullable = false, name="\"NUMBER\"")
     public String getNumber() {
 		return number;
 	}
@@ -55,6 +55,7 @@ public class ItemDataNumber extends BasicClientAssignedEntity
 		this.manufacturerName = manufacturerName;
 	}
 
+	@Column(name="\"INDEX\"")
 	public int getIndex() {
 		return index;
 	}

@@ -10,6 +10,7 @@ package de.linogistix.los.inventory.pick.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -58,11 +59,12 @@ public class PickReceipt extends Document{
 	public String getPickNumber() {
 		return pickNumber;
 	}
-
+	
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
+	@Column(name="\"DATE\"")
 	public Date getDate() {
 		return date;
 	}

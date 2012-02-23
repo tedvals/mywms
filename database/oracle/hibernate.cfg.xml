@@ -75,6 +75,6 @@
         <mapping class="de.linogistix.los.model.JrXMLTemplate"/>
         
         <!-- mapping resource="META-INF/orm.xml"/-->
-        
+		        
     </session-factory>
 </hibernate-configuration>

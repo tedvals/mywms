@@ -1,4 +1,4 @@
-<project name="LOS Reference DB Oracle" default="postgres.SQLCreateScript" basedir=".">
+<project name="LOS Reference DB Oracle" default="oracle.SQLCreateScript" basedir=".">
 
 	<property file="conection.properties" />
 
@@ -40,7 +40,7 @@
 
 	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="toolslib" />
 
-	<target name="postgres.local.dropSchema" description="Deletes all tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+	<target name="oracle.local.dropSchema" description="Deletes all tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
 		<hibernatetool destdir=".">
 			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties"/>
 			<classpath refid="entityclasses" />
@@ -48,7 +48,7 @@
 		</hibernatetool>
 	</target>
 
-	<target name="postgres.local.createSchema" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+	<target name="oracle.local.createSchema" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
 		<hibernatetool destdir=".">
 			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties"/>
 			<classpath refid="entityclasses" />
@@ -66,9 +66,9 @@
 		
 	</target>
 
-	<target name="postgres.local.init" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+	<target name="oracle.local.init" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
 
-		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
+		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}" keepformat="true">
 
 			<classpath refid="toolslib" />
 			<transaction src="./initdata-postgres.sql" />
@@ -76,7 +76,7 @@
 		</sql>
 	</target>
 
-	<target name="postgres.SQLCreateScript">
+	<target name="oracle.SQLCreateScript">
 		<mkdir dir="./output" />
 		<hibernatetool destdir="./output">
 			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties" />

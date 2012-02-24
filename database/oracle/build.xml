@@ -68,7 +68,7 @@
 
 	<target name="oracle.local.init" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
 
-		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}" keepformat="true">
+		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
 
 			<classpath refid="toolslib" />
 			<transaction src="./initdata-postgres.sql" />

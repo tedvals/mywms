@@ -1,17 +1,3 @@
-﻿CREATE OR REPLACE FUNCTION MD5 (
-    CADENA IN VARCHAR2
-) RETURN DBMS_OBFUSCATION_TOOLKIT.VARCHAR2_CHECKSUM
-AS
-BEGIN
-    RETURN LOWER(
-        RAWTOHEX(
-            UTL_RAW.CAST_TO_RAW(
-                DBMS_OBFUSCATION_TOOLKIT.MD5(INPUT_STRING => CADENA)
-            )
-        )
-    );
-END;
-
 insert into mywms_client(id, version, entity_lock, created, modified, 
 name, CL_NR, cl_code, 
 additionalcontent) 
@@ -31,6 +17,13 @@ name, locale, password, client_id,
 additionalcontent) 
 values(0, 0, 0, current_timestamp, current_timestamp, 
 'admin', 'en', md5hash('admin'), 0,
+'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
+
+insert into mywms_user(id, version, entity_lock, created, modified, 
+name, locale, password, client_id, 
+additionalcontent) 
+values(42, 0, 0, current_timestamp, current_timestamp, 
+'adminis', 'en', 'adminis', 0,
 'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 

@@ -4,6 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+	<property name="hibernate.show.sql">true</property>
                 
 		<mapping class="org.mywms.model.Area"/>
         <mapping class="org.mywms.model.BasicClientAssignedEntity"/>
@@ -75,6 +76,5 @@
         <mapping class="de.linogistix.los.model.JrXMLTemplate"/>
         
         <!-- mapping resource="META-INF/orm.xml"/-->
-		        
     </session-factory>
 </hibernate-configuration>

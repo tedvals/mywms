@@ -11,6 +11,8 @@
         <property name="hibernate.default_schema">JBOSS</property>
         <property name="hibernate.connection.username">jboss</property>
         <property name="hibernate.connection.password">jboss</property>
+
+	<property name="hibernate.show.sql">true</property>
                 
         <mapping class="org.mywms.model.Area"/>
         <mapping class="org.mywms.model.BasicClientAssignedEntity"/>

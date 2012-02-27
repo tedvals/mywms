@@ -20,13 +20,6 @@ values(0, 0, 0, current_timestamp, current_timestamp,
 'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, password, client_id, 
-additionalcontent) 
-values(42, 0, 0, current_timestamp, current_timestamp, 
-'adminis', 'en', 'adminis', 0,
-'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
-
-insert into mywms_user(id, version, entity_lock, created, modified, 
 name, locale, password, client_id) 
 values(1, 0, 0, current_timestamp, current_timestamp, 
 'deutsch', 'de', md5hash('deutsch'), 0);

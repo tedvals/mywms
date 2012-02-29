@@ -71,7 +71,7 @@
 		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
 
 			<classpath refid="toolslib" />
-			<transaction src="./initdata-postgres.sql" />
+			<transaction src="./initdata-oracle.sql" />
 
 		</sql>
 	</target>

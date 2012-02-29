@@ -1,3 +1,6 @@
+CREATE OR REPLACE function jboss.md5hash(in_string in varchar2)
+return varchar2 as cln_md5raw raw(2000); out_raw raw(16); begin cln_md5raw := utl_raw.cast_to_raw(in_string);dbms_obfuscation_toolkit.md5(input=>cln_md5raw,checksum=>out_raw);return lower(rawtohex(out_raw));end;;
+
 insert into mywms_client(id, version, entity_lock, created, modified, 
 name, CL_NR, cl_code, 
 additionalcontent) 
@@ -16,23 +19,23 @@ insert into mywms_user(id, version, entity_lock, created, modified,
 name, locale, password, client_id, 
 additionalcontent) 
 values(0, 0, 0, current_timestamp, current_timestamp, 
-'admin', 'en', md5hash('admin'), 0,
+'admin', 'en', jboss.md5hash('admin'), 0,
 'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
 name, locale, password, client_id) 
 values(1, 0, 0, current_timestamp, current_timestamp, 
-'deutsch', 'de', md5hash('deutsch'), 0);
+'deutsch', 'de', jboss.md5hash('deutsch'), 0);
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
 name, locale, password, client_id) 
 values(2, 0, 0, current_timestamp, current_timestamp, 
-'english', 'en', md5hash('english'), 0);
+'english', 'en', jboss.md5hash('english'), 0);
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
 name, locale, password, client_id) 
 values(4, 0, 0, current_timestamp, current_timestamp, 
-'francais', 'fr', md5hash('francais'), 0);
+'francais', 'fr', jboss.md5hash('francais'), 0);
 
 insert into mywms_user_mywms_role(mywms_user_id, roles_id)
 (select u.id, r.id 

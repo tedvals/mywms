@@ -53,6 +53,8 @@ public class ItemData
     
     private String description;
     
+    private String remarks;
+    
     private int safetyStock = 0;
     
     private int residualTermOfUsageGI = 0; 
@@ -122,6 +124,15 @@ public class ItemData
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	@Column(name="remarks")
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
     
     /**

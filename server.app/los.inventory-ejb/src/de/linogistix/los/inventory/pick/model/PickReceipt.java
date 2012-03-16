@@ -64,7 +64,7 @@ public class PickReceipt extends Document{
 		this.date = date;
 	}
 
-	@Column(name="\"DATE\"")
+	@Column(name="\"PR_DATE\"")
 	public Date getDate() {
 		return date;
 	}

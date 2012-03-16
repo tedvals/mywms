@@ -48,7 +48,7 @@ public class LOSUnitLoadAdvice extends BasicClientAssignedEntity {
 	
 	private List<LOSUnitLoadAdvicePosition> positionList = new ArrayList<LOSUnitLoadAdvicePosition>();
 
-	@Column(unique=true, nullable=false, name="\"NUMBER\"")
+	@Column(unique=true, nullable=false, name="\"ULA_NUMBER\"")
 	public String getNumber() {
 		return number;
 	}

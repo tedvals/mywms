@@ -29,3 +29,11 @@ jboss-4.2.3.GA/server/minimal/log/*.log
 jboss-4.2.3.GA/server/minimal/tmp/**/*
 jboss-4.2.3.GA/server/minimal/data/**/*
 jboss-4.2.3.GA/server/minimal/work/**/*
+
+server.app/los.common-ejb/build/
+server.app/los.inventory-ejb/build/
+server.app/los.location-ejb/build/
+server.app/los.mobile/build/
+server.app/los.stocktaking-ejb/build/
+server.app/mywms.as/build/
+server.app/project-ejb/build/

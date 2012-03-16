@@ -69,7 +69,7 @@ public class LOSBom extends BasicEntity {
 		this.amount = amount;
 	}
 	
-	@Column(name="\"INDEX\"")
+	@Column(name="\"BOM_INDEX\"")
 	public int getIndex() {
 		return index;
 	}

@@ -184,11 +184,10 @@
       <priority value="DEBUG" />
    </category>
                 
-   <!-- Limit JBoss categories
+   <!-- Limit JBoss categories -->
    <category name="org.jboss">
       <priority value="INFO"/>
    </category>
-   -->
 
    <!-- Limit the JSR77 categories -->
    <category name="org.jboss.management">

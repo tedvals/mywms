@@ -64,7 +64,7 @@ public class OrderReceipt extends Document{
 		this.date = date;
 	}
 
-	@Column(nullable=false, name="\"DATE\"")
+	@Column(nullable=false, name="\"OR_DATE\"")
 	public Date getDate() {
 		return date;
 	}
@@ -98,7 +98,7 @@ public class OrderReceipt extends Document{
 		this.orderType = orderType;
 	}
 
-	@Column(nullable=false, updatable=false, name="\"USER_\"")
+	@Column(nullable=false, updatable=false, name="\"OR_USER_\"")
 	public String getUser() {
 		return user;
 	}

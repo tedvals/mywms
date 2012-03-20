@@ -81,6 +81,13 @@ public class ItemData
     private String tradeGroup;
     
     private List<ItemDataNumber> numberList;
+
+    private String stnr;
+    private String remarks;
+    private BigDecimal price;
+    private String Errc;
+    private String Appl;
+    private Date Expectedreplenishment;
     
     /**
      * @return Returns the name.
@@ -380,5 +387,41 @@ public class ItemData
 		this.numberList = numberList;
 	}
 	
+	public String getStnr() {
+		return stnr;
+	}
+
+	public void setStnr(String stnr) {
+		this.stnr = stnr;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	
+	@Column(precision=15, scale=2)
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal weight) {
+		this.price = price;
+	}
+
+	public String getErrc() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+   // @Column(name = “CNTRY_NM”, columnDefinition = “char”)
+   // private String Errc;
+   // private String Appl;
+   // private Date Expectedreplenishment;
 	
 }

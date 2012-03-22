@@ -1,12 +1,6 @@
-/*
- * Copyright (c) 2006 by Fraunhofer IML, Dortmund.
- * All rights reserved.
- *
- * Project: myWMS
- */
 package org.mywms.model;
 
-import java.math.BigDecimal;
+/*import java.math.BigDecimal;
 import java.util.List;
 import java.util.Date;
 
@@ -29,70 +23,70 @@ import javax.persistence.TemporalType;
 
 import org.mywms.facade.FacadeException;
 import org.mywms.globals.SerialNoRecordType;
-import org.mywms.globals.ReparabilityCodeType;
 import org.mywms.service.ConstraintViolatedException;
+*/
 
-/**
- * ItemData contains general informations about the goods stored in the
- * warehouse.
- *
- * @author Olaf Krause
- * @version $Revision: 644 $ provided by $Author: mkrane $
- */
 @Entity
-@Table(name="mywms_itemdata",uniqueConstraints = {
+@Table(name="mywms_vehicledata")
+/*,uniqueConstraints = {
     @UniqueConstraint(columnNames = {
         "client_id", "item_nr"
     })
-})
+})*/
 @Inheritance(strategy = InheritanceType.JOINED)
-public class ItemData
-    extends BasicClientAssignedEntity {
-    private static final long serialVersionUID = 1L;
+public class VehicleData
+    extends BasicEntity {
 
-    private String name = "";
+    private String remarks = "";
 
-    private String number = null;
+    private String manufacturerName = "";
 
-    private String description;
+    private String modelName = "";
 
-    private int safetyStock = 0;
+    private String plateNumber = "";
 
-    private int residualTermOfUsageGI = 0;
+    private String chassisNumber = "";
 
-    private UnitLoadType defaultUnitLoadType;
+    private String engineNumber = "";
 
-    private Zone zone = null;
+    private Date receiptDate;
 
-    private boolean lotMandatory = false;
+    private Date storageDate;
 
-    private boolean adviceMandatory = false;
+    private BigDecimal mileage;
+    
 
-    private SerialNoRecordType serialNoRecordType = SerialNoRecordType.NO_RECORD;
+    public String getRemarks() {
+	   return this.remarks;
+    }
 
-    private LotSubstitutionType lotSubstitutionType = LotSubstitutionType.NOT_ALLOWED;
+    public void setRemarks(String remarks) {
+	    this.remarks = remarks;
+    }
 
-    private ItemUnit handlingUnit;
+    public String getmanufacturerName
+	    () {
+	   return this.remarks;
+    }
 
-    private int scale = 0;
+    public void setRemarks(String remarks) {
+	    this.remarks = remarks;
+    }
+    private String manufacturerName = "";
 
-    private BigDecimal height;
-    private BigDecimal width;
-    private BigDecimal depth;
-    private BigDecimal weight;
-    private BigDecimal volume;
-    private String tradeGroup;
+    private String modelName = "";
 
-    private List<ItemDataNumber> numberList;
+    private String plateNumber = "";
 
-    private String stnr;
-    private String remarks;
-    private BigDecimal price;
-    /*private String Errc;*/
-    private ReparabilityCodeType Errc = ReparabilityCodeType.N;
-    private String Appl;
-    private Date Expectedreplenishment;
+    private String chassisNumber = "";
 
+    private String engineNumber = "";
+
+    private Date receiptDate;
+
+    private Date storageDate;
+
+    private BigDecimal mileage;
     /**
      * @return Returns the name.
      */
@@ -416,13 +410,12 @@ public class ItemData
         this.price = price;
     }
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition="char", nullable=false)
-    public ReparabilityCodeType getErrc() {
+    @Column(columnDefinition="char")
+    public String getErrc() {
         return Errc;
     }
 
-    public void setErrc(ReparabilityCodeType Errc) {
+    public void setErrc(String Errc) {
         this.Errc = Errc;
     }
 

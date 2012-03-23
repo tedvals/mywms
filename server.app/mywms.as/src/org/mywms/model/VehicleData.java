@@ -64,25 +64,55 @@ public class VehicleData
 	    this.remarks = remarks;
     }
 
-    public String getmanufacturerName
-	    () {
-	   return this.remarks;
+    public String getManufacturerName() {
+	   return this.manufacturerName;
     }
 
-    public void setRemarks(String remarks) {
-	    this.remarks = remarks;
+    public void setManufacturerName(String manufacturerName) {
+	    this.manufacturerName = manufacturerName;
     }
-    private String manufacturerName = "";
 
-    private String modelName = "";
+    public String getModelName() {
+	   return this.modelName;
+    }
 
-    private String plateNumber = "";
+    public void setModelName(String modelName) {
+	    this.modelName = modelName;
+    }
 
-    private String chassisNumber = "";
+    public String getPlateNumber() {
+	   return this.plateNumber;
+    }
 
-    private String engineNumber = "";
+    public void setPlateNumber(String plateNumber) {
+	    this.plateNumber = plateNumber;
+    }
 
-    private Date receiptDate;
+    public String getChassisNumber() {
+	   return this.chassisNumber;
+    }
+
+    public void setChassisNumber(String chassisNumber) {
+	    this.chassisNumber = chassisNumber;
+    }
+
+    public String getEngineNumber() {
+	   return this.engineNumber;
+    }
+
+    public void setEngineNumber(String engineNumber) {
+	    this.engineNumber = engineNumber;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getReceiptDate() {
+        return this.receiptDate;
+    }
+
+    public void setReceiptDate(Date receiptDate) {
+        this.receiptDate= receiptDate;
+    }
+
 
     private Date storageDate;
 

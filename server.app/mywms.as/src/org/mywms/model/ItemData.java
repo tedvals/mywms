@@ -92,6 +92,8 @@ public class ItemData
     private ReparabilityCodeType Errc = ReparabilityCodeType.N;
     private String Appl;
     private Date Expectedreplenishment;
+    private Date ReceiptDate;
+    private Date StorageDate;
 
     /**
      * @return Returns the name.
@@ -441,6 +443,24 @@ public class ItemData
 
     public void setExpectedreplenishment(Date Expectedreplenishment) {
         this.Expectedreplenishment = Expectedreplenishment;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getReceiptDate() {
+        return this.ReceiptDate;
+    }
+
+    public void setReceiptDate(Date ReceiptDate) {
+        this.ReceiptDate = ReceiptDate;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getStorageDate() {
+        return this.StorageDate;
+    }
+
+    public void setStorageDate(Date StorageDate) {
+        this.StorageDate= StorageDate;
     }
 
 }

@@ -35,6 +35,8 @@
         <mapping class="org.mywms.model.UnitLoad"/>
         <mapping class="org.mywms.model.UnitLoadType"/>
         <mapping class="org.mywms.model.User"/>
+		<mapping class="org.mywms.model.VehicleData"/>
+		<mapping class="org.mywms.model.WorkType"/>
         <mapping class="org.mywms.model.Zone"/>
         
     </session-factory>

@@ -74,7 +74,8 @@ public class ItemData
 
     private ItemUnit handlingUnit;
 
-    private int scale = 0;
+    //private int scale = 0;
+    private int scale;
 
     private BigDecimal height;
     private BigDecimal width;

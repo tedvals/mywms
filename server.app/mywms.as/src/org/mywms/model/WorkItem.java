@@ -31,23 +31,22 @@ import javax.persistence.TemporalType;
 import org.mywms.globals.SerialNoRecordType;
 import org.mywms.globals.ReparabilityCodeType;
 import org.mywms.service.ConstraintViolatedException;*/
-
 import javax.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
 @Entity
-@Table(name="mywms_workvehicle")
+@Table(name="mywms_workitem")
 /*,uniqueConstraints = {
     @UniqueConstraint(columnNames = {
         "client_id", "item_nr"
     })
 })*/
 @Inheritance(strategy = InheritanceType.JOINED)
-public class WorkVehicle
+public class WorkItem
     extends BasicEntity {
 
-    private VehicleData vehicleDataId;
+    private ItemData itemDataId;
     private String remarks;
     private WorkType workTypeId;
     private User workerId;
@@ -56,12 +55,12 @@ public class WorkVehicle
     private Date executeDeadline;
 
     @ManyToOne(optional = false)
-    public VehicleData getVehicleDataId() {
-        return this.vehicleDataId;
+    public ItemData getItemDataId() {
+        return this.itemDataId;
     }
 
-    public void setVehicleDataId(VehicleData vehicleDataId) {
-        this.vehicleDataId= vehicleDataId;
+    public void setItemDataId(ItemData itemDataId) {
+        this.itemDataId = itemDataId;
     }
 
     public String getRemarks() {

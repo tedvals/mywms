@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="org.jboss">
-    <module_version install_time="1329723100750" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1333104627718" last="true" origin="installer" specification_version="1.0">
         <file crc="879439320" name="config/Modules/org-jboss.xml"/>
         <file crc="3760647123" name="modules/ext/INFO.TXT"/>
         <file crc="1940711593" name="modules/ext/activation.jar"/>
@@ -13,6 +13,6 @@
         <file crc="588003126" name="modules/ext/jboss-jaxws.jar"/>
         <file crc="4287860805" name="modules/ext/jbossall-client.jar"/>
         <file crc="3342779792" name="modules/ext/jbossmq-client.jar"/>
-        <file crc="2703441858" name="modules/org-jboss.jar"/>
+        <file crc="3155514647" name="modules/org-jboss.jar"/>
     </module_version>
 </module>

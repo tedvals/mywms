@@ -37,3 +37,9 @@ server.app/los.mobile/build/
 server.app/los.stocktaking-ejb/build/
 server.app/mywms.as/build/
 server.app/project-ejb/build/
+
+rich.client/los.reference/Project EJB-Library/build/
+rich.client/los.reference/Project EJB-Library/release/
+rich.client/los.reference/build/
+rich.client/los.reference/los.reference/build/
+rich.client/los.reference/nbproject/private/

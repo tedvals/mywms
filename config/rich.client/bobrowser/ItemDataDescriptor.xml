@@ -72,6 +72,16 @@
 				<typeHint>org.mywms.model.ItemDataNumber</typeHint>
 			</value>
 		</entry>
+		<entry>
+			<key>appl</key>
+			<value>
+				<group>
+					<name>main</name>
+				</group>
+				<hidden>false</hidden>
+				<position>8</position>
+			</value>
+		</entry>
 
         <entry>
             <key>zone</key>

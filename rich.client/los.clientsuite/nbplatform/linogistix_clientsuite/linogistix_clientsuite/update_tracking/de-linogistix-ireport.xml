@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="de.linogistix.ireport">
-    <module_version install_time="1329723102328" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1333104630609" last="true" origin="installer" specification_version="1.0">
         <file crc="878567660" name="config/Modules/de-linogistix-ireport.xml"/>
-        <file crc="2064861427" name="modules/de-linogistix-ireport.jar"/>
+        <file crc="3741324194" name="modules/de-linogistix-ireport.jar"/>
         <file crc="3760647123" name="modules/ext/INFO.TXT"/>
         <file crc="3197504963" name="modules/ext/barbecue-1.1.jar"/>
         <file crc="2471695681" name="modules/ext/iReport.jar"/>

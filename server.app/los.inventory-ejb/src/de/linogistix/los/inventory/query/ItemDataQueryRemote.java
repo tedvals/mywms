@@ -30,8 +30,8 @@ import org.mywms.model.Lot;
 public interface ItemDataQueryRemote extends BusinessObjectQueryRemote<ItemData>{ 
   
     public LOSResultList<BODTO<ItemData>> autoCompletionClientAndLot(String exp, 
-    																 BODTO<Client> client, 
-    																 BODTO<Lot> lot, 
-    																 QueryDetail detail);
+	BODTO<Client> client, 
+	BODTO<Lot> lot, 
+	QueryDetail detail);
 
 }

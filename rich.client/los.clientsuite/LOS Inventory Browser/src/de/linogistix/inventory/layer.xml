@@ -125,6 +125,9 @@
                 <file name="de-linogistix-inventory-browser-bo-BOBom.instance">
                         <attr name="position" intvalue="250"/>
                 </file>
+                <file name="de-linogistix-inventory-browser-bo-BOVehicleData.instance">
+                    <attr name="position" intvalue="300"/>
+                </file>
             </folder>
         </folder>
         <folder name="InventoryData">

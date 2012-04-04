@@ -1,2 +1,14 @@
 los.clientsuite/LOS\ Inventory\ Browser/src/de/linogistix/inventory/browser/bo/BOVehicleData.java
 los.clientsuite/LOS Inventory Browser/src/de/linogistix/inventory/layer.xml 116
+
+
+## BundleResolvers ##
+./los.clientsuite/LOS Common/src/de/linogistix/common/res/CommonBundleResolver.java
+./los.clientsuite/LOS Data Importer/src/de/linogistix/losdataimporter/res/BundleResolver.java
+./los.clientsuite/LOS Inventory Browser/src/de/linogistix/inventory/res/InventoryBundleResolver.java
+./los.clientsuite/LOS Location Browser/src/de/linogistix/location/res/LocationBundleResolver.java
+./los.clientsuite/LOS Log Viewer/src/de/linogistix/logviewer/res/BundleResolver.java
+./los.clientsuite/LOS Processes/src/de/linogistix/wmsprocesses/res/WMSProcessesBundleResolver.java
+./los.clientsuite/LOS Report/src/de/linogistix/reports/res/ReportsBundleResolver.java
+./los.clientsuite/LOS Stocktaking Browser/src/de/linogistix/stocktaking/res/StocktakingBundleResolver.java
+./los.reference/los.reference/src/de/linogistix/reference/res/ReferenceBundleResolver.java

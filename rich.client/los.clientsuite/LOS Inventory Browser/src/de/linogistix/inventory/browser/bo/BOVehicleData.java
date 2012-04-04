@@ -13,22 +13,22 @@ package de.linogistix.inventory.browser.bo;
 
 import de.linogistix.common.bobrowser.bo.BO;
 import de.linogistix.common.services.J2EEServiceLocator;
-import de.linogistix.common.userlogin.LoginService;
+//import de.linogistix.common.userlogin.LoginService;
 import de.linogistix.common.util.ExceptionAnnotator;
-import de.linogistix.inventory.browser.masternode.BOItemDataMasterNode;
+import de.linogistix.inventory.browser.masternode.BOVehicleDataMasterNode;
 import de.linogistix.los.crud.BusinessObjectCRUDRemote;
-import de.linogistix.los.inventory.crud.ItemDataCRUDRemote;
-import de.linogistix.los.inventory.query.ItemDataQueryRemote;
+import de.linogistix.los.inventory.crud.VehicleDataCRUDRemote;
+import de.linogistix.los.inventory.query.VehicleDataQueryRemote;
 import de.linogistix.inventory.res.InventoryBundleResolver;
-import de.linogistix.los.inventory.query.ItemUnitQueryRemote;
+//import de.linogistix.los.inventory.query.ItemUnitQueryRemote;
 import de.linogistix.los.query.BusinessObjectQueryRemote;
-import de.linogistix.los.query.QueryDetail;
-import java.util.List;
+//import de.linogistix.los.query.QueryDetail;
+//import java.util.List;
 import org.mywms.globals.Role;
-import org.mywms.globals.SerialNoRecordType;
+//import org.mywms.globals.SerialNoRecordType;
 import org.mywms.model.BasicEntity;
-import org.mywms.model.ItemData;
-import org.mywms.model.ItemUnit;
+import org.mywms.model.VehicleData;
+//import org.mywms.model.ItemUnit;
 import org.openide.nodes.Node;
 import org.openide.nodes.Node.Property;
 import org.openide.util.Lookup;
@@ -46,13 +46,13 @@ public class BOVehicleData extends BO {
         return new String[] {Role.ADMIN_STR,Role.INVENTORY_STR};
     }
 
-  protected String initName() {
+  rotected String initName() {
     return "VehicleDatas";
   }
   
-  //protected String initIconBaseWithExtension() {
-  //return "de/linogistix/bobrowser/res/icon/ItemData.png";
-  //}
+  protected String initIconBaseWithExtension() {
+	  return "de/linogistix/bobrowser/res/icon/ItemData.png";
+  }
 
   protected BusinessObjectQueryRemote initQueryService() {
     
@@ -60,48 +60,47 @@ public class BOVehicleData extends BO {
     
     try{
       J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectQueryRemote)loc.getStateless(ItemDataQueryRemote.class);
+      ret = (BusinessObjectQueryRemote)loc.getStateless(VehicleDataQueryRemote.class);
       
     } catch (Throwable t){
       ExceptionAnnotator.annotate(t);
       return null;
     }
     
-    readDefaultItemUnit();
+    //readDefaultItemUnit();
     return ret;
   }
   
   
-  private void readDefaultItemUnit() {
-    ItemUnitQueryRemote itemUnitQuery = null;
-    try{
-        J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-        itemUnitQuery = (ItemUnitQueryRemote)loc.getStateless(ItemUnitQueryRemote.class);
+  //private void readDefaultItemUnit() {
+    //ItemUnitQueryRemote itemUnitQuery = null;
+    //try{
+        //J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
+        //itemUnitQuery = (ItemUnitQueryRemote)loc.getStateless(ItemUnitQueryRemote.class);
       
-        itemUnit = itemUnitQuery.getDefault();
-        if( itemUnit == null ) {
-            List<ItemUnit> list = itemUnitQuery.queryAll( new QueryDetail(0,1) );
-            if( list.size()>0 ) {
-                itemUnit=list.get(0);
-            }
-        }
-    } catch (Throwable t){
-      ExceptionAnnotator.annotate(t);
-    }
-  }
+        //itemUnit = itemUnitQuery.getDefault();
+        //if( itemUnit == null ) {
+            //List<ItemUnit> list = itemUnitQuery.queryAll( new QueryDetail(0,1) );
+            //if( list.size()>0 ) {
+                //itemUnit=list.get(0);
+            //}
+        //}
+    //} catch (Throwable t){
+      //ExceptionAnnotator.annotate(t);
+    //}
+  //}
   
   
   protected BasicEntity initEntityTemplate() {
-    ItemData o;
+    VehicleData o;
 
-    o = new ItemData();
-    o.setName("Template");
-    o.setNumber("Template");
-    o.setSerialNoRecordType(SerialNoRecordType.NO_RECORD);
-    o.setHandlingUnit(itemUnit);
-
-    LoginService login = (LoginService) Lookup.getDefault().lookup(LoginService.class);
-    o.setClient( login.getUsersClient() );
+    o = new VehicleData();
+    //o.setName("Template");
+    //o.setNumber("Template");
+    //o.setSerialNoRecordType(SerialNoRecordType.NO_RECORD);
+    //o.setHandlingUnit(itemUnit);
+    //LoginService login = (LoginService) Lookup.getDefault().lookup(LoginService.class);
+    //o.setClient( login.getUsersClient() );
 
     return o;
     
@@ -112,7 +111,7 @@ public class BOVehicleData extends BO {
     
     try{
       J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectCRUDRemote) loc.getStateless(ItemDataCRUDRemote.class);
+      ret = (BusinessObjectCRUDRemote) loc.getStateless(VehicleDataCRUDRemote.class);
       
     } catch (Throwable t){
       ExceptionAnnotator.annotate(t);
@@ -121,9 +120,8 @@ public class BOVehicleData extends BO {
   }
   
    protected String[] initIdentifiableProperties() {
-    return new String[]{"number"};
+    return new String[]{"id"};
   }
-
 
     @Override
     public Class getBundleResolver() {
@@ -132,12 +130,12 @@ public class BOVehicleData extends BO {
    
     @Override
     protected Property[] initBoMasterNodeProperties() {
-        return BOItemDataMasterNode.boMasterNodeProperties();
+        return BOVehicleDataMasterNode.boMasterNodeProperties();
     }
 
     @Override
     protected Class<? extends Node> initBoMasterNodeType() {
-        return BOItemDataMasterNode.class;
+        return BOVehicleDataMasterNode.class;
     }
 
 }

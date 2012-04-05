@@ -32,20 +32,27 @@ public class BOVehicleDataMasterNode extends BOMasterNode {
 
         if (sheet == null) {
             sheet = new Sheet.Set();
-            BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, to.getClientNumber(), InventoryBundleResolver.class);
-            sheet.put(clientNumber);
-            BOMasterNodeProperty<String> name = new BOMasterNodeProperty<String>("nameX", String.class, to.getNameX(), InventoryBundleResolver.class);
-            sheet.put(name);
+            //BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, to.getClientNumber(), InventoryBundleResolver.class);
+            //sheet.put(clientNumber);
+            BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, to.getPlateNumber(), InventoryBundleResolver.class);
+            sheet.put(plateNumber);
+            BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, to.getChassisNumber(), InventoryBundleResolver.class);
+            sheet.put(chassisNumber);
+            BOMasterNodeProperty<String> engineNumber= new BOMasterNodeProperty<String>("engineNumber", String.class, to.getEngineNumber(), InventoryBundleResolver.class);
+            sheet.put(engineNumber);
         }
-        return new PropertySet[]{sheet};
+        return new PropertySet[] {sheet};
     }
 
     //-------------------------------------------------------------------------
     public static Property[] boMasterNodeProperties() {
-        BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty<String> name = new BOMasterNodeProperty<String>("nameX", String.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty[] props = new BOMasterNodeProperty[]{
-            clientNumber, name
+        //BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, "", InventoryBundleResolver.class);
+	//BOMasterNodeProperty<String> name = new BOMasterNodeProperty<String>("nameX", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> engineNumber= new BOMasterNodeProperty<String>("engineNumber", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty[] props = new BOMasterNodeProperty[] {
+            plateNumber, chassisNumber, engineNumber
         };
 
         return props;

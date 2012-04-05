@@ -15,92 +15,63 @@ public class vehicleDataTO extends BODTO<VehicleData> {
 
 	private static final long serialVersionUID = 1L;
 
+	//private String remarks = "";
+	//private String manufacturerName = "";
+	//private String modelName = "";
+    	private String plateNumber;
+    	private String chassisNumber;
+    	private String engineNumber;
+	//private Date receiptDate;
+	//private Date storageDate;
+	//private BigDecimal mileage;
 
-    	private String remarks = "";
-    	private String manufacturerName = "";
-    	private String modelName = "";
-    	private String plateNumber = "";
-    	private String chassisNumber = "";
-    	private String engineNumber = "";
-    	private Date receiptDate;
-    	private Date storageDate;
-    	private BigDecimal mileage;
+	//private String nameX;
+	//private String number;
+	//private String clientNumber;
+	//private String itemUnitName;
+	//private int scale;
 
-	private String nameX;
-	private String number;
-	private String clientNumber;
-	private String itemUnitName;
-	private int scale;
-
-	public ItemDataTO( ItemData idat ) {
-		super(idat.getId(), idat.getVersion(), idat.getNumber());
-		this.nameX = idat.getName();
-		this.number = idat.getNumber();
-		this.clientNumber = idat.getClient().getNumber();
-		this.itemUnitName = idat.getHandlingUnit().getUnitName();
-		this.scale = idat.getScale();
+	public VehicleDataTO( VehicleData idat ) {
+		super(idat.getId(), idat.getVersion(), idat.getId());
+    		this.plateNumber = idat.getPlateNumber();
+    		this.chassisNumber = idat.getChassisNumber();
+    		this.engineNumber = idat.getEngineNumber();
 	}
 	
-	public ItemDataTO(Long id, int version, String number) {
+	public VehicleDataTO(Long id, int version, String number) {
 		super(id, version, number);
 	}
 	
-	public ItemDataTO(Long id, int version, String number, 
-			String name, String clientNumber, String itemUnitName) {
+	public VehicleDataTO(Long id, int version, String number, 
+    		String plateNumber, String chassisNumber, String engineNumber) {
 		super(id, version, number);
-		this.nameX = name;
-		this.number = number;
-		this.clientNumber = clientNumber;
-		this.itemUnitName = itemUnitName;
+    		this.plateNumber   = plateNumber;
+    		this.chassisNumber = chassisNumber;
+    		this.engineNumber  = engineNumber;
 	}
 
 
-	public String getNameX() {
-		return nameX;
-	}
+    	public String getPlateNumber() {
+    	       return plateNumber;
+    	}
 
+    	public void setPlateNumber(String plateNumber) {
+    	        this.plateNumber = plateNumber;
+    	}
 
-	public void setNameX(String nameX) {
-		this.nameX = nameX;
-	}
+    	public String getChassisNumber() {
+    	       return chassisNumber;
+    	}
 
+    	public void setChassisNumber(String chassisNumber) {
+    	        this.chassisNumber = chassisNumber;
+    	}
 
-	public String getNumber() {
-		return number;
-	}
+    	public String getEngineNumber() {
+    	       return engineNumber;
+    	}
 
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-
-	public String getClientNumber() {
-		return clientNumber;
-	}
-
-
-	public void setClientNumber(String clientNumber) {
-		this.clientNumber = clientNumber;
-	}
-
-
-	public String getItemUnitName() {
-		return itemUnitName;
-	}
-
-
-	public void setItemUnitName(String itemUnitName) {
-		this.itemUnitName = itemUnitName;
-	}
-
-	public int getScale() {
-		return scale;
-	}
-
-	public void setScale(int scale) {
-		this.scale = scale;
-	}
-
-
+    	public void setEngineNumber(String engineNumber) {
+    	        this.engineNumber = engineNumber;
+    	}
 }

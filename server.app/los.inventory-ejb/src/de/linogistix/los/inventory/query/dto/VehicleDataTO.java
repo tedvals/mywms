@@ -11,7 +11,7 @@ import org.mywms.model.VehicleData;
 
 import de.linogistix.los.query.BODTO;
 
-public class vehicleDataTO extends BODTO<VehicleData> {
+public class VehicleDataTO extends BODTO<VehicleData> {
 
 	private static final long serialVersionUID = 1L;
 

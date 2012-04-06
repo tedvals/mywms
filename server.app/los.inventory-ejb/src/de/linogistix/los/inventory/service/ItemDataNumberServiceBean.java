@@ -1,8 +1,8 @@
 /*
  * Copyright (c) 2010 LinogistiX GmbH
- * 
+ *
  *  www.linogistix.com
- *  
+ *
  *  Project myWMS-LOS
  */
 package de.linogistix.los.inventory.service;
@@ -28,96 +28,94 @@ import de.linogistix.los.util.businessservice.ContextService;
  */
 @Stateless
 public class ItemDataNumberServiceBean extends
-		BasicServiceBean<ItemDataNumber> implements ItemDataNumberService {
-	
-	@EJB
-	private ContextService ctxService;
+    BasicServiceBean<ItemDataNumber> implements ItemDataNumberService {
 
-	public ItemDataNumber getByNumber( String number ){
-		return getByNumber( null, number );
-	}
-	
+    @EJB
+    private ContextService ctxService;
+
+    public ItemDataNumber getByNumber( String number ) {
+        return getByNumber( null, number );
+    }
+
     @SuppressWarnings("unchecked")
-	public ItemDataNumber getByNumber(Client client, String number){
+    public ItemDataNumber getByNumber(Client client, String number) {
 
-    	Client callersClient = ctxService.getCallersClient();
+        Client callersClient = ctxService.getCallersClient();
         if (!callersClient.isSystemClient()) {
-        	client = callersClient;
+            client = callersClient;
         }
 
-    	String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.number=:number ";
-    	if( client != null ) {
-    		queryStr += " AND id.client=:cl";
-    	}
+        String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.number=:number ";
+        if( client != null ) {
+            queryStr += " AND id.client=:cl";
+        }
 
         Query query = manager.createQuery( queryStr );
 
         query.setParameter("number", number);
-    	if( client != null ) {
-    		query.setParameter("cl", client);
-    	}
+        if( client != null ) {
+            query.setParameter("cl", client);
+        }
 
         List<ItemDataNumber> idnList = null;
         try {
-        	idnList = query.getResultList();
+            idnList = query.getResultList();
+        } catch (NoResultException ex) {
+            // is handled below
         }
-        catch (NoResultException ex) {
-        	// is handled below
-        }
-        
+
         if( idnList != null && idnList.size() == 1 ) {
-        	return idnList.get(0);
+            return idnList.get(0);
         }
 
         return null;
     }
-    
+
     @SuppressWarnings("unchecked")
-	public List<ItemDataNumber> getListByNumber(Client client, String number){
-		
-		Client callersClient = ctxService.getCallersClient();
+    public List<ItemDataNumber> getListByNumber(Client client, String number) {
+
+        Client callersClient = ctxService.getCallersClient();
         if (!callersClient.isSystemClient()) {
-        	client = callersClient;
+            client = callersClient;
         }
 
-    	String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.number=:number ";
-    	if( client != null ) {
-    		queryStr += " AND id.client=:cl";
-    	}
+        String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.number=:number ";
+        if( client != null ) {
+            queryStr += " AND id.client=:cl";
+        }
 
         Query query = manager.createQuery( queryStr );
 
         query.setParameter("number", number);
-    	if( client != null ) {
-    		query.setParameter("cl", client);
-    	}
+        if( client != null ) {
+            query.setParameter("cl", client);
+        }
 
         List<ItemDataNumber> idnList = null;
         try {
-        	idnList = query.getResultList();
+            idnList = query.getResultList();
+        } catch (NoResultException ex) {
+            // is handled below
         }
-        catch (NoResultException ex) {
-        	// is handled below
-        }
-        
+
         return idnList;
     }
 
-	public ItemDataNumber create( ItemData itemData, String number ) throws FacadeException {
-		ItemDataNumber idn = new ItemDataNumber();
-		idn.setItemData(itemData);
-		idn.setNumber(number);
-		
-		manager.persist(idn);
-		manager.flush();
-		
-		return idn;
-	}
+    public ItemDataNumber create( ItemData itemData, String number ) throws FacadeException {
+        ItemDataNumber idn = new ItemDataNumber();
+        idn.setItemData(itemData);
+        idn.setNumber(number);
 
-	@SuppressWarnings("unchecked")
-	public List<ItemDataNumber> getListByItemData( ItemData itemData ) {
-		
-    	String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.itemData=:itemData ";
+        manager.persist(idn);
+        manager.flush();
+
+        return idn;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<ItemDataNumber> getListByItemData( ItemData itemData ) {
+
+        String queryStr = "SELECT idn FROM " + ItemDataNumber.class.getSimpleName() + " idn WHERE idn.itemData=:itemData ";
 
         Query query = manager.createQuery( queryStr );
 
@@ -125,13 +123,12 @@ public class ItemDataNumberServiceBean extends
 
         List<ItemDataNumber> idnList = null;
         try {
-        	idnList = query.getResultList();
+            idnList = query.getResultList();
+        } catch (NoResultException ex) {
+            // is handled below
         }
-        catch (NoResultException ex) {
-        	// is handled below
-        }
-        
+
         return idnList;
-	}
+    }
 
 }

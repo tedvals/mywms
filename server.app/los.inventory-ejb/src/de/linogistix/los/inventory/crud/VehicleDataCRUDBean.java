@@ -52,7 +52,7 @@ public class VehicleDataCRUDBean extends BusinessObjectCRUDBean<VehicleData> imp
     //public Date getStorageDate() {
     //public BigDecimal getMileage() {
 
-        if (entity.getPlateNumber() == null || entity.getPlatenumber().length() == 0) throw new BusinessObjectCreationException();
+        if (entity.getPlateNumber() == null || entity.getPlateNumber().length() == 0) throw new BusinessObjectCreationException();
         //if (entity.getHandlingUnit() == null) throw new BusinessObjectCreationException("missing name", BusinessObjectCreationException.MISSING_FIELD_KEY, new String[] {"handlingUnit"}, BundleResolver.class);
 
         return super.create(entity);

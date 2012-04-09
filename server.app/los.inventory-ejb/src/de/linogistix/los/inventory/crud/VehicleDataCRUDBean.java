@@ -42,15 +42,15 @@ public class VehicleDataCRUDBean extends BusinessObjectCRUDBean<VehicleData> imp
     throws BusinessObjectExistsException,
         BusinessObjectCreationException, BusinessObjectSecurityException {
 
-    //public String getRemarks() {
-    //public String getManufacturerName() {
-    //public String getModelName() {
-    //public String getPlateNumber() {
-    //public String getChassisNumber() {
-    //public String getEngineNumber() {
-    //public Date getReceiptDate() {
-    //public Date getStorageDate() {
-    //public BigDecimal getMileage() {
+        //public String getRemarks() {
+        //public String getManufacturerName() {
+        //public String getModelName() {
+        //public String getPlateNumber() {
+        //public String getChassisNumber() {
+        //public String getEngineNumber() {
+        //public Date getReceiptDate() {
+        //public Date getStorageDate() {
+        //public BigDecimal getMileage() {
 
         if (entity.getPlateNumber() == null || entity.getPlateNumber().length() == 0) throw new BusinessObjectCreationException();
         //if (entity.getHandlingUnit() == null) throw new BusinessObjectCreationException("missing name", BusinessObjectCreationException.MISSING_FIELD_KEY, new String[] {"handlingUnit"}, BundleResolver.class);

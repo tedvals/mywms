@@ -46,7 +46,7 @@ public class BOVehicleData extends BO {
         return new String[] {Role.ADMIN_STR,Role.INVENTORY_STR};
     }
 
-  rotected String initName() {
+  protected String initName() {
     return "VehicleDatas";
   }
   

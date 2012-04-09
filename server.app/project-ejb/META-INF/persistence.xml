@@ -30,6 +30,7 @@
         <class>org.mywms.model.UnitLoadType</class>
         <class>org.mywms.model.User</class>
         <class>org.mywms.model.Zone</class>
+        <class>org.mywms.model.VehicleData</class>
         
         <class>de.linogistix.los.inventory.model.ExtinguishOrder</class>
         <class>de.linogistix.los.inventory.model.LOSAdvice</class>

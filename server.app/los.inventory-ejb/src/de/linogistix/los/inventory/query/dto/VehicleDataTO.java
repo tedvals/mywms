@@ -31,7 +31,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
 	//private String itemUnitName;
 	//private int scale;
 
-	public VehicleDataTO( VehicleData idat ) {
+	public VehicleDataTO(VehicleData idat) {
 		super(idat.getId(), idat.getVersion(), idat.getId());
     		this.plateNumber = idat.getPlateNumber();
     		this.chassisNumber = idat.getChassisNumber();
@@ -50,6 +50,21 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     		this.engineNumber  = engineNumber;
 	}
 
+	public VehicleDataTO(Long id,
+    		String plateNumber, String chassisNumber, String engineNumber) {
+		//super(id, version, id);
+    		this.plateNumber   = plateNumber;
+    		this.chassisNumber = chassisNumber;
+    		this.engineNumber  = engineNumber;
+	}
+	public VehicleDataTO(
+    		String plateNumber, String chassisNumber, String engineNumber) {
+		//super(id, version, id);
+    		this.plateNumber   = plateNumber;
+    		this.chassisNumber = chassisNumber;
+    		this.engineNumber  = engineNumber;
+	}
+	public VehicleDataTO(){}
 
     	public String getPlateNumber() {
     	       return plateNumber;

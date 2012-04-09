@@ -33,7 +33,8 @@ public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData> i
         return "id";
     }
 
-    private static final String[] dtoProps = new String[] { "id", "version", 
+    private static final String[] dtoProps = new String[] { 
+	    //"id", "version", 
             "plateNumber",
             "chassisNumber",
             "engineNumber"
@@ -52,10 +53,10 @@ public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData> i
     @Override
     protected List<TemplateQueryWhereToken> getAutoCompletionTokens(String value) {
         List<TemplateQueryWhereToken> ret =  new ArrayList<TemplateQueryWhereToken>();
-	TemplateQueryWhereToken id = new TemplateQueryWhereToken(
-			TemplateQueryWhereToken.OPERATOR_EQUAL, "id", value);
-	id.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-	ret.add(id);
+	//TemplateQueryWhereToken id = new TemplateQueryWhereToken(
+			//TemplateQueryWhereToken.OPERATOR_EQUAL, "id", value);
+	//id.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+	//ret.add(id);
 
         TemplateQueryWhereToken plateNumber = new TemplateQueryWhereToken(
             TemplateQueryWhereToken.OPERATOR_LIKE, "plateNumber",

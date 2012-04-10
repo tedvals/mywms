@@ -119,9 +119,9 @@ public class BOVehicleData extends BO {
     return ret;
   }
   
-   protected String[] initIdentifiableProperties() {
-    return new String[]{"id"};
-  }
+   //protected String[] initIdentifiableProperties() {
+   // return new String[]{"id"};
+  //}
 
     @Override
     public Class getBundleResolver() {

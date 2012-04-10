@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+    <tocitem text="LOS Processes">
+        <tocitem text="About LOS Processes" target="de.linogistix.wmsprocesses.about"/>
+        <tocitem text="Goods in">
+            <tocitem text="Create advice" target="de.linogistix.wmsprocesses.create_avis"/>
+            <tocitem text="Goods receipt" target="de.linogistix.wmsprocesses.goodsreceipt"/>
+        </tocitem>
+        <tocitem text="Goods out">
+            <tocitem text="Create order" target="de.linogistix.wmsprocesses.create_order"/>
+            <tocitem text="Treat order" target="de.linogistix.wmsprocesses.treat_order"/>
+        </tocitem>
+        <tocitem text="Subprocesses">
+            <tocitem text="Transfer a unit load" target="de.linogistix.wmsprocesses.unitloadtransfer"/>
+            <tocitem text="Transfer a stock unit" target="de.linogistix.wmsprocesses.stockunittransfer"/>
+        </tocitem>
+    </tocitem>
+</toc>

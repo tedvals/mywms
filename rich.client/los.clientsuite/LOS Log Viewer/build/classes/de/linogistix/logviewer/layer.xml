@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "http://www.netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    
+    <!-- Define actions -->
+    <folder name="Actions">
+        <folder name="Window">
+            <file name="de-linogistix-logviewer-processes-log-LogAction.instance"/>
+        </folder>
+    </folder>
+    
+    <folder name="Menu">
+        <folder name="LOSWindow">
+            <file name="LogAction.shadow">
+                <attr name="position" intvalue="900"/>
+                <attr name="originalFile" stringvalue="Actions/Window/de-linogistix-logviewer-processes-log-LogAction.instance"/>
+            </file>
+             <file name="Sep-949[javax-swing-JSeparator].instance">
+                <attr name="position" intvalue="949"/>
+            </file>
+        </folder>
+    </folder>
+    
+</filesystem>

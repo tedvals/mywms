@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="org.jboss">
+    <module_version install_time="1334055954851" last="true" origin="installer" specification_version="1.0">
+        <file crc="879439320" name="config/Modules/org-jboss.xml"/>
+        <file crc="3760647123" name="modules/ext/INFO.TXT"/>
+        <file crc="1940711593" name="modules/ext/activation.jar"/>
+        <file crc="2562122169" name="modules/ext/antlr.jar"/>
+        <file crc="613164652" name="modules/ext/ejb3-persistence.jar"/>
+        <file crc="1687988620" name="modules/ext/hibernate3.jar"/>
+        <file crc="1890782417" name="modules/ext/javassist.jar"/>
+        <file crc="3422203398" name="modules/ext/jboss-ejb3x.jar"/>
+        <file crc="3307042147" name="modules/ext/jboss-jaxrpc.jar"/>
+        <file crc="588003126" name="modules/ext/jboss-jaxws.jar"/>
+        <file crc="4287860805" name="modules/ext/jbossall-client.jar"/>
+        <file crc="3342779792" name="modules/ext/jbossmq-client.jar"/>
+        <file crc="740743860" name="modules/org-jboss.jar"/>
+    </module_version>
+</module>

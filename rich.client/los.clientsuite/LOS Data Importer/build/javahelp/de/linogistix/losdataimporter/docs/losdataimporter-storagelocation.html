@@ -1,0 +1,105 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Regale und Lagerplätze importieren</title>
+        <link rel="stylesheet" href="nbdocs:/org/netbeans/modules/usersguide/ide.css" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2 id='section-ImportItemData-Import'> Importieren von Regalen und Lagerplätzen</h2>
+
+        <h3 id='section-LosDocLocationLabels-BeschreibungDesManuellenRegallagers'> Beschreibung des manuellen Regallagers</h3>
+        Das manuell bzw. über Stapler bediente Lager besteht aus Regalen, die typischerweise
+        rückseitig aneinander gefügt sind. Jedes Regal ist über eine
+        Gasse, die vom Mittelgang abzweigt, erreichbar. Jedes Regal besteht aus
+        Lagerfächern in horizontaler und in vertikaler Richtung. Alle
+        Lagerfächer haben bestimmte Abmessungen und sind für die einfachtiefe
+        Aufnahme von Ladehilfsmitteln (z.B. Standard-Europaletten) ausgelegt.
+        <p>An jedem Regalsteher befindet sich überlicherweise  eine Blechtafel, die pro Lagerfach ein
+            Etikett enthält, auf dem der Lagerplatzname als Barcode und in Klarschrift
+            sowie evtl. eine Prüfziffer kodiert ist. Die Benennung der Lagerplätze folgt
+            dem Schema 
+        </p>
+        <p><tt>HallenbereichGasse_Regalnummer-Ebene-Spalte</tt>. 
+        </p>
+        <p>Der Hallenbereich wird über einen Grossbuchstaben (A-Z) bezeichnet. Die Nummerierung der Regale 
+            erfolgt pro Gasse von links nach rechts (aus
+            Sicht einer Person, die das Regal anblickt), beginnend bei eins und fortlaufend 
+            aufsteigend. Die Nummerierung der Lagerfächer einer Ebene erfolgt
+            ebenfalls von links nach rechts beginnend bei eins. Die Nummerierung der
+            Ebenen erfolgt von unten nach oben, beginnend mit eins. Die Nummerierung der
+            Tiefe ist optional und entfällt bei einfachtiefer Lagerung.
+            
+        </p>
+        <p><tt>R2-1-3-4</tt> bezeichnet also die zweite Gasse in Hallenbereich R, dort das erste Regal und in der dritten Ebene das vierte Lagerfach.
+        </p>
+        <h3 id='section-LosDocLocationLabels-ImportierenVonLagerpl_E4tzen'> Importieren von Lagerplätzen</h3>
+        <p>Über den Menüpunkt &quot;<code>Datei-Importieren-Regale & Lagerplätze</code>&quot; können XML Dateien im Microsoft Excel 2003 XML Format eingelesen werden.
+            Eine Vorlage findet sich <a class="attachment" href="Lagerplaetze.xml">hier</a>.
+            
+        </p>
+        <h4 id='section-LosDocLocationLabels-Vorgehen'>Vorgehen:</h4>
+        <ol>
+            <li> Herunterladen der Vorlage
+            </li>
+            <li> Öffnen der Vorlage in Microstoft Excel, OpenOffice.org Calc oder in einem XML Editor
+            </li>
+            <li> Bearbeiten der Datei (Pro Lagerplatz einen Zeile) und speichern <b>(im Microsoft Excel 2003 XML Format!)</b>
+            </li>
+            <li> Importieren dieser Datei
+            </li>
+        </ol>
+        
+        <p> 
+            <h4 id='section-LosDocLocationLabels-AufbauDerDatei'>Aufbau der Datei</h4>
+        </p>
+        <table class="wikitable" border="1">
+            <tr><th>Halle	</th><th>Gasse	</th><th>Regal	</th><th>Ebene	</th><th>Fach	</th><th>Festplatzartikel	</th><th>Fachtyp	       </th><th>Mandant\</th></tr>
+            <tr><td>R	</td><td>2	</td><td>1	</td><td>3	</td><td>4	</td><td>180815                  </td><td>Untrennbares LHM	</td><td>System Mandant<br /></td></tr>
+            
+        </table>
+        <dl>
+            <dt><b>Halle</b></dt><dd> der Hallenbereich (A-Z)</dd>
+        </dl>
+        <dl>
+            <dt><b>Gasse</b></dt><dd> die Gasse von der das Regal bedient wird (1..)</dd>
+        </dl>
+        <dl>
+            <dt><b>Regal</b></dt><dd> die Nummer des Regals (1..)</dd>
+            
+        </dl>
+        <dl>
+            <dt><b>Ebene</b></dt><dd> Die Ebene des Lagerplatzes (1..)</dd>
+        </dl>
+        <dl>
+            <dt><b>Fach</b></dt><dd> Das Fach des Lagerplatzes innerhalb der Ebene</dd>
+        </dl>
+        <dl>
+            <dt><b>Festplatzartikel</b></dt><dd> Die angegebene Nummer wird als Artikelnummer interpretiert. Diese wird dem Lagerplatz fest zugeordnet</dd>
+            
+        </dl>
+        <dl>
+            <dt><b>Fachtyp</b></dt><dd> Ein vorhandener Lagerfachtyp</dd>
+        </dl>
+        <dl>
+            <dt><b>Mandant</b></dt><dd> Der Mandant, dem der Lagerplatz gehört. Meist ist dies der System Mandant</dd>
+        </dl>
+        <p></p>
+        
+    </body>
+</html>
+<!--
+Tip: to create a link which will open in an external web browser, try:
+<object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+<param name="content" value="http://www.netbeans.org/">
+<param name="text" value="<html><u>http://www.netbeans.org/</u></html>">
+<param name="textFontSize" value="medium">
+<param name="textColor" value="blue">
+</object>
+To create a link to a help set from another module, you need to know the code name base and path, e.g.:
+<a href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/configure/configure_options.html">Using the Options Window</a>
+(This link will behave sanely if that module is disabled or missing.)
+-->

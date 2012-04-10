@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.ireport">
+    <module_version install_time="1334055956835" last="true" origin="installer" specification_version="1.0">
+        <file crc="878567660" name="config/Modules/de-linogistix-ireport.xml"/>
+        <file crc="1403102821" name="modules/de-linogistix-ireport.jar"/>
+        <file crc="3760647123" name="modules/ext/INFO.TXT"/>
+        <file crc="3197504963" name="modules/ext/barbecue-1.1.jar"/>
+        <file crc="2471695681" name="modules/ext/iReport.jar"/>
+        <file crc="3460807796" name="modules/ext/iText-2.1.0.jar"/>
+        <file crc="2898441222" name="modules/ext/jasperreports-3.1.4.jar"/>
+        <file crc="2659592228" name="modules/ext/jdt-compiler-3.1.1.jar"/>
+        <file crc="2522358581" name="modules/ext/jsch-0.1.39.jar"/>
+        <file crc="1793723535" name="modules/ext/poi-3.2-FINAL-20081019.jar"/>
+    </module_version>
+</module>

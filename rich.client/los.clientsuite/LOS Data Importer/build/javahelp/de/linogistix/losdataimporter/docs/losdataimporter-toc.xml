@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+    <tocitem text="LOS Datenimport">
+        <tocitem text="About LOS Datenimport" target="de.linogistix.losdataimporter.about"/>
+        <tocitem text="Import racks and locations">
+            <tocitem text="Overview" target="de.linogistix.losdataimporter.storagelocation"/>
+            <tocitem text="Wizard" target="de.linogistix.losdataimporter.storagelocation.wizard"/>
+        </tocitem>
+        <tocitem text="Import item data">
+            <tocitem text="Overview" target="de.linogistix.losdataimporter.itemdata"/>
+            <tocitem text="Wizard" target="de.linogistix.losdataimporter.itemdata.wizard"/>
+        </tocitem>
+    </tocitem>
+</toc>

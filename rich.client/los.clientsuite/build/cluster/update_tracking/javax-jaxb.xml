@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="javax.jaxb">
+    <module_version install_time="1334055950944" last="true" origin="installer" specification_version="1.0">
+        <file crc="3427988427" name="config/Modules/javax-jaxb.xml"/>
+        <file crc="3760647123" name="modules/ext/INFO.TXT"/>
+        <file crc="1940711593" name="modules/ext/activation.jar"/>
+        <file crc="1709029185" name="modules/ext/jaxb-api.jar"/>
+        <file crc="1390103553" name="modules/ext/jaxb-impl.jar"/>
+        <file crc="4016924120" name="modules/ext/jaxb-xjc.jar"/>
+        <file crc="3811565026" name="modules/ext/stax-api.jar"/>
+        <file crc="2434086734" name="modules/ext/wstx.jar"/>
+        <file crc="38598376" name="modules/javax-jaxb.jar"/>
+    </module_version>
+</module>

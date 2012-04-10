@@ -1,0 +1,81 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>LOS Processes</title>
+    <link rel="stylesheet" href="nbdocs:/org/netbeans/modules/usersguide/ide.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <h2>LOS Prozesse</h2>
+    <h3>Stationär</h3>
+    <p>
+        LOS Processes ist ein Modul, dass die grundlegenden Prozesse in 
+        einem Lager abdeckt.
+        Die Hauptprozesse werden über den Menüeintrag <code>Fenster</code> 
+        aufgerufen und beinhalten:
+        <ul>
+            <li><b>Avis erzeugen:</b> Erwartete Wareneingangänge avisieren</li>
+            <li><b>Wareneingang:</b> Ware im Wareneingang vereinnahmen</li>
+            <li><b>Lager-Bestellung aufgeben:</b> Eine (Kunden oder interne)
+            Kundenbestellung erzeugen für den Wareausgang.</li>
+            <li><b>Lager-Bestellung zusammenstellen:</b> Lagereinheiten zur
+                Erfüllung eines Auslagerauftrags manuell auswählen, wenn dies
+            nicht bereits automatisiert geschehen ist.</li>
+        </ul>
+    </p>
+    
+    <p>
+        Weitere Sub-Prozesse sind verfügbar, um das Lager zu organsieren.
+        Sie werden über den Menüeintrag 
+        <code>Aktionen</code> erreicht und umfassen:
+        <ul>
+            <li><a href="wmsprocesses-unitloadtransfer_de_DE.html"><b>LHM umbuchen:</b></a>
+            Ein LHM auf einen anderen Lagerplatz umbuchen</li>
+            <li><b>LE umbuchen:</b>
+            Eine Lagerinheit auf ein anderes LHM umbuchen</li>
+            <li><b>Menge ändern:</b> Die Menge (Anzahl Artikel)
+            einer Lagereinheit ändern</li>
+        </ul>
+        
+    </p>
+    
+    <p> Die oben genannten Prozesse werden über die Benutzeroberfläche des 
+        <i>LOS Client</i> bedient. Zusätzlich gibt es eine Web Applikation,
+        über die solche Prozesse bedient werden können, die ein Mitarbeiter im
+    Lager ausführt, typischerweise mit einem mobilen Handdatenterminal.
+    </p>
+    <h3>Mobil</h3>
+    Die Webapplikation kann über den Menüeintrag 
+    &quot;<code>Fenster-Mobile Prozesse</code>&quot; gestartet werden.
+    
+    <p>
+        Die mobilen Prozesse umfassen:
+        <ul>
+            <li><b>Wareneingang:</b> Paletten im Wareneingang über ein Terminal
+            erfassen</li>
+            <li><b>Einlagerung</b> Einlagerung von Waren auf Lagerplätzen</li>
+            <li><b>Kommissionierung</b> Waren aus dem Lager kommissionieren und
+            auslagern, um eine Lager-Bestellung zu erfüllen</li>
+            <li><b>Versand</b> Kommissionierte Ware zum Versand erfassen</li>
+            <li><b>Nachschub</b> Nachschubanforderung für feste Kommissionierplätze</li>
+            <li><b>Inventur</b> Durchführung der Zählaufträge für die Inventur</li>
+        </ul>
+    </p>
+    
+</body>
+</html>
+<!--
+Tip: to create a link which will open in an external web browser, try:
+<object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+<param name="content" value="http://www.netbeans.org/">
+<param name="text" value="<html><u>http://www.netbeans.org/</u></html>">
+<param name="textFontSize" value="medium">
+<param name="textColor" value="blue">
+</object>
+To create a link to a help set from another module, you need to know the code name base and path, e.g.:
+<a href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/configure/configure_options.html">Using the Options Window</a>
+(This link will behave sanely if that module is disabled or missing.)
+-->

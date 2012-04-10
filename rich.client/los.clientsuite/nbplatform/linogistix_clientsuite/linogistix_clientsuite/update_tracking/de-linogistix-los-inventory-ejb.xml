@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.los.inventory.ejb">
-    <module_version install_time="1333104643203" last="true" origin="installer" specification_version="1.0">
-        <file crc="332233590" name="config/Modules/de-linogistix-los-inventory-ejb.xml"/>
-        <file crc="998676613" name="modules/de-linogistix-los-inventory-ejb.jar"/>
-        <file crc="4229517082" name="modules/ext/los.inventory-client.jar"/>
-    </module_version>
-</module>

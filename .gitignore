@@ -43,4 +43,7 @@ rich.client/los.reference/Project EJB-Library/release/
 rich.client/los.reference/build/
 rich.client/los.reference/los.reference/build/
 rich.client/los.reference/nbproject/private/
-rich.client/los.clientsuite/LOS Inventory Browser/nbproject/private/
+
+rich.client/los.clientsuite/LOS\ Inventory\ Browser/nbproject/private/
+rich.client/los.clientsuite/build/
+rich.client/los.clientsuite/nbplatform/

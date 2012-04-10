@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="antlr">
-    <module_version install_time="1334055949616" last="true" origin="installer" specification_version="1.0">
-        <file crc="2299817822" name="config/Modules/antlr.xml"/>
-        <file crc="3195584949" name="modules/antlr.jar"/>
-        <file crc="3760647123" name="modules/ext/INFO.TXT"/>
-        <file crc="1663336707" name="modules/ext/antlr-2.7.5.jar"/>
-    </module_version>
-</module>

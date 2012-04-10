@@ -1,3 +1,0 @@
-We use the following archives of other open source projects:
-
-antlr-2.7.5.jar 

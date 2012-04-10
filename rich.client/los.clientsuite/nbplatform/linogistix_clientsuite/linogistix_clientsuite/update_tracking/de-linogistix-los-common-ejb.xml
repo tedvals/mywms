@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.los.common.ejb">
-    <module_version install_time="1333104633218" last="true" origin="installer" specification_version="1.0">
-        <file crc="408454070" name="config/Modules/de-linogistix-los-common-ejb.xml"/>
-        <file crc="3029445405" name="modules/de-linogistix-los-common-ejb.jar"/>
-        <file crc="2764767811" name="modules/ext/los.common-client.jar"/>
-    </module_version>
-</module>

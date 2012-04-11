@@ -32,10 +32,9 @@ public class BOVehicleDataMasterNode extends BOMasterNode {
 
         if (sheet == null) {
             sheet = new Sheet.Set();
-            //BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, to.getClientNumber(), InventoryBundleResolver.class);
-            //sheet.put(clientNumber);
-            BOMasterNodeProperty<Long> id = new BOMasterNodeProperty<Long>("id", Long.class, to.getId(), InventoryBundleResolver.class);
-            sheet.put(id);
+            
+            //BOMasterNodeProperty<Long> id = new BOMasterNodeProperty<Long>("id", Long.class, to.getId(), InventoryBundleResolver.class);
+            //sheet.put(id);
             BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, to.getPlateNumber(), InventoryBundleResolver.class);
             sheet.put(plateNumber);
             BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, to.getChassisNumber(), InventoryBundleResolver.class);
@@ -48,14 +47,14 @@ public class BOVehicleDataMasterNode extends BOMasterNode {
 
     //-------------------------------------------------------------------------
     public static Property[] boMasterNodeProperties() {
-        //BOMasterNodeProperty<String> clientNumber = new BOMasterNodeProperty<String>("clientNumber", String.class, "", InventoryBundleResolver.class);
-	//BOMasterNodeProperty<String> name = new BOMasterNodeProperty<String>("nameX", String.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty<Long> id = new BOMasterNodeProperty<Long>("id", Long.class,  new Long(0), InventoryBundleResolver.class);
+        
+        //BOMasterNodeProperty<Long> id = new BOMasterNodeProperty<Long>("id", Long.class,  new Long(0), InventoryBundleResolver.class);
         BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, "", InventoryBundleResolver.class);
         BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, "", InventoryBundleResolver.class);
         BOMasterNodeProperty<String> engineNumber= new BOMasterNodeProperty<String>("engineNumber", String.class, "", InventoryBundleResolver.class);
         BOMasterNodeProperty[] props = new BOMasterNodeProperty[] {
-            id, plateNumber, chassisNumber, engineNumber
+            //id,
+            plateNumber, chassisNumber, engineNumber
         };
 
         return props;

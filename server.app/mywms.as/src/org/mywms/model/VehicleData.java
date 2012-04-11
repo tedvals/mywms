@@ -18,17 +18,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.UniqueConstraint;
 
 import org.mywms.facade.FacadeException;
 import org.mywms.globals.SerialNoRecordType;
-import org.mywms.service.ConstraintViolatedException;
 */
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.UniqueConstraint;
+import org.mywms.service.ConstraintViolatedException;
 
 @Entity
-@Table(name="mywms_vehicledata")
+@Table(name="mywms_vehicledata",
+uniqueConstraints = {
+    @UniqueConstraint(columnNames = {
+        "labelId"
+    })
+})
 /*,uniqueConstraints = {
     @UniqueConstraint(columnNames = {
         "client_id", "item_nr"
@@ -55,54 +60,56 @@ public class VehicleData
     private Date storageDate;
 
     private BigDecimal mileage;
-    
+
+    private String labelId;
+
 
     public String getRemarks() {
-	   return this.remarks;
+        return this.remarks;
     }
 
     public void setRemarks(String remarks) {
-	    this.remarks = remarks;
+        this.remarks = remarks;
     }
 
     public String getManufacturerName() {
-	   return this.manufacturerName;
+        return this.manufacturerName;
     }
 
     public void setManufacturerName(String manufacturerName) {
-	    this.manufacturerName = manufacturerName;
+        this.manufacturerName = manufacturerName;
     }
 
     public String getModelName() {
-	   return this.modelName;
+        return this.modelName;
     }
 
     public void setModelName(String modelName) {
-	    this.modelName = modelName;
+        this.modelName = modelName;
     }
 
     public String getPlateNumber() {
-	   return this.plateNumber;
+        return this.plateNumber;
     }
 
     public void setPlateNumber(String plateNumber) {
-	    this.plateNumber = plateNumber;
+        this.plateNumber = plateNumber;
     }
 
     public String getChassisNumber() {
-	   return this.chassisNumber;
+        return this.chassisNumber;
     }
 
     public void setChassisNumber(String chassisNumber) {
-	    this.chassisNumber = chassisNumber;
+        this.chassisNumber = chassisNumber;
     }
 
     public String getEngineNumber() {
-	   return this.engineNumber;
+        return this.engineNumber;
     }
 
     public void setEngineNumber(String engineNumber) {
-	    this.engineNumber = engineNumber;
+        this.engineNumber = engineNumber;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -132,4 +139,29 @@ public class VehicleData
         this.mileage = mileage;
     }
 
+    @Column(nullable=false)
+    public String getLabelId() {
+        return this.labelId;
+    }
+
+    public void setLabelId(String labelId) {
+        this.labelId = labelId;
+    }
+
+    @PreUpdate
+    @PrePersist
+    public void sanityCheck() throws BusinessException, ConstraintViolatedException {
+
+        if (getId() != null) {
+            if (( getLabelId() == null || getLabelId().length() == 0 )) {
+                setLabelId(getId().toString());
+            } else {
+                //ok
+            }
+        } else {
+            throw new RuntimeException("Id cannot be retrieved yet - hence labelId cannot be set");
+        }
+
+
+    }
 }

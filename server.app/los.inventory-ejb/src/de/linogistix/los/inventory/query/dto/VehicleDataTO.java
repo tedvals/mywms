@@ -1,105 +1,144 @@
 /*
  * Copyright (c) 2006 - 2010 LinogistiX GmbH
- * 
+ *
  *  www.linogistix.com
- *  
+ *
  *  Project myWMS-LOS
  */
 package de.linogistix.los.inventory.query.dto;
 
 import org.mywms.model.VehicleData;
+import java.math.BigDecimal;
+import java.util.Date;
 
 import de.linogistix.los.query.BODTO;
 
 public class VehicleDataTO extends BODTO<VehicleData> {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	// private String remarks = "";
-	// private String manufacturerName = "";
-	// private String modelName = "";
-	private String plateNumber;
-	private String chassisNumber;
-	private String engineNumber;
-	private Long id;
+    private String remarks;
+    private String manufacturerName;
+    private String modelName;
+    private String plateNumber;
+    private String chassisNumber;
+    private String engineNumber;
+    private Date receiptDate;
+    private Date storageDate;
+    private BigDecimal mileage;
 
-	// private Date receiptDate;
-	// private Date storageDate;
-	// private BigDecimal mileage;
+    public VehicleDataTO(VehicleData idat) {
+        super(idat.getId(), idat.getVersion(), idat.getLabelId());
+        this.plateNumber = idat.getPlateNumber();
+        this.chassisNumber = idat.getChassisNumber();
+        this.engineNumber = idat.getEngineNumber();
+    }
 
-	// private String nameX;
-	// private String number;
-	// private String clientNumber;
-	// private String itemUnitName;
-	// private int scale;
+    public VehicleDataTO(Long id, int version, String name,
+                         String remarks, String manufacturerName, String modelName, String plateNumber, String chassisNumber, String engineNumber,
+                         Date receiptDate, Date storageDate, BigDecimal mileage) {
+        super(id, version, name);
+        this.remarks         = remarks;
+        this.manufacturerName= manufacturerName;
+        this.modelName       = modelName;
+        this.plateNumber     = plateNumber;
+        this.chassisNumber   = chassisNumber;
+        this.engineNumber    = engineNumber;
+        this.receiptDate     = receiptDate;
+        this.storageDate     = storageDate;
+        this.mileage         = mileage;
+    }
 
-	public VehicleDataTO(VehicleData idat) {
-		super(idat.getId(), idat.getVersion(), idat.getId());
-		this.plateNumber = idat.getPlateNumber();
-		this.chassisNumber = idat.getChassisNumber();
-		this.engineNumber = idat.getEngineNumber();
-	}
+    //public VehicleDataTO(Long id, int version, String number) {
+    //super(id, version, number);
+    //}
 
-	public VehicleDataTO(Long id, int version, String number) {
-		super(id, version, number);
-	}
+    //public VehicleDataTO(Long id, int version, String number,
+    //String plateNumber, String chassisNumber, String engineNumber) {
+    //super(id, version, number);
+    //this.plateNumber = plateNumber;
+    //this.chassisNumber = chassisNumber;
+    //this.engineNumber = engineNumber;
+    //}
 
-	public VehicleDataTO(Long id, int version, String number,
-			String plateNumber, String chassisNumber, String engineNumber) {
-		super(id, version, number);
-		this.plateNumber = plateNumber;
-		this.chassisNumber = chassisNumber;
-		this.engineNumber = engineNumber;
-	}
+    //public VehicleDataTO(String plateNumber, String chassisNumber,
+    //String engineNumber) {
+    //// super(id, version, id);
+    //this.plateNumber = plateNumber;
+    //this.chassisNumber = chassisNumber;
+    //this.engineNumber = engineNumber;
+    //}
 
-	public VehicleDataTO(Long id, String plateNumber, String chassisNumber,
-			String engineNumber) {
-		// super(id, version, id);
-		this.id = id;
-		this.plateNumber = plateNumber;
-		this.chassisNumber = chassisNumber;
-		this.engineNumber = engineNumber;
-	}
+    // public VehicleDataTO(){}
+    public String getRemarks() {
+        return this.remarks;
+    }
 
-	public VehicleDataTO(String plateNumber, String chassisNumber,
-			String engineNumber) {
-		// super(id, version, id);
-		this.plateNumber = plateNumber;
-		this.chassisNumber = chassisNumber;
-		this.engineNumber = engineNumber;
-	}
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
-	// public VehicleDataTO(){}
-	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id){
-		this.id = id;
-	}
+    public String getManufacturerName() {
+        return this.manufacturerName;
+    }
 
-	public String getPlateNumber() {
-		return plateNumber;
-	}
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = manufacturerName;
+    }
 
-	public void setPlateNumber(String plateNumber) {
-		this.plateNumber = plateNumber;
-	}
+    public String getModelName() {
+        return this.modelName;
+    }
 
-	public String getChassisNumber() {
-		return chassisNumber;
-	}
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
 
-	public void setChassisNumber(String chassisNumber) {
-		this.chassisNumber = chassisNumber;
-	}
+    public String getPlateNumber() {
+        return this.plateNumber;
+    }
 
-	public String getEngineNumber() {
-		return engineNumber;
-	}
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
 
-	public void setEngineNumber(String engineNumber) {
-		this.engineNumber = engineNumber;
-	}
+    public String getChassisNumber() {
+        return this.chassisNumber;
+    }
+
+    public void setChassisNumber(String chassisNumber) {
+        this.chassisNumber = chassisNumber;
+    }
+
+    public String getEngineNumber() {
+        return this.engineNumber;
+    }
+
+    public void setEngineNumber(String engineNumber) {
+        this.engineNumber = engineNumber;
+    }
+
+    public Date getReceiptDate() {
+        return this.receiptDate;
+    }
+
+    public void setReceiptDate(Date receiptDate) {
+        this.receiptDate = receiptDate;
+    }
+
+    public Date getStorageDate() {
+        return this.storageDate;
+    }
+
+    public void setStorageDate(Date storageDate) {
+        this.storageDate = storageDate;
+    }
+
+    public BigDecimal getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(BigDecimal mileage) {
+        this.mileage = mileage;
+    }
 }

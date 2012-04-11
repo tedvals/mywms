@@ -67,40 +67,14 @@ public class BOVehicleData extends BO {
       return null;
     }
     
-    //readDefaultItemUnit();
     return ret;
   }
-  
-  
-  //private void readDefaultItemUnit() {
-    //ItemUnitQueryRemote itemUnitQuery = null;
-    //try{
-        //J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-        //itemUnitQuery = (ItemUnitQueryRemote)loc.getStateless(ItemUnitQueryRemote.class);
-      
-        //itemUnit = itemUnitQuery.getDefault();
-        //if( itemUnit == null ) {
-            //List<ItemUnit> list = itemUnitQuery.queryAll( new QueryDetail(0,1) );
-            //if( list.size()>0 ) {
-                //itemUnit=list.get(0);
-            //}
-        //}
-    //} catch (Throwable t){
-      //ExceptionAnnotator.annotate(t);
-    //}
-  //}
-  
   
   protected BasicEntity initEntityTemplate() {
     VehicleData o;
 
     o = new VehicleData();
-    //o.setName("Template");
-    //o.setNumber("Template");
-    //o.setSerialNoRecordType(SerialNoRecordType.NO_RECORD);
-    //o.setHandlingUnit(itemUnit);
-    //LoginService login = (LoginService) Lookup.getDefault().lookup(LoginService.class);
-    //o.setClient( login.getUsersClient() );
+    o.setLabelId("");
 
     return o;
     
@@ -119,12 +93,12 @@ public class BOVehicleData extends BO {
     return ret;
   }
   
-   //protected String[] initIdentifiableProperties() {
-   // return new String[]{"id"};
-  //}
+   protected String[] initIdentifiableProperties() {
+    return new String[]{"labelId"};
+  }
 
     @Override
-    public Class getBundleResolver() {
+    public Class initBundleResolver() {
         return InventoryBundleResolver.class;
     }
    

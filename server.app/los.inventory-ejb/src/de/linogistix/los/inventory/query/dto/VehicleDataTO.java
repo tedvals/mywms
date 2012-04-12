@@ -49,6 +49,18 @@ public class VehicleDataTO extends BODTO<VehicleData> {
         this.mileage         = mileage;
     }
 
+    public VehicleDataTO(Long id, int version, String name,
+			 String plateNumber, String chassisNumber, String engineNumber){
+        super(id, version, name);
+        this.plateNumber     = plateNumber;
+        this.chassisNumber   = chassisNumber;
+        this.engineNumber    = engineNumber;
+    }
+
+    //public VehicleDataTO(Long id, int version, String name){
+    //super(id, version, name);
+    //}
+
     //public VehicleDataTO(Long id, int version, String number) {
     //super(id, version, number);
     //}
@@ -71,7 +83,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
 
     // public VehicleDataTO(){}
     public String getRemarks() {
-        return this.remarks;
+        return remarks;
     }
 
     public void setRemarks(String remarks) {
@@ -79,7 +91,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public String getManufacturerName() {
-        return this.manufacturerName;
+        return manufacturerName;
     }
 
     public void setManufacturerName(String manufacturerName) {
@@ -87,7 +99,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public String getModelName() {
-        return this.modelName;
+        return modelName;
     }
 
     public void setModelName(String modelName) {
@@ -95,7 +107,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public String getPlateNumber() {
-        return this.plateNumber;
+        return plateNumber;
     }
 
     public void setPlateNumber(String plateNumber) {
@@ -103,7 +115,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public String getChassisNumber() {
-        return this.chassisNumber;
+        return chassisNumber;
     }
 
     public void setChassisNumber(String chassisNumber) {
@@ -111,7 +123,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public String getEngineNumber() {
-        return this.engineNumber;
+        return engineNumber;
     }
 
     public void setEngineNumber(String engineNumber) {
@@ -119,7 +131,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public Date getReceiptDate() {
-        return this.receiptDate;
+        return receiptDate;
     }
 
     public void setReceiptDate(Date receiptDate) {
@@ -127,7 +139,7 @@ public class VehicleDataTO extends BODTO<VehicleData> {
     }
 
     public Date getStorageDate() {
-        return this.storageDate;
+        return storageDate;
     }
 
     public void setStorageDate(Date storageDate) {

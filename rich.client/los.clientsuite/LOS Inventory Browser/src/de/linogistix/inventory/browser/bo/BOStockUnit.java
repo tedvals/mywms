@@ -155,10 +155,4 @@ public class BOStockUnit extends BO {
         
         return super.getDefaultBOQueryProvider();
     }
-    
-    
-    
-    
-    
-    
 }

@@ -148,6 +148,15 @@ public class VehicleData
         this.labelId = labelId;
     }
 
+	@Override
+	public String toUniqueString() {
+		if (getLabelId() != null) {
+			return getLabelId();
+		} else {
+			return getId().toString();
+		}
+	}
+
     @PreUpdate
     @PrePersist
     public void sanityCheck() throws BusinessException, ConstraintViolatedException {

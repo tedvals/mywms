@@ -22,78 +22,78 @@ import de.linogistix.los.query.exception.BusinessObjectQueryException;
 
 @Stateless
 public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData>
-		implements VehicleDataQueryRemote {
+    implements VehicleDataQueryRemote {
 
-	private static final Logger log = Logger
-			.getLogger(VehicleDataQueryBean.class);
+    private static final Logger log = Logger
+                                      .getLogger(VehicleDataQueryBean.class);
 
-	@Override
-	public String getUniqueNameProp() {
-		return "labelId";
-	}
+    @Override
+    public String getUniqueNameProp() {
+        return "labelId";
+    }
 
-private static final String[] dtoProps = new String[] { "id",
-"version",
-String remarks;
-te String manufacturerName;
-te String modelName;
-te String plateNumber;
-te String chassisNumber;
-te String engineNumber;
-te Date receiptDate;
-te Date storageDate;
-te BigDecimal mileage;
-"plateNumber", "chassisNumber", "engineNumber" };
+    private static final String[] dtoProps = new String[] { 
+        "id", "version", "labelId",
+        "remarks",
+        "manufacturerName",
+        "modelName",
+        "plateNumber",
+        "chassisNumber",
+        "engineNumber",
+        "receiptDate",
+        "storageDate",
+        "mileage"
+                                                          };
 
-	//@Override
-	//protected String[] getBODTOConstructorProps() {
-		//return dtoProps;
-	//}
+    @Override
+	    protected String[] getBODTOConstructorProps() {
+		    return dtoProps;
+	    }
 
-	@Override
-	public Class<VehicleDataTO> getBODTOClass() {
-		return VehicleDataTO.class;
-	}
+    @Override
+    public Class<VehicleDataTO> getBODTOClass() {
+        return VehicleDataTO.class;
+    }
 
-	@Override
-	protected List<TemplateQueryWhereToken> getAutoCompletionTokens(String value) {
-		List<TemplateQueryWhereToken> ret = new ArrayList<TemplateQueryWhereToken>();
-		
+    @Override
+    protected List<TemplateQueryWhereToken> getAutoCompletionTokens(String value) {
+        List<TemplateQueryWhereToken> ret = new ArrayList<TemplateQueryWhereToken>();
+
 //TemplateQueryWhereToken idt = new TemplateQueryWhereToken(
-															//TemplateQueryWhereToken.OPERATOR_LIKE, "labelId",
-				//getUniqueNameProp(),
-				//value);
+        //TemplateQueryWhereToken.OPERATOR_LIKE, "labelId",
+        //getUniqueNameProp(),
+        //value);
 //idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-		TemplateQueryWhereToken plateNumber = new TemplateQueryWhereToken(
-				TemplateQueryWhereToken.OPERATOR_LIKE, "plateNumber", value);
-		plateNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+        TemplateQueryWhereToken plateNumber = new TemplateQueryWhereToken(
+            TemplateQueryWhereToken.OPERATOR_LIKE, "plateNumber", value);
+        plateNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-		TemplateQueryWhereToken chassisNumber = new TemplateQueryWhereToken(
-				TemplateQueryWhereToken.OPERATOR_LIKE, "chassisNumber", value);
-		chassisNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+        TemplateQueryWhereToken chassisNumber = new TemplateQueryWhereToken(
+            TemplateQueryWhereToken.OPERATOR_LIKE, "chassisNumber", value);
+        chassisNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-		TemplateQueryWhereToken engineNumber = new TemplateQueryWhereToken(
-				TemplateQueryWhereToken.OPERATOR_LIKE, "engineNumber", value);
-		engineNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+        TemplateQueryWhereToken engineNumber = new TemplateQueryWhereToken(
+            TemplateQueryWhereToken.OPERATOR_LIKE, "engineNumber", value);
+        engineNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
 //ret.add(idt);
-		ret.add(plateNumber);
-		ret.add(chassisNumber);
-		ret.add(engineNumber);
+        ret.add(plateNumber);
+        ret.add(chassisNumber);
+        ret.add(engineNumber);
 
-		return ret;
-	}
+        return ret;
+    }
 
-	public LOSResultList<VehicleData> queryByLabelId( QueryDetail detail, String vdId)
-			throws BusinessObjectNotFoundException, BusinessObjectQueryException {
-		TemplateQuery q = new TemplateQuery();
-		q.setBoClass(tClass);
-		TemplateQueryWhereToken l = new TemplateQueryWhereToken(
-				TemplateQueryWhereToken.OPERATOR_EQUAL, "labelId", vdId);
-		q.addWhereToken(l);
-		
-		return queryByTemplate(detail, q);
-	}
+    public LOSResultList<VehicleData> queryByLabelId( QueryDetail detail, String vdId)
+    throws BusinessObjectNotFoundException, BusinessObjectQueryException {
+        TemplateQuery q = new TemplateQuery();
+        q.setBoClass(tClass);
+        TemplateQueryWhereToken l = new TemplateQueryWhereToken(
+            TemplateQueryWhereToken.OPERATOR_EQUAL, "labelId", vdId);
+        q.addWhereToken(l);
+
+        return queryByTemplate(detail, q);
+    }
 
 }

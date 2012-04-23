@@ -31,6 +31,10 @@
         <class>org.mywms.model.User</class>
         <class>org.mywms.model.Zone</class>
         <class>org.mywms.model.VehicleData</class>
+        <class>org.mywms.model.WorkItemHistory</class>
+        <class>org.mywms.model.WorkItem</class>
+        <class>org.mywms.model.WorkVehicle</class>
+        <class>org.mywms.model.WorkVehicleHistory</class>
         
         <class>de.linogistix.los.inventory.model.ExtinguishOrder</class>
         <class>de.linogistix.los.inventory.model.LOSAdvice</class>

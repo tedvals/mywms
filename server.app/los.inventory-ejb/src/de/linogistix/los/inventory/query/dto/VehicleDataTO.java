@@ -40,6 +40,10 @@ public class VehicleDataTO extends BODTO<VehicleData> {
         this.mileage         = idat.getMileage();
     }
 
+	public VehicleDataTO(Long id, int version, String name){
+		super(id, version, name);
+	}
+
     public VehicleDataTO(Long id, int version, String name,
                          String remarks, String manufacturerName, String modelName, String plateNumber, String chassisNumber, String engineNumber,
                          Date receiptDate, Date storageDate, BigDecimal mileage) {
@@ -55,17 +59,13 @@ public class VehicleDataTO extends BODTO<VehicleData> {
         this.mileage         = mileage;
     }
 
-    public VehicleDataTO(Long id, int version, String name,
-			 String plateNumber, String chassisNumber, String engineNumber){
-        super(id, version, name);
-        this.plateNumber     = plateNumber;
-        this.chassisNumber   = chassisNumber;
-        this.engineNumber    = engineNumber;
-    }
-
-	public VehicleDataTO(Long id, int version, String name){
-		super(id, version, name);
-	}
+    //public VehicleDataTO(Long id, int version, String name,
+    //String plateNumber, String chassisNumber, String engineNumber){
+    //super(id, version, name);
+    //this.plateNumber     = plateNumber;
+    //this.chassisNumber   = chassisNumber;
+    //this.engineNumber    = engineNumber;
+    //}
 
     //public VehicleDataTO(Long id, int version, String number) {
     //super(id, version, number);

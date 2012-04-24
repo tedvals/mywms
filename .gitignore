@@ -47,5 +47,5 @@ rich.client/los.reference/nbproject/private/
 rich.client/los.clientsuite/LOS\ Inventory\ Browser/nbproject/private/
 rich.client/los.clientsuite/build/
 rich.client/los.clientsuite/nbplatform/
-rich.client/los.clientsuite/**/build/
+rich.client/los.clientsuite/**/build/*
 rich.client/los.clientsuite/**/release/

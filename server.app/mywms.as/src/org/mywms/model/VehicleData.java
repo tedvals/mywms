@@ -44,25 +44,15 @@ public class VehicleData
     extends BasicEntity {
 
     private String remarks = "";
-
     private String manufacturerName = "";
-
     private String modelName = "";
-
     private String plateNumber = "";
-
     private String chassisNumber = "";
-
     private String engineNumber = "";
-
     private Date receiptDate;
-
     private Date storageDate;
-
     private BigDecimal mileage;
-
     private String labelId;
-
 
     public String getRemarks() {
         return this.remarks;

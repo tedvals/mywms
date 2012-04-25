@@ -21,14 +21,20 @@ public class BOWorkVehicleMasterNode extends BOMasterNode {
     }
 
 // --- since here 24/4/12
-//
+    private VehicleData vehicleDataId;
+    private WorkType workTypeId;
+    private User workerId;
+    private boolean urgent = false;
+    private Date scheduleTime;
+    private Date executeDeadline;
+
     @Override
     public PropertySet[] getPropertySets() {
 
         if (sheet == null) {
             sheet = new Sheet.Set();
             
-            BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, to.getPlateNumber(), InventoryBundleResolver.class);
+            BOMasterNodeProperty<String> vehicleDataId = new BOMasterNodeProperty<String>("vehicleDataId", String.class, to.getPlateNumber(), InventoryBundleResolver.class);
             sheet.put(plateNumber);
             BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, to.getChassisNumber(), InventoryBundleResolver.class);
             sheet.put(chassisNumber);

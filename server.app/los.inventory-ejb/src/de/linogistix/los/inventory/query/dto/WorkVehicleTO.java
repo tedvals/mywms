@@ -23,35 +23,52 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
 
     public WorkVehicleTO(WorkVehicle idat) {
         super(idat.getId(), idat.getVersion(), idat.getId());
-this.vehicleDataId	= idat.getVehicleDataId().getLabelId();
-this.vehiclePlate	= idat.getVehicleDataId().getPlateNumber();
-this.remarks		= idat.getRemarks();
-this.workTypeId		= idat.getWorkTypeId().getId().toString();
-this.workType		= idat.getWorkTypeId().getworktype();
-this.workerId		= idat.getWorkerId().getId().toString();
-this.worker		= idat.getWorkerId().getName();
-this.urgent 		= idat.isUrgent();
-this.scheduleTime	= idat.getScheduleTime();
-this.executeDeadline	= idat.getExecuteDeadline();
+        this.vehicleDataId	= idat.getVehicleDataId().getLabelId();
+        this.vehiclePlate	= idat.getVehicleDataId().getPlateNumber();
+        this.remarks		= idat.getRemarks();
+        this.workTypeId		= idat.getWorkTypeId().getId().toString();
+        this.workType		= idat.getWorkTypeId().getworktype();
+        this.workerId		= idat.getWorkerId().getId().toString();
+        this.worker		= idat.getWorkerId().getName();
+        this.urgent 		= idat.isUrgent();
+        this.scheduleTime	= idat.getScheduleTime();
+        this.executeDeadline	= idat.getExecuteDeadline();
     }
-//here
-	public WorkVehicleTO(Long id, int version, String name){
-		super(id, version, name);
-	}
 
-    public VehicleDataTO(Long id, int version, String name,
-                         String remarks, String manufacturerName, String modelName, String plateNumber, String chassisNumber, String engineNumber,
-                         Date receiptDate, Date storageDate, BigDecimal mileage) {
-        super(id, version, name);
-        this.remarks         = remarks;
-        this.manufacturerName= manufacturerName;
-        this.modelName       = modelName;
-        this.plateNumber     = plateNumber;
-        this.chassisNumber   = chassisNumber;
-        this.engineNumber    = engineNumber;
-        this.receiptDate     = receiptDate;
-        this.storageDate     = storageDate;
-        this.mileage         = mileage;
+    public WorkVehicleTO(Long id, int version) {
+        super(id, version, id);
+    }
+
+    public WorkVehicleTO(Long id, int version, Long name,
+                         String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
+                         String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
+        super(id, version, id);
+        this.vehicleDataId	= vehicleDataId;
+        this.vehiclePlate	= vehiclePlate;
+        this.remarks		= remarks;
+        this.workTypeId		= workTypeId;
+        this.workType		= workType;
+        this.workerId		= workerId;
+        this.worker		= worker;
+        this.urgent 		= urgent;
+        this.scheduleTime	= scheduleTime;
+        this.executeDeadline	= executeDeadline;
+    }
+
+    public String getVehicleDataId() {
+        return vehicleDataId;
+    }
+
+    public void setVehicleDataId(String vehicleDataId) {
+        this.vehicleDataId = vehicleDataId;
+    }
+
+    public String getVehiclePlate() {
+        return vehiclePlate;
+    }
+
+    public void setVehiclePlate(String vehiclePlate) {
+        this.vehiclePlate = vehiclePlate;
     }
 
     public String getRemarks() {
@@ -62,67 +79,59 @@ this.executeDeadline	= idat.getExecuteDeadline();
         this.remarks = remarks;
     }
 
-    public String getManufacturerName() {
-        return manufacturerName;
+    public String getWorkTypeId() {
+        return workTypeId;
     }
 
-    public void setManufacturerName(String manufacturerName) {
-        this.manufacturerName = manufacturerName;
+    public void setWorkTypeId(String workTypeId) {
+        this.workTypeId = workTypeId;
     }
 
-    public String getModelName() {
-        return modelName;
+    public String getWorkType() {
+        return workType;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public void setWorkType(String workType) {
+        this.workType = workType;
     }
 
-    public String getPlateNumber() {
-        return plateNumber;
+    public String getWorkerId() {
+        return workerId;
     }
 
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
+    public void setWorkerId(String workerId) {
+        this.workerId = workerId;
     }
 
-    public String getChassisNumber() {
-        return chassisNumber;
+    public String getWorker() {
+        return worker;
     }
 
-    public void setChassisNumber(String chassisNumber) {
-        this.chassisNumber = chassisNumber;
+    public void setWorker(String worker) {
+        this.worker = worker;
     }
 
-    public String getEngineNumber() {
-        return engineNumber;
+    public boolean isUrgent() {
+        return urgent;
     }
 
-    public void setEngineNumber(String engineNumber) {
-        this.engineNumber = engineNumber;
+    public void setUrgent(boolean urgent) {
+        this.urgent = urgent;
     }
 
-    public Date getReceiptDate() {
-        return receiptDate;
+    public Date getScheduleTime() {
+        return scheduleTime;
     }
 
-    public void setReceiptDate(Date receiptDate) {
-        this.receiptDate = receiptDate;
+    public void setScheduleTime(Date scheduleTime) {
+        this.scheduleTime = scheduleTime;
     }
 
-    public Date getStorageDate() {
-        return storageDate;
+    public Date getExecuteDeadline() {
+        return executeDeadline;
     }
 
-    public void setStorageDate(Date storageDate) {
-        this.storageDate = storageDate;
-    }
-
-    public BigDecimal getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(BigDecimal mileage) {
-        this.mileage = mileage;
+    public void setExecuteDeadline(Date executeDeadline) {
+        this.executeDeadline = executeDeadline;
     }
 }

@@ -20,13 +20,21 @@ public class BOWorkVehicleMasterNode extends BOMasterNode {
         to = (WorkVehicleTO) d;
     }
 
-// --- since here 24/4/12
-    private VehicleData vehicleDataId;
-    private WorkType workTypeId;
-    private User workerId;
-    private boolean urgent = false;
-    private Date scheduleTime;
-    private Date executeDeadline;
+    //private VehicleData vehicleDataId;
+    //private WorkType workTypeId;
+    //private User workerId;
+    //private boolean urgent = false;
+    //private Date scheduleTime;
+    //private Date executeDeadline;
+    //public String getVehicleDataId() {
+    //public String getVehiclePlate() {
+    //public String getRemarks() {
+    //public String getWorkTypeId() {
+    //public String getWorkType() {
+    //public String getWorkerId() {
+    //public String getWorker() {
+    //public Date getScheduleTime() {
+    //public Date getExecuteDeadline() {
 
     @Override
     public PropertySet[] getPropertySets() {
@@ -34,23 +42,23 @@ public class BOWorkVehicleMasterNode extends BOMasterNode {
         if (sheet == null) {
             sheet = new Sheet.Set();
             
-            BOMasterNodeProperty<String> vehicleDataId = new BOMasterNodeProperty<String>("vehicleDataId", String.class, to.getPlateNumber(), InventoryBundleResolver.class);
-            sheet.put(plateNumber);
-            BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, to.getChassisNumber(), InventoryBundleResolver.class);
-            sheet.put(chassisNumber);
-            BOMasterNodeProperty<String> engineNumber= new BOMasterNodeProperty<String>("engineNumber", String.class, to.getEngineNumber(), InventoryBundleResolver.class);
-            sheet.put(engineNumber);
+            BOMasterNodeProperty<String> vehicleDataId = new BOMasterNodeProperty<String>("vehicleDataId", String.class, to.getVehicleDataId(), InventoryBundleResolver.class);
+            sheet.put(vehicleDataId);
+            BOMasterNodeProperty<String> workTypeId= new BOMasterNodeProperty<String>("workTypeId", String.class, to.getWorkTypeId(), InventoryBundleResolver.class);
+            sheet.put(workTypeId);
+            BOMasterNodeProperty<String> workerId= new BOMasterNodeProperty<String>("workerId", String.class, to.getWorkerId(), InventoryBundleResolver.class);
+            sheet.put(workerId);
         }
         return new PropertySet[] {sheet};
     }
 
     //-------------------------------------------------------------------------
     public static Property[] boMasterNodeProperties() {
-        BOMasterNodeProperty<String> plateNumber = new BOMasterNodeProperty<String>("plateNumber", String.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty<String> chassisNumber = new BOMasterNodeProperty<String>("chassisNumber", String.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty<String> engineNumber= new BOMasterNodeProperty<String>("engineNumber", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> vehicleDataId = new BOMasterNodeProperty<String>("vehicleDataId", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> workTypeId = new BOMasterNodeProperty<String>("workTypeId", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> workerId= new BOMasterNodeProperty<String>("workerId", String.class, "", InventoryBundleResolver.class);
         BOMasterNodeProperty[] props = new BOMasterNodeProperty[] {
-            plateNumber, chassisNumber, engineNumber
+            vehicleDataId, workTypeId, workerId
         };
 
         return props;

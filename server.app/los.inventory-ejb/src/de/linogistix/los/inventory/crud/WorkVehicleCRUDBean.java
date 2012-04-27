@@ -28,21 +28,17 @@ public class WorkVehicleCRUDBean extends BusinessObjectCRUDBean<WorkVehicle> imp
 
     //---here
     @Override
-    public WorkVehicle create(VehicleData entity)
+    public WorkVehicle create(WorkVehicle entity)
     throws BusinessObjectExistsException,
         BusinessObjectCreationException, BusinessObjectSecurityException {
 
-        //public String getRemarks() {
-        //public String getManufacturerName() {
-        //public String getModelName() {
-        //public String getPlateNumber() {
-        //public String getChassisNumber() {
-        //public String getEngineNumber() {
-        //public Date getReceiptDate() {
-        //public Date getStorageDate() {
-        //public BigDecimal getMileage() {
+        if (entity.getVehicleDataId() == null) throw new BusinessObjectCreationException();
+        if (entity.getWorkTypeId() == null) throw new BusinessObjectCreationException();
+        if (entity.getWorkerId() == null) throw new BusinessObjectCreationException();
+        if (entity.getScheduleTime() == null) throw new BusinessObjectCreationException();
+        if (entity.getExecuteDeadline() == null) throw new BusinessObjectCreationException();
 
-        if (entity.getPlateNumber() == null || entity.getPlateNumber().length() == 0) throw new BusinessObjectCreationException();
+	//if (entity.getPlateNumber() == null || entity.getPlateNumber().length() == 0) throw new BusinessObjectCreationException();
         //if (entity.getHandlingUnit() == null) throw new BusinessObjectCreationException("missing name", BusinessObjectCreationException.MISSING_FIELD_KEY, new String[] {"handlingUnit"}, BundleResolver.class);
 
         return super.create(entity);

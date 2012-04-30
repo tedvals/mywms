@@ -5,6 +5,7 @@ import java.util.List;
 
 //import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 import org.mywms.model.WorkVehicle;
@@ -13,8 +14,7 @@ import de.linogistix.los.inventory.query.dto.WorkVehicleTO;
 //import de.linogistix.los.inventory.service.ItemDataNumberService;
 import de.linogistix.los.query.LOSResultList;
 import de.linogistix.los.query.BODTO;
-import de.linogistix.los.query.BusinessObjectQueryBean;
-import de.linogistix.los.query.QueryDetail;
+import de.linogistix.los.query.BusinessObjectQueryBean; import de.linogistix.los.query.QueryDetail;
 import de.linogistix.los.query.TemplateQuery;
 import de.linogistix.los.query.TemplateQueryFilter;
 import de.linogistix.los.query.TemplateQueryWhereToken;
@@ -34,14 +34,14 @@ public class WorkVehicleQueryBean extends BusinessObjectQueryBean<WorkVehicle>
     //}
 
     private static final String[] dtoProps = new String[] {
-        "id", "version", "id",
+        "id", "version",
         "vehicleDataId",
-        "vehiclePlate",
+        "vehicleDataId.plateNumber",
         "remarks",
         "workTypeId",
-        "workType",
+        "workTypeId.worktype",
         "workerId",
-        "worker",
+        "workerId.name",
         "urgent",
         "scheduleTime",
         "executeDeadline",
@@ -57,38 +57,38 @@ public class WorkVehicleQueryBean extends BusinessObjectQueryBean<WorkVehicle>
         return WorkVehicleTO.class;
     }
 
-    public LOSResultList<WorkVehicle> queryByDefault(QueryDetail detail, String vehicleDataId, String workTypeId, String workerId) throws BusinessObjectNotFoundException, BusinessObjectQueryException {
+    public LOSResultList<BODTO<WorkVehicle>> queryByDefault(String vehicleDataId, String workTypeId, String workerId, QueryDetail detail) throws BusinessObjectNotFoundException, BusinessObjectQueryException {
         TemplateQuery q = new TemplateQuery();
-        q.setBoClass(tClass);
+        q.setBoClass(WorkVehicle.class);
 
         if( vehicleDataId!= null && vehicleDataId.length() > 0 ) {
             TemplateQueryFilter filter = q.addNewFilter();
 
-            TemplateQueryWhereToken t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.id", vehicleDataId);
+            TemplateQueryWhereToken t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.id", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.labelId", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.labelId", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.manufacturerName", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.manufacturerName", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.modelName", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.modelName", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.plateNumber", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.plateNumber", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.chassisNumber", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.chassisNumber", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
-            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataI.engineNumber", vehicleDataId);
+            t= new TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.engineNumber", vehicleDataId);
             t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
             filter.addWhereToken(t);
 
@@ -127,15 +127,23 @@ public class WorkVehicleQueryBean extends BusinessObjectQueryBean<WorkVehicle>
 
         //}
 
-        try {
-            return queryByTemplate(detail, q);
-	    //return queryByTemplateHandles(detail, q);
-        } catch (BusinessObjectNotFoundException bex) {
-            return new LOSResultList<WorkVehicle>();
-        } catch (Throwable t) {
-            log.error(t.getMessage(), t);
-            throw new BusinessObjectQueryException();
-        }
+	//try {
+	//return queryByTemplate(detail, q);
+	////return queryByTemplateHandles(detail, q);
+	//} catch (BusinessObjectNotFoundException bex) {
+	//return new LOSResultList<WorkVehicle>();
+	//} catch (Throwable t) {
+	//log.error(t.getMessage(), t);
+	//throw new BusinessObjectQueryException();
+	//}
+		try {
+			return queryByTemplateHandles(detail, q);
+		} catch (BusinessObjectNotFoundException bex) {
+			return new LOSResultList<BODTO<WorkVehicle>>();
+		} catch (Throwable t) {
+			log.error(t.getMessage(), t);
+			throw new BusinessObjectQueryException();
+		}
     }
 
     @Override

@@ -10,12 +10,12 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
 
     private static final long serialVersionUID = 1L;
 
-    private String vehicleDataId;
+    private Long vehicleDataId;
     private String vehiclePlate;
     private String remarks;
-    private String workTypeId;
+    private Long workTypeId;
     private String workType;
-    private String workerId;
+    private Long workerId;
     private String worker;
     private boolean urgent = false;
     private Date scheduleTime;
@@ -23,12 +23,12 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
 
     public WorkVehicleTO(WorkVehicle idat) {
         super(idat.getId(), idat.getVersion(), idat.getId());
-        this.vehicleDataId	= idat.getVehicleDataId().getLabelId();
+        this.vehicleDataId	= idat.getVehicleDataId().getId();
         this.vehiclePlate	= idat.getVehicleDataId().getPlateNumber();
         this.remarks		= idat.getRemarks();
-        this.workTypeId		= idat.getWorkTypeId().getId().toString();
+        this.workTypeId		= idat.getWorkTypeId().getId();
         this.workType		= idat.getWorkTypeId().getworktype();
-        this.workerId		= idat.getWorkerId().getId().toString();
+        this.workerId		= idat.getWorkerId().getId();
         this.worker		= idat.getWorkerId().getName();
         this.urgent 		= idat.isUrgent();
         this.scheduleTime	= idat.getScheduleTime();
@@ -39,8 +39,8 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
         super(id, version, id);
     }
 
-    public WorkVehicleTO(Long id, int version, Long name,
-                         String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
+    public WorkVehicleTO(Long id, int version,
+                         Long vehicleDataId, String vehiclePlate, String remarks, Long workTypeId, String workType, Long workerId,
                          String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
         super(id, version, id);
         this.vehicleDataId	= vehicleDataId;
@@ -55,11 +55,53 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
         this.executeDeadline	= executeDeadline;
     }
 
-    public String getVehicleDataId() {
+//o.id, o.version, o.id, 
+//o.vehicleDataId, 
+//o.vehicleDataId.plateNumber, 
+//o.remarks, 
+//o.workTypeId, 
+//o.workTypeId.worktype, 
+//o.workerId, 
+//o.workerId.name, 
+//o.urgent, 
+//o.scheduleTime, 
+//o.executeDeadline) 
+
+    //public WorkVehicleTO(String id, int version, String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
+                         //String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
+        //super(id, version, id);
+        //this.vehicleDataId	= vehicleDataId;
+        //this.vehiclePlate	= vehiclePlate;
+        //this.remarks		= remarks;
+        //this.workTypeId		= workTypeId;
+        //this.workType		= workType;
+        //this.workerId		= workerId;
+        //this.worker		= worker;
+        //this.urgent 		= urgent;
+        //this.scheduleTime	= scheduleTime;
+        //this.executeDeadline	= executeDeadline;
+    //}
+
+    //public WorkVehicleTO(String id, int version, String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
+                         //String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
+        //super(id, version, id);
+        //this.vehicleDataId	= vehicleDataId;
+        //this.vehiclePlate	= vehiclePlate;
+        //this.remarks		= remarks;
+        //this.workTypeId		= workTypeId;
+        //this.workType		= workType;
+        //this.workerId		= workerId;
+        //this.worker		= worker;
+        //this.urgent 		= urgent;
+        //this.scheduleTime	= scheduleTime;
+        //this.executeDeadline	= executeDeadline;
+    //}
+
+    public Long getVehicleDataId() {
         return vehicleDataId;
     }
 
-    public void setVehicleDataId(String vehicleDataId) {
+    public void setVehicleDataId(Long vehicleDataId) {
         this.vehicleDataId = vehicleDataId;
     }
 
@@ -79,11 +121,11 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
         this.remarks = remarks;
     }
 
-    public String getWorkTypeId() {
+    public Long getWorkTypeId() {
         return workTypeId;
     }
 
-    public void setWorkTypeId(String workTypeId) {
+    public void setWorkTypeId(Long workTypeId) {
         this.workTypeId = workTypeId;
     }
 
@@ -95,11 +137,11 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
         this.workType = workType;
     }
 
-    public String getWorkerId() {
+    public Long getWorkerId() {
         return workerId;
     }
 
-    public void setWorkerId(String workerId) {
+    public void setWorkerId(Long workerId) {
         this.workerId = workerId;
     }
 

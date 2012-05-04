@@ -21,12 +21,16 @@ import javax.persistence.PreUpdate;
 import javax.persistence.UniqueConstraint;
 
 import org.mywms.facade.FacadeException;*/
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.UniqueConstraint;
+import org.mywms.service.ConstraintViolatedException;
 
 @Entity
-@Table(name = "los_work_type")
-/*, uniqueConstraints = { 
+@Table(name = "los_work_type"
+, uniqueConstraints = { 
 		@UniqueConstraint(columnNames = {
-				"\"EANUMBER\"","itemdata_id" }) })*/
+				"worktype"}) })
 @Inheritance(strategy = InheritanceType.JOINED)
 public class WorkType extends BasicEntity
 {
@@ -44,6 +48,7 @@ public class WorkType extends BasicEntity
         this.remarks = remarks;
     }
     
+    @Column(nullable=false)
     public String getworktype() {
         return worktype;
     }
@@ -51,7 +56,7 @@ public class WorkType extends BasicEntity
     public void setworktype(String worktype) {
         this.worktype = worktype;
     }
-    
+
     public boolean isPeriodic() {
         return periodic;
     }
@@ -76,6 +81,32 @@ public class WorkType extends BasicEntity
 
     public void setCompletionTime(BigDecimal completionTime) {
         this.completionTime = completionTime;
+    }
+    
+	@Override
+	public String toUniqueString() {
+		if (getworktype() != null) {
+			return getworktype();
+		} else {
+			return getId().toString();
+		}
+	}
+
+    @PreUpdate
+    @PrePersist
+    public void sanityCheck() throws BusinessException, ConstraintViolatedException {
+
+        if (getId() != null) {
+            if (( getworktype() == null || getworktype().length() == 0 )) {
+                setworktype(getId().toString());
+            } else {
+                //ok
+            }
+        } else {
+            throw new RuntimeException("Id cannot be retrieved yet - hence worktype cannot be set");
+        }
+
+
     }
     
 }

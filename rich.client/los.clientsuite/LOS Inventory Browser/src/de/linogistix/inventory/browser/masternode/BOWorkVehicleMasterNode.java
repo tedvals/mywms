@@ -42,25 +42,25 @@ public class BOWorkVehicleMasterNode extends BOMasterNode {
         if (sheet == null) {
             sheet = new Sheet.Set();
             
-            BOMasterNodeProperty<Long> vehicleDataId = new BOMasterNodeProperty<String>("vehicleDataId", Long.class, to.getVehicleDataId(), InventoryBundleResolver.class);
-            sheet.put(vehicleDataId);
-            BOMasterNodeProperty<Long> workTypeId= new BOMasterNodeProperty<String>("workTypeId", Long.class, to.getWorkTypeId(), InventoryBundleResolver.class);
-            sheet.put(workTypeId);
-            BOMasterNodeProperty<Long> workerId= new BOMasterNodeProperty<String>("workerId", Long.class, to.getWorkerId(), InventoryBundleResolver.class);
-            sheet.put(workerId);
+            BOMasterNodeProperty<String> vehicleData = new BOMasterNodeProperty<String>("vehicleData", String.class, to.getVehicleData(), InventoryBundleResolver.class);
+            sheet.put(vehicleData);
+            BOMasterNodeProperty<String> workType= new BOMasterNodeProperty<String>("workType", String.class, to.getWorkType(), InventoryBundleResolver.class);
+            sheet.put(workType);
+            BOMasterNodeProperty<String> worker= new BOMasterNodeProperty<String>("worker", String.class, to.getWorker(), InventoryBundleResolver.class);
+            sheet.put(worker);
         }
         return new PropertySet[] {sheet};
     }
 
     //-------------------------------------------------------------------------
     public static Property[] boMasterNodeProperties() {
-        BOMasterNodeProperty<Long> vehicleDataId = new BOMasterNodeProperty<Long>("vehicleDataId", Long.class, 0, InventoryBundleResolver.class);
-        BOMasterNodeProperty<Long> workTypeId = new BOMasterNodeProperty<Long>("workTypeId", Long.class, "", InventoryBundleResolver.class);
-        BOMasterNodeProperty<Long> workerId= new BOMasterNodeProperty<Long>("workerId", Long.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> vehicleData = new BOMasterNodeProperty<String>("vehicleData", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> workType = new BOMasterNodeProperty<String>("workType", String.class, "", InventoryBundleResolver.class);
+        BOMasterNodeProperty<String> worker = new BOMasterNodeProperty<String>("worker", String.class, "", InventoryBundleResolver.class);
         BOMasterNodeProperty[] props = new BOMasterNodeProperty[] {
-            vehicleDataId, workTypeId, workerId
+            vehicleData, workType, worker
         };
-
+//Long.valueOf(0)
         return props;
     }
 }

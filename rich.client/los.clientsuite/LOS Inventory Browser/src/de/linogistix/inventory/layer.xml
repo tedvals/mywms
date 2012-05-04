@@ -255,22 +255,10 @@
                 <file name="de-linogistix-inventory-browser-bo-BOWorkVehicle.instance">
                     <attr name="position" intvalue="100"/>
                 </file>
-<!-- 
-                <file name="de-linogistix-inventory-browser-bo-BOPickReceiptPosition.instance">
+                <file name="de-linogistix-inventory-browser-bo-BOWorkType.instance">
                     <attr name="position" intvalue="200"/>
-                    <attr name="showInExplorer" boolvalue="false"/>
                 </file>
-                <file name="de-linogistix-inventory-browser-bo-BOOrderReceipt.instance">
-                    <attr name="position" intvalue="300"/>
-                </file>
-                <file name="de-linogistix-inventory-browser-bo-BOOrderReceiptPosition.instance">
-                    <attr name="position" intvalue="400"/>
-                    <attr name="showInExplorer" boolvalue="false"/>
-                </file>
-                <file name="de-linogistix-inventory-browser-bo-BOStockUnitLabel.instance">
-                    <attr name="position" intvalue="500"/>
-		</file>
--->
+
             </folder>
     </folder>
 </filesystem>

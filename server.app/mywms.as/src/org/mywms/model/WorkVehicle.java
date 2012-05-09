@@ -23,10 +23,13 @@ import javax.persistence.ManyToOne;
 //import javax.persistence.PrePersist;
 //import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-//import javax.persistence.UniqueConstraint;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import org.mywms.service.ConstraintViolatedException;
 /*import org.mywms.facade.FacadeException;
 import org.mywms.globals.SerialNoRecordType;
 import org.mywms.globals.ReparabilityCodeType;
@@ -37,12 +40,12 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @Entity
-@Table(name="mywms_workvehicle")
-/*,uniqueConstraints = {
+@Table(name="mywms_workvehicle"
+,uniqueConstraints = {
     @UniqueConstraint(columnNames = {
-        "client_id", "item_nr"
+        "labelId"
     })
-})*/
+})
 @Inheritance(strategy = InheritanceType.JOINED)
 public class WorkVehicle
     extends BasicEntity {
@@ -54,6 +57,7 @@ public class WorkVehicle
     private boolean urgent = false;
     private Date scheduleTime;
     private Date executeDeadline;
+    private String labelId;
 
     @ManyToOne(optional = false)
     public VehicleData getVehicleDataId() {
@@ -116,6 +120,41 @@ public class WorkVehicle
 
     public void setExecuteDeadline(Date executeDeadline) {
         this.executeDeadline = executeDeadline;
+    }
+
+    @Column(nullable = false)
+    public String getLabelId() {
+        return this.labelId;
+    }
+
+    public void setLabelId(String labelId) {
+        this.labelId = labelId;
+    }
+
+	@Override
+	public String toUniqueString() {
+		if (getLabelId() != null) {
+			return getLabelId();
+		} else {
+			return getId().toString();
+		}
+	}
+
+    @PreUpdate
+    @PrePersist
+    public void sanityCheck() throws BusinessException, ConstraintViolatedException {
+
+        if (getId() != null) {
+            if (( getLabelId() == null || getLabelId().length() == 0 )) {
+                setLabelId(getId().toString());
+            } else {
+                //ok
+            }
+        } else {
+            throw new RuntimeException("Id cannot be retrieved yet - hence labelId cannot be set");
+        }
+
+
     }
 
 }

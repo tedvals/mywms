@@ -82,7 +82,7 @@ public class BOWorkVehicle extends BO {
   }
   
    protected String[] initIdentifiableProperties() {
-    return new String[]{"id"};
+    return new String[]{"labelId"};
   }
 
     @Override

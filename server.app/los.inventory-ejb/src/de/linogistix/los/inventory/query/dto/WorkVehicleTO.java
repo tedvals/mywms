@@ -10,107 +10,49 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
 
     private static final long serialVersionUID = 1L;
 
-    private Long vehicleDataId;
-    private String vehiclePlate;
-    private String remarks;
-    private Long workTypeId;
-    private String workType;
-    private Long workerId;
-    private String worker;
+    private String vehicleData = "";
+    private String remarks = "";
+    private String workType = "";
+    private String worker = "";
     private boolean urgent = false;
     private Date scheduleTime;
     private Date executeDeadline;
 
     public WorkVehicleTO(WorkVehicle idat) {
-        super(idat.getId(), idat.getVersion(), idat.getId());
-        this.vehicleDataId	= idat.getVehicleDataId().getId();
-        this.vehiclePlate	= idat.getVehicleDataId().getPlateNumber();
+        super(idat.getId(), idat.getVersion(), idat.getLabelId());
+        this.vehicleData	= idat.getVehicleDataId().getLabelId();
         this.remarks		= idat.getRemarks();
-        this.workTypeId		= idat.getWorkTypeId().getId();
         this.workType		= idat.getWorkTypeId().getworktype();
-        this.workerId		= idat.getWorkerId().getId();
-        this.worker		= idat.getWorkerId().getName();
+        this.worker			= idat.getWorkerId().getName();
         this.urgent 		= idat.isUrgent();
         this.scheduleTime	= idat.getScheduleTime();
-        this.executeDeadline	= idat.getExecuteDeadline();
+        this.executeDeadline= idat.getExecuteDeadline();
     }
 
-    public WorkVehicleTO(Long id, int version) {
-        super(id, version, id);
+    public WorkVehicleTO(Long id, int version, String name) {
+        super(id, version, name);
     }
 
-    public WorkVehicleTO(Long id, int version,
-                         Long vehicleDataId, String vehiclePlate, String remarks, Long workTypeId, String workType, Long workerId,
-                         String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
-        super(id, version, id);
-        this.vehicleDataId	= vehicleDataId;
-        this.vehiclePlate	= vehiclePlate;
+    public WorkVehicleTO(Long id, int version, String name,
+    		String vehicleData, String remarks, String workType, String worker,
+    		boolean urgent, Date scheduleTime, Date executeDeadline) {
+        super(id, version, name);
+        this.vehicleData	= vehicleData;
         this.remarks		= remarks;
-        this.workTypeId		= workTypeId;
         this.workType		= workType;
-        this.workerId		= workerId;
-        this.worker		= worker;
+        this.worker			= worker;
         this.urgent 		= urgent;
         this.scheduleTime	= scheduleTime;
-        this.executeDeadline	= executeDeadline;
+        this.executeDeadline= executeDeadline;
+    }
+  
+
+    public String getVehicleData() {
+        return vehicleData;
     }
 
-//o.id, o.version, o.id, 
-//o.vehicleDataId, 
-//o.vehicleDataId.plateNumber, 
-//o.remarks, 
-//o.workTypeId, 
-//o.workTypeId.worktype, 
-//o.workerId, 
-//o.workerId.name, 
-//o.urgent, 
-//o.scheduleTime, 
-//o.executeDeadline) 
-
-    //public WorkVehicleTO(String id, int version, String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
-                         //String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
-        //super(id, version, id);
-        //this.vehicleDataId	= vehicleDataId;
-        //this.vehiclePlate	= vehiclePlate;
-        //this.remarks		= remarks;
-        //this.workTypeId		= workTypeId;
-        //this.workType		= workType;
-        //this.workerId		= workerId;
-        //this.worker		= worker;
-        //this.urgent 		= urgent;
-        //this.scheduleTime	= scheduleTime;
-        //this.executeDeadline	= executeDeadline;
-    //}
-
-    //public WorkVehicleTO(String id, int version, String vehicleDataId, String vehiclePlate, String remarks, String workTypeId, String workType, String workerId,
-                         //String worker, boolean urgent, Date scheduleTime, Date executeDeadline) {
-        //super(id, version, id);
-        //this.vehicleDataId	= vehicleDataId;
-        //this.vehiclePlate	= vehiclePlate;
-        //this.remarks		= remarks;
-        //this.workTypeId		= workTypeId;
-        //this.workType		= workType;
-        //this.workerId		= workerId;
-        //this.worker		= worker;
-        //this.urgent 		= urgent;
-        //this.scheduleTime	= scheduleTime;
-        //this.executeDeadline	= executeDeadline;
-    //}
-
-    public Long getVehicleDataId() {
-        return vehicleDataId;
-    }
-
-    public void setVehicleDataId(Long vehicleDataId) {
-        this.vehicleDataId = vehicleDataId;
-    }
-
-    public String getVehiclePlate() {
-        return vehiclePlate;
-    }
-
-    public void setVehiclePlate(String vehiclePlate) {
-        this.vehiclePlate = vehiclePlate;
+    public void setVehicleData(String vehicleData) {
+        this.vehicleData = vehicleData;
     }
 
     public String getRemarks() {
@@ -121,28 +63,12 @@ public class WorkVehicleTO extends BODTO<WorkVehicle> {
         this.remarks = remarks;
     }
 
-    public Long getWorkTypeId() {
-        return workTypeId;
-    }
-
-    public void setWorkTypeId(Long workTypeId) {
-        this.workTypeId = workTypeId;
-    }
-
     public String getWorkType() {
         return workType;
     }
 
     public void setWorkType(String workType) {
         this.workType = workType;
-    }
-
-    public Long getWorkerId() {
-        return workerId;
-    }
-
-    public void setWorkerId(Long workerId) {
-        this.workerId = workerId;
     }
 
     public String getWorker() {

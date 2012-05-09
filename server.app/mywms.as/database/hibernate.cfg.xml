@@ -4,14 +4,14 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
                
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:los</property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost/localdb</property>
         <property name="hibernate.default_schema">JBOSS</property>
-        <property name="hibernate.connection.username">jboss</property>
-        <property name="hibernate.connection.password">jboss</property>
-
+        <property name="hibernate.connection.username">SA</property>
+        <property name="hibernate.connection.password"></property>
+	
 	<property name="hibernate.show.sql">true</property>
                 
         <mapping class="org.mywms.model.Area"/>
@@ -24,23 +24,23 @@
         <mapping class="org.mywms.model.ItemData"/>
         <mapping class="org.mywms.model.LogItem"/>
         <mapping class="org.mywms.model.MoveRequest"/>        
-  		<mapping class="org.mywms.model.PickingRequest"/>
-  		<mapping class="org.mywms.model.PickingRequestPosition"/>  
-  		<mapping class="org.mywms.model.PluginConfiguration"/>  
-  		<mapping class="org.mywms.model.Request"/>  
-  		<mapping class="org.mywms.model.Role"/>
+	<mapping class="org.mywms.model.PickingRequest"/>
+	<mapping class="org.mywms.model.PickingRequestPosition"/>  
+	<mapping class="org.mywms.model.PluginConfiguration"/>  
+	<mapping class="org.mywms.model.Request"/>  
+	<mapping class="org.mywms.model.Role"/>
         <mapping class="org.mywms.model.StockUnit"/>
         <mapping class="org.mywms.model.StorageLocation"/>
         <mapping class="org.mywms.model.TransportRequest"/>
         <mapping class="org.mywms.model.UnitLoad"/>
         <mapping class="org.mywms.model.UnitLoadType"/>
         <mapping class="org.mywms.model.User"/>
-		<mapping class="org.mywms.model.VehicleData"/>
-		<mapping class="org.mywms.model.WorkType"/>
-		<mapping class="org.mywms.model.WorkVehicle"/>
-		<mapping class="org.mywms.model.WorkItem"/>
-		<mapping class="org.mywms.model.WorkVehicleHistory"/>
-		<mapping class="org.mywms.model.WorkItemHistory"/>
+	<mapping class="org.mywms.model.VehicleData"/>
+	<mapping class="org.mywms.model.WorkType"/>
+	<mapping class="org.mywms.model.WorkVehicle"/>
+	<mapping class="org.mywms.model.WorkItem"/>
+	<mapping class="org.mywms.model.WorkVehicleHistory"/>
+	<mapping class="org.mywms.model.WorkItemHistory"/>
         <mapping class="org.mywms.model.Zone"/>
         
     </session-factory>

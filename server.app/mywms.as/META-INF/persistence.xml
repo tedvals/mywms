@@ -22,7 +22,7 @@
      -->
 
     <property name="hibernate.dialect"
-             value="org.hibernate.dialect.Oracle10gDialect" />
+	    value="org.hibernate.dialect.HSQLDialect" />
   </properties>
   
   </persistence-unit>

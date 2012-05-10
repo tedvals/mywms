@@ -40,6 +40,41 @@
 
 	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="toolslib" />
 
+	<target name="hsql.local.dropSchema" description="Deletes all tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+		<hibernatetool destdir=".">
+			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties"/>
+			<classpath refid="entityclasses" />
+			<hbm2ddl export="true" create="false" update="false" drop="true" />
+		</hibernatetool>
+	</target>
+
+	<target name="hsql.local.createSchema" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+		<hibernatetool destdir=".">
+			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties"/>
+			<classpath refid="entityclasses" />
+			<hbm2ddl export="true" create="true" />
+		</hibernatetool>
+
+		<!--
+		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
+
+			<classpath refid="toolslib" />
+			<transaction src="./initdata-postgres.sql" />
+
+		</sql>
+		-->
+		
+	</target>
+
+	<target name="hsql.local.init" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+
+		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
+
+			<classpath refid="toolslib" />
+			<transaction src="./initdata-oracle.sql" />
+
+		</sql>
+	</target>
 
 	<target name="hsql.SQLCreateScript">
 		<mkdir dir="./output" />

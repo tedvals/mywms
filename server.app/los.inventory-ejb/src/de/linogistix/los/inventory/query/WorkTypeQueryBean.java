@@ -60,8 +60,8 @@ public class WorkTypeQueryBean extends BusinessObjectQueryBean<WorkType>
 //idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
         TemplateQueryWhereToken periodic = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_LIKE, "periodic", value);
-        periodic.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+            TemplateQueryWhereToken.OPERATOR_LIKE, "worktype", value);
+        worktype.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_EQUAL);
 
         TemplateQueryWhereToken periodicCircle = new TemplateQueryWhereToken(
             TemplateQueryWhereToken.OPERATOR_LIKE, "periodicCircle", value);
@@ -72,7 +72,7 @@ public class WorkTypeQueryBean extends BusinessObjectQueryBean<WorkType>
         completionTime.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
 //ret.add(idt);
-        ret.add(periodic);
+        ret.add(worktype);
         ret.add(periodicCircle);
         ret.add(completionTime);
 

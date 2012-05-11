@@ -10,7 +10,7 @@ public class WorkTypeTO extends BODTO<WorkType> {
     private static final long serialVersionUID = 1L;
 
     private String remarks;
-    private String worktype;
+    //private String worktype;
     private boolean periodic = false;
     private BigDecimal periodicCircle;
     private BigDecimal completionTime;
@@ -18,25 +18,27 @@ public class WorkTypeTO extends BODTO<WorkType> {
 
     public WorkTypeTO(WorkType idat) {
         super(idat.getId(), idat.getVersion(), idat.getworktype());
-	this.remarks		= idat.getRemarks();
-	this.worktype		= idat.getworktype();
-	this.periodic 		= idat.isPeriodic();
-	this.periodicCircle	= idat.getPeriodicCircle();
-	this.completionTime	= idat.getCompletionTime();
+        this.remarks		= idat.getRemarks();
+	//this.worktype		= idat.getworktype();
+        this.periodic 		= idat.isPeriodic();
+        this.periodicCircle	= idat.getPeriodicCircle();
+        this.completionTime	= idat.getCompletionTime();
     }
 
-	public WorkTypeTO(Long id, int version, String name){
-		super(id, version, name);
-	}
+    public WorkTypeTO(Long id, int version, String name) {
+        super(id, version, name);
+    }
 
     public WorkTypeTO(Long id, int version, String name,
-    	String remarks, String worktype, boolean periodic, BigDecimal periodicCircle, BigDecimal completionTime) {
+                      String remarks, 
+		      //String worktype, 
+		      boolean periodic, BigDecimal periodicCircle, BigDecimal completionTime) {
         super(id, version, name);
-	this.remarks		= remarks;
-	this.worktype		= worktype;
-	this.periodic 		= periodic;
-	this.periodicCircle	= periodicCircle;
-	this.completionTime	= completionTime;
+        this.remarks		= remarks;
+	//this.worktype		= worktype;
+        this.periodic 		= periodic;
+        this.periodicCircle	= periodicCircle;
+        this.completionTime	= completionTime;
     }
 
     public String getRemarks() {
@@ -46,14 +48,14 @@ public class WorkTypeTO extends BODTO<WorkType> {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
-    
-    public String getworktype() {
-        return worktype;
-    }
 
-    public void setworktype(String worktype) {
-        this.worktype = worktype;
-    }
+    //public String getworktype() {
+        //return worktype;
+    //}
+
+    //public void setworktype(String worktype) {
+        //this.worktype = worktype;
+    //}
 
     public boolean isPeriodic() {
         return periodic;

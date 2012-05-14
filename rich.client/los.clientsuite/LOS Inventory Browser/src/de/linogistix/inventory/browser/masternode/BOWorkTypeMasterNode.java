@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2006 LinogistiX GmbH. All rights reserved.
- *
- *<a href="http://www.linogistix.com/">browse for licence information</a>
- *
- */
 package de.linogistix.inventory.browser.masternode;
 
 import de.linogistix.common.bobrowser.bo.BOMasterNode;
@@ -49,8 +43,8 @@ public class BOWorkTypeMasterNode extends BOMasterNode {
     public static Property[] boMasterNodeProperties() {
 	    //BOMasterNodeProperty<String> worktype = new BOMasterNodeProperty<String>("worktype", String.class, "", InventoryBundleResolver.class);
 	    //BOMasterNodeProperty<Boolean> periodic = new BOMasterNodeProperty<Boolean>("periodic", Boolean.class, Boolean.FALSE, InventoryBundleResolver.class);
-        BOMasterNodeProperty<Integer> periodicCircle = new BOMasterNodeProperty<Integer>("periodicCircle", Integer.class, 0, InventoryBundleResolver.class);
-        BOMasterNodeProperty<Integer> completionTime = new BOMasterNodeProperty<Integer>("completionTime", Integer.class, 0, InventoryBundleResolver.class);
+        BOMasterNodeProperty<BigDecimal> periodicCircle = new BOMasterNodeProperty<BigDecimal>("periodicCircle", BigDecimal.class, BigDecimal.ZERO, InventoryBundleResolver.class);
+        BOMasterNodeProperty<BigDecimal> completionTime = new BOMasterNodeProperty<BigDecimal>("completionTime", BigDecimal.class, BigDecimal.ZERO, InventoryBundleResolver.class);
         BOMasterNodeProperty[] props = new BOMasterNodeProperty[] {
 		//worktype, 
 		//periodic, 

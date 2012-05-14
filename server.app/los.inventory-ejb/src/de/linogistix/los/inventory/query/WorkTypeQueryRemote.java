@@ -13,5 +13,5 @@ import de.linogistix.los.query.exception.BusinessObjectQueryException;
 
 @Remote
 public interface WorkTypeQueryRemote extends BusinessObjectQueryRemote<WorkType>{ 
-	public LOSResultList<WorkType> queryByWorkType(QueryDetail d, String vdId) throws BusinessObjectNotFoundException, BusinessObjectQueryException;
+	//public LOSResultList<WorkType> queryByWorkType(QueryDetail d, String vdId) throws BusinessObjectNotFoundException, BusinessObjectQueryException;
 }

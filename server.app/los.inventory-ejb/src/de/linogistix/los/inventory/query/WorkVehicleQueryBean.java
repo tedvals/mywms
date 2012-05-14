@@ -53,142 +53,143 @@ public class WorkVehicleQueryBean extends BusinessObjectQueryBean<WorkVehicle>
 	public Class<WorkVehicleTO> getBODTOClass() {
 		return WorkVehicleTO.class;
 	}
-	public LOSResultList<BODTO<WorkVehicle>> queryByDefault(String vehicleData, String workType, String worker, QueryDetail d) throws BusinessObjectNotFoundException, BusinessObjectQueryException {
-		TemplateQuery q = new TemplateQuery();
-		q.setBoClass(WorkVehicle.class);
 
-		if (vehicleData != null && vehicleData.length() > 0) {
-			TemplateQueryFilter filter = q.addNewFilter();
+	//public LOSResultList<BODTO<WorkVehicle>> queryByDefault(String vehicleData, String workType, String worker, QueryDetail d) throws BusinessObjectNotFoundException, BusinessObjectQueryException {
+		//TemplateQuery q = new TemplateQuery();
+		//q.setBoClass(WorkVehicle.class);
 
-			TemplateQueryWhereToken t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.id",
-					vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+		//if (vehicleData != null && vehicleData.length() > 0) {
+			//TemplateQueryFilter filter = q.addNewFilter();
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.labelId", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//TemplateQueryWhereToken t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.id",
+					//vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.manufacturerName", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.labelId", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.modelName", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.manufacturerName", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.plateNumber", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.modelName", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.chassisNumber", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.plateNumber", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			t = new TemplateQueryWhereToken(
-					TemplateQueryWhereToken.OPERATOR_LIKE,
-					"vehicleDataId.engineNumber", vehicleData);
-			t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.chassisNumber", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			// t = new
-			// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
-			// "parent.client.number", master);
-			// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			// filter.addWhereToken(t);
+			//t = new TemplateQueryWhereToken(
+					//TemplateQueryWhereToken.OPERATOR_LIKE,
+					//"vehicleDataId.engineNumber", vehicleData);
+			//t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//filter.addWhereToken(t);
 
-			// ItemDataNumber idn = idnService.getByNumber(master);
-			// if( idn != null ) {
-			// t = new
-			// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_EQUAL,
-			// "parent.id", idn.getItemData().getId());
-			// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-			// filter.addWhereToken(t);
-			// }
-		}
-		// if( child != null && child.length() > 0 ) {
-		// TemplateQueryFilter filter = q.addNewFilter();
+			//// t = new
+			//// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
+			//// "parent.client.number", master);
+			//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//// filter.addWhereToken(t);
 
-		// TemplateQueryWhereToken t= new
-		// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
-		// "child.number", child);
-		// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-		// filter.addWhereToken(t);
+			//// ItemDataNumber idn = idnService.getByNumber(master);
+			//// if( idn != null ) {
+			//// t = new
+			//// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_EQUAL,
+			//// "parent.id", idn.getItemData().getId());
+			//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+			//// filter.addWhereToken(t);
+			//// }
+		//}
+		//// if( child != null && child.length() > 0 ) {
+		//// TemplateQueryFilter filter = q.addNewFilter();
 
-		// t= new TemplateQueryWhereToken(
-		// TemplateQueryWhereToken.OPERATOR_LIKE, "child.name", child);
-		// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-		// filter.addWhereToken(t);
+		//// TemplateQueryWhereToken t= new
+		//// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
+		//// "child.number", child);
+		//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+		//// filter.addWhereToken(t);
 
-		// t = new
-		// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
-		// "child.client.number", child);
-		// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-		// filter.addWhereToken(t);
+		//// t= new TemplateQueryWhereToken(
+		//// TemplateQueryWhereToken.OPERATOR_LIKE, "child.name", child);
+		//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+		//// filter.addWhereToken(t);
 
-		// ItemDataNumber idn = idnService.getByNumber(child);
-		// if( idn != null ) {
-		// t = new
-		// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_EQUAL,
-		// "child.id", idn.getItemData().getId());
-		// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-		// filter.addWhereToken(t);
-		// }
+		//// t = new
+		//// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_LIKE,
+		//// "child.client.number", child);
+		//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+		//// filter.addWhereToken(t);
 
-		// }
+		//// ItemDataNumber idn = idnService.getByNumber(child);
+		//// if( idn != null ) {
+		//// t = new
+		//// TemplateQueryWhereToken(TemplateQueryWhereToken.OPERATOR_EQUAL,
+		//// "child.id", idn.getItemData().getId());
+		//// t.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+		//// filter.addWhereToken(t);
+		//// }
 
-		// try {
-		// return queryByTemplate(detail, q);
-		// //return queryByTemplateHandles(detail, q);
-		// } catch (BusinessObjectNotFoundException bex) {
-		// return new LOSResultList<WorkVehicle>();
-		// } catch (Throwable t) {
-		// log.error(t.getMessage(), t);
-		// throw new BusinessObjectQueryException();
-		// }
-		try {
-			return queryByTemplateHandles(d, q);
-		} catch (BusinessObjectNotFoundException bex) {
-			return new LOSResultList<BODTO<WorkVehicle>>();
-		} catch (Throwable t) {
-			log.error(t.getMessage(), t);
-			throw new BusinessObjectQueryException();
-		}
-	}
+		//// }
+
+		//// try {
+		//// return queryByTemplate(detail, q);
+		//// //return queryByTemplateHandles(detail, q);
+		//// } catch (BusinessObjectNotFoundException bex) {
+		//// return new LOSResultList<WorkVehicle>();
+		//// } catch (Throwable t) {
+		//// log.error(t.getMessage(), t);
+		//// throw new BusinessObjectQueryException();
+		//// }
+		//try {
+			//return queryByTemplateHandles(d, q);
+		//} catch (BusinessObjectNotFoundException bex) {
+			//return new LOSResultList<BODTO<WorkVehicle>>();
+		//} catch (Throwable t) {
+			//log.error(t.getMessage(), t);
+			//throw new BusinessObjectQueryException();
+		//}
+	//}
 
 	@Override
 	protected List<TemplateQueryWhereToken> getAutoCompletionTokens(String value) {
 		List<TemplateQueryWhereToken> ret = new ArrayList<TemplateQueryWhereToken>();
 		
-		Long id;
-		try{
-			id = Long.parseLong(value);
-		} catch (Throwable t){
-			id = new Long(-1);
-		}
-		TemplateQueryWhereToken idt = new TemplateQueryWhereToken(
-				TemplateQueryWhereToken.OPERATOR_EQUAL, "id", id);
-		idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
-		ret.add(idt);
+		//Long id;
+		//try{
+			//id = Long.parseLong(value);
+		//} catch (Throwable t){
+			//id = new Long(-1);
+		//}
+		//TemplateQueryWhereToken idt = new TemplateQueryWhereToken(
+				//TemplateQueryWhereToken.OPERATOR_EQUAL, "id", id);
+		//idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+		//ret.add(idt);
 		
-		/*TemplateQueryWhereToken labelId = new TemplateQueryWhereToken(
+		TemplateQueryWhereToken labelId = new TemplateQueryWhereToken(
 		TemplateQueryWhereToken.OPERATOR_EQUAL, "labelId",
 		value);
 		labelId.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 		ret.add(labelId);
 		
-		TemplateQueryWhereToken vehicleDataId = new TemplateQueryWhereToken(
+		/*TemplateQueryWhereToken vehicleDataId = new TemplateQueryWhereToken(
 				TemplateQueryWhereToken.OPERATOR_LIKE, "vehicleDataId.labelId",
 				value);
 		vehicleDataId.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);

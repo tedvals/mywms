@@ -59,35 +59,35 @@ public class WorkTypeQueryBean extends BusinessObjectQueryBean<WorkType>
         //value);
 //idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-        TemplateQueryWhereToken periodic = new TemplateQueryWhereToken(
+        TemplateQueryWhereToken worktype = new TemplateQueryWhereToken(
             TemplateQueryWhereToken.OPERATOR_LIKE, "worktype", value);
-        worktype.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_EQUAL);
+        worktype.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-        TemplateQueryWhereToken periodicCircle = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_LIKE, "periodicCircle", value);
-        periodicCircle.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+	//TemplateQueryWhereToken periodicCircle = new TemplateQueryWhereToken(
+		//TemplateQueryWhereToken.OPERATOR_EQUAL, "periodicCircle", value);
+	//periodicCircle.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-        TemplateQueryWhereToken completionTime = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_LIKE, "completionTime", value);
-        completionTime.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+	//TemplateQueryWhereToken completionTime = new TemplateQueryWhereToken(
+		//TemplateQueryWhereToken.OPERATOR_EQUAL, "completionTime", value);
+	//completionTime.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
 //ret.add(idt);
         ret.add(worktype);
-        ret.add(periodicCircle);
-        ret.add(completionTime);
+	//ret.add(periodicCircle);
+	//ret.add(completionTime);
 
         return ret;
     }
 
-    public LOSResultList<WorkType> queryByWorkType(QueryDetail detail, String vdId)
-    throws BusinessObjectNotFoundException, BusinessObjectQueryException {
-        TemplateQuery q = new TemplateQuery();
-        q.setBoClass(tClass);
-        TemplateQueryWhereToken l = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_EQUAL, "worktype", vdId);
-        q.addWhereToken(l);
+    //public LOSResultList<WorkType> queryByWorkType(QueryDetail detail, String vdId)
+    //throws BusinessObjectNotFoundException, BusinessObjectQueryException {
+        //TemplateQuery q = new TemplateQuery();
+        //q.setBoClass(tClass);
+        //TemplateQueryWhereToken l = new TemplateQueryWhereToken(
+            //TemplateQueryWhereToken.OPERATOR_EQUAL, "worktype", vdId);
+        //q.addWhereToken(l);
 
-        return queryByTemplate(detail, q);
-    }
+        //return queryByTemplate(detail, q);
+    //}
 
 }

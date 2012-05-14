@@ -62,7 +62,7 @@ public class BOWorkType extends BO {
     WorkType o;
 
     o = new WorkType();
-    o.setworktype("");
+    //o.setworktype("");
 
     return o;
     

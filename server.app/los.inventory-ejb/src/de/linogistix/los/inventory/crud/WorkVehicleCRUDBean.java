@@ -36,7 +36,7 @@ public class WorkVehicleCRUDBean extends BusinessObjectCRUDBean<WorkVehicle> imp
         if (entity.getWorkTypeId() == null) throw new BusinessObjectCreationException();
         if (entity.getWorkerId() == null) throw new BusinessObjectCreationException();
         if (entity.getScheduleTime() == null) throw new BusinessObjectCreationException();
-        if (entity.getExecuteDeadline() == null) throw new BusinessObjectCreationException();
+		//if (entity.getExecuteDeadline() == null) throw new BusinessObjectCreationException();
 
 	//if (entity.getPlateNumber() == null || entity.getPlateNumber().length() == 0) throw new BusinessObjectCreationException();
         //if (entity.getHandlingUnit() == null) throw new BusinessObjectCreationException("missing name", BusinessObjectCreationException.MISSING_FIELD_KEY, new String[] {"handlingUnit"}, BundleResolver.class);

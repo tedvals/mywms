@@ -2,30 +2,26 @@ package de.linogistix.inventory.browser.bo;
 
 import de.linogistix.common.bobrowser.bo.BO;
 import de.linogistix.common.services.J2EEServiceLocator;
+//import de.linogistix.common.userlogin.LoginService;
 import de.linogistix.common.util.ExceptionAnnotator;
-import de.linogistix.inventory.browser.masternode.BOWorkVehicleMasterNode;
+import de.linogistix.inventory.browser.masternode.BOWorkTypeMasterNode;
 import de.linogistix.los.crud.BusinessObjectCRUDRemote;
-import de.linogistix.los.inventory.crud.WorkVehicleCRUDRemote;
-import de.linogistix.los.inventory.query.WorkVehicleQueryRemote;
+import de.linogistix.los.inventory.crud.WorkTypeCRUDRemote;
+import de.linogistix.los.inventory.query.WorkTypeQueryRemote;
 import de.linogistix.inventory.res.InventoryBundleResolver;
 //import de.linogistix.los.inventory.query.ItemUnitQueryRemote;
 import de.linogistix.los.query.BusinessObjectQueryRemote;
 //import de.linogistix.los.query.QueryDetail;
-import java.util.List;
-import java.util.ArrayList;
+//import java.util.List;
 import org.mywms.globals.Role;
 //import org.mywms.globals.SerialNoRecordType;
 import org.mywms.model.BasicEntity;
-import org.mywms.model.WorkVehicle;
-//import org.mywms.model.ItemUnit;
+import org.mywms.model.WorkType;
 import org.openide.nodes.Node;
 import org.openide.nodes.Node.Property;
 import org.openide.util.Lookup;
-import org.openide.util.actions.SystemAction;
-import de.linogistix.common.bobrowser.action.RefreshBOBeanNodeAction;
-import de.linogistix.common.bobrowser.action.BOLockAction;
 
-public class BOWorkVehicle extends BO {
+public class BOWorkType extends BO {
 	//private ItemUnit itemUnit = null;
     
     @Override
@@ -39,7 +35,7 @@ public class BOWorkVehicle extends BO {
     }
 
   protected String initName() {
-    return "WorkVehicles";
+    return "WorkTypes";
   }
   
   protected String initIconBaseWithExtension() {
@@ -52,7 +48,7 @@ public class BOWorkVehicle extends BO {
     
     try{
       J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectQueryRemote)loc.getStateless(WorkVehicleQueryRemote.class);
+      ret = (BusinessObjectQueryRemote)loc.getStateless(WorkTypeQueryRemote.class);
       
     } catch (Throwable t){
       ExceptionAnnotator.annotate(t);
@@ -63,10 +59,10 @@ public class BOWorkVehicle extends BO {
   }
   
   protected BasicEntity initEntityTemplate() {
-    WorkVehicle o;
+    WorkType o;
 
-    o = new WorkVehicle();
-    //o.setLabelId("");
+    o = new WorkType();
+    //o.setworktype("");
 
     return o;
     
@@ -77,7 +73,7 @@ public class BOWorkVehicle extends BO {
     
     try{
       J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectCRUDRemote) loc.getStateless(WorkVehicleCRUDRemote.class);
+      ret = (BusinessObjectCRUDRemote) loc.getStateless(WorkTypeCRUDRemote.class);
       
     } catch (Throwable t){
       ExceptionAnnotator.annotate(t);
@@ -86,28 +82,8 @@ public class BOWorkVehicle extends BO {
   }
   
    protected String[] initIdentifiableProperties() {
-    return new String[]{"labelId"};
+    return new String[]{"worktype"};
   }
-
-  @Override
-	  protected List<SystemAction> initMasterActions() {
-		  List<SystemAction> actions = new ArrayList<SystemAction>();
-		  SystemAction action;
-
-		  action = SystemAction.get(RefreshBOBeanNodeAction.class);
-		  action.setEnabled(true);
-		  actions.add(action);
-
-		  action = SystemAction.get(BOLockAction.class);
-		  action.setEnabled(true);
-		  actions.add(action);
-
-		  //action = SystemAction.get(BODocumentOpenAction.class);
-		  //action.setEnabled(true);
-		  //actions.add(action);
-
-		  return actions;
-	  }
 
     @Override
     public Class initBundleResolver() {
@@ -116,12 +92,12 @@ public class BOWorkVehicle extends BO {
    
     @Override
     protected Property[] initBoMasterNodeProperties() {
-        return BOWorkVehicleMasterNode.boMasterNodeProperties();
+        return BOWorkTypeMasterNode.boMasterNodeProperties();
     }
 
     @Override
     protected Class<? extends Node> initBoMasterNodeType() {
-        return BOWorkVehicleMasterNode.class;
+        return BOWorkTypeMasterNode.class;
     }
 
 }

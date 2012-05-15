@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2006 by Fraunhofer IML, Dortmund.
- * All rights reserved.
- *
- * Project: myWMS
- */
 package org.mywms.model;
 
 import java.math.BigDecimal;

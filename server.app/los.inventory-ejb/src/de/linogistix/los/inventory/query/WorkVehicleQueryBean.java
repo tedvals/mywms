@@ -184,7 +184,7 @@ public class WorkVehicleQueryBean extends BusinessObjectQueryBean<WorkVehicle>
 		//ret.add(idt);
 		
 		TemplateQueryWhereToken labelId = new TemplateQueryWhereToken(
-		TemplateQueryWhereToken.OPERATOR_EQUAL, "labelId",
+		TemplateQueryWhereToken.OPERATOR_LIKE, "labelId",
 		value);
 		labelId.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 		ret.add(labelId);

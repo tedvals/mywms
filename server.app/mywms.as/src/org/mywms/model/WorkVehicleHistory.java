@@ -41,7 +41,8 @@ import org.mywms.service.ConstraintViolatedException;*/
 })*/
 @Inheritance(strategy = InheritanceType.JOINED)
 public class WorkVehicleHistory
-    extends WorkVehicle{
+    extends BasicEntity{
+	//WorkVehicle{
 
     private boolean completionsuccess = false;
     private Date completiondate;

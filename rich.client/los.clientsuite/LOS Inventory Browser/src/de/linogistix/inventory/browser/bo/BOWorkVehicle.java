@@ -11,7 +11,8 @@ import de.linogistix.inventory.res.InventoryBundleResolver;
 //import de.linogistix.los.inventory.query.ItemUnitQueryRemote;
 import de.linogistix.los.query.BusinessObjectQueryRemote;
 //import de.linogistix.los.query.QueryDetail;
-//import java.util.List;
+import java.util.List;
+import java.util.ArrayList;
 import org.mywms.globals.Role;
 //import org.mywms.globals.SerialNoRecordType;
 import org.mywms.model.BasicEntity;
@@ -20,6 +21,9 @@ import org.mywms.model.WorkVehicle;
 import org.openide.nodes.Node;
 import org.openide.nodes.Node.Property;
 import org.openide.util.Lookup;
+import org.openide.util.actions.SystemAction;
+import de.linogistix.common.bobrowser.action.RefreshBOBeanNodeAction;
+import de.linogistix.common.bobrowser.action.BOLockAction;
 
 public class BOWorkVehicle extends BO {
 	//private ItemUnit itemUnit = null;
@@ -84,6 +88,26 @@ public class BOWorkVehicle extends BO {
    protected String[] initIdentifiableProperties() {
     return new String[]{"labelId"};
   }
+
+  @Override
+	  protected List<SystemAction> initMasterActions() {
+		  List<SystemAction> actions = new ArrayList<SystemAction>();
+		  SystemAction action;
+
+		  action = SystemAction.get(RefreshBOBeanNodeAction.class);
+		  action.setEnabled(true);
+		  actions.add(action);
+
+		  action = SystemAction.get(BOLockAction.class);
+		  action.setEnabled(true);
+		  actions.add(action);
+
+		  //action = SystemAction.get(BODocumentOpenAction.class);
+		  //action.setEnabled(true);
+		  //actions.add(action);
+
+		  return actions;
+	  }
 
     @Override
     public Class initBundleResolver() {

@@ -45,7 +45,7 @@
   -->
   <mbean code="org.jboss.ejb.txtimer.DatabasePersistencePolicy" name="jboss.ejb:service=EJBTimerService,persistencePolicy=database">
     <!-- DataSourceBinding ObjectName -->
-    <depends optional-attribute-name="DataSource">jboss.jca:service=DataSourceBinding,name=DefaultDS</depends>
+    <depends optional-attribute-name="DataSource">jboss.jca:service=DataSourceBinding,name=losDS</depends>
     <!-- The plugin that handles database persistence -->
     <attribute name="DatabasePersistencePlugin">org.jboss.ejb.txtimer.GeneralPurposeDatabasePersistencePlugin</attribute>
     <!-- The timers table name -->

@@ -93,7 +93,7 @@ $Revision: 64598 $
              <module-option name = "principal">sa</module-option>
              <module-option name = "userName">sa</module-option>
              <module-option name = "password"></module-option>
-             <module-option name = "managedConnectionFactoryName">jboss.jca:service=LocalTxCM,name=DefaultDS</module-option>
+             <module-option name = "managedConnectionFactoryName">jboss.jca:service=LocalTxCM,name=losDS</module-option>
           </login-module>
        </authentication>
     </application-policy>

@@ -1,4 +1,3 @@
-CREATE ALIAS MD5 FOR "org.hsqldb.lib.MD5.encodeString";
 INSERT INTO MYWMS_CLIENT VALUES(0,'2010-11-30 13:59:22.553000000','2010-11-30 14:32:03.232000000','This is a system used entity. DO NOT REMOVE, LOCK OR RENAME IT! Some processes may use it.',0,1,'01',NULL,NULL,'System-Client','System',NULL);
 INSERT INTO MYWMS_ROLE VALUES(0,'2010-11-30 13:59:51.888000000','2010-11-30 13:59:51.888000000','This is a system used entity. DO NOT REMOVE, LOCK OR RENAME IT! Some processes may use it.',0,0,'Admin','System Administrator');
 INSERT INTO MYWMS_ROLE VALUES(600,'2010-11-30 14:32:03.228000000','2010-11-30 14:32:03.229000000',NULL,0,0,'Operator','');

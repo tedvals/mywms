@@ -49,12 +49,12 @@
 	</target>
 
 	<target name="hsql.local.createSchema" description="Creates tables in database. Please ensure that the right database is referenced by hibernate.cfg.xml">
+		<!--
 		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
-
 			<classpath refid="toolslib" />
 			<transaction src="./create-schema.sql" />
-
 		</sql>
+		-->
 		
 		<hibernatetool destdir=".">
 			<annotationconfiguration configurationfile="hibernate.cfg.xml" propertyfile="conection.properties"/>
@@ -62,12 +62,10 @@
 			<hbm2ddl export="true" create="true" />
 		</hibernatetool>
 
-		<!--
+		<!--		
 		<sql driver="${hibernate.connection.driver_class}" url="${hibernate.connection.url}" userid="${hibernate.connection.username}" password="${hibernate.connection.password}">
-
 			<classpath refid="toolslib" />
-			<transaction src="./initdata-postgres.sql" />
-
+			<transaction src="./default-schema.sql" />
 		</sql>
 		-->
 		

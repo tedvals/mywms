@@ -94,6 +94,7 @@ public class LOSStocktakingRecord extends BasicEntity{
 		this.lotNo = lotNo;
 	}
 
+	@Column(precision=10, scale=10)
 	public BigDecimal getPlannedQuantity() {
 		return plannedQuantity;
 	}
@@ -102,6 +103,7 @@ public class LOSStocktakingRecord extends BasicEntity{
 		this.plannedQuantity = plannedQuantity;
 	}
 
+	@Column(precision=10, scale=10)
 	public BigDecimal getCountedQuantity() {
 		return countedQuantity;
 	}

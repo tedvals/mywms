@@ -368,7 +368,7 @@ public class ItemData
         this.weight = weight;
     }
 
-    @Column(precision=19, scale=6)
+    @Column(precision=18, scale=6)
     public BigDecimal getVolume() {
         return volume;
     }

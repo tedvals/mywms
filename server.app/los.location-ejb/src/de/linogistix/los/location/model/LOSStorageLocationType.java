@@ -100,7 +100,7 @@ public class LOSStorageLocationType extends BasicEntity{
 		this.depth = depth;
 	}
 
-    @Column(nullable = true, precision=19, scale=6)
+    @Column(nullable = true, precision=18, scale=6)
     public BigDecimal getVolume() {
 		return volume;
 	}

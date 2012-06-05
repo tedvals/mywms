@@ -97,7 +97,7 @@ public class StockUnitLabel extends Document{
 		this.amount = amount;
 	}
 
-	@Column(scale=4, nullable=false)
+	@Column(precision=10, scale=4, nullable=false)
 	public BigDecimal getAmount() {
 		return (amount != null)? amount.setScale(scale):new BigDecimal(0);
 	}

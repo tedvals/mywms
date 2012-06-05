@@ -116,7 +116,7 @@ public class User
      * 
      * @return Returns the password.
      */
-    @Column(nullable = false)
+	@Column(nullable = false, name="\"PASSWR\"")
     public String getPassword() {
         return this.password;
     }

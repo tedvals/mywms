@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+
+  <local-tx-datasource>
+    <jndi-name>losDS</jndi-name>
+    <connection-url>jdbc:firebirdsql:localhost/3050:C:/replication/firebird/los.fdb</connection-url>
+    <driver-class>org.firebirdsql.jdbc.FBDriver</driver-class>
+    <user-name>SYSDBA</user-name>
+    <password>masterkey</password>    
+    <min-pool-size>5</min-pool-size>
+    <max-pool-size>20</max-pool-size>    
+      <track-statements></track-statements>
+      <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+      <metadata>
+         <type-mapping>Firebird</type-mapping>
+      </metadata>
+
+    </local-tx-datasource>
+</datasources>

@@ -435,6 +435,11 @@ Mapping proposed by Computer Associates, but does not work with JBoss properly
             <jdbc-type>BIGINT</jdbc-type>
             <sql-type>NUMERIC(18,0) default 0</sql-type>
          </mapping>
+		 <mapping>
+			<java-type>java.math.BigDecimal</java-type>
+            <jdbc-type>BIGINT</jdbc-type>
+            <sql-type>NUMERIC(18,0) default 0</sql-type>
+         </mapping>
          <mapping>
             <java-type>java.lang.Float</java-type>
             <jdbc-type>REAL</jdbc-type>

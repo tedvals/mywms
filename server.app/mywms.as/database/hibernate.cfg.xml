@@ -4,13 +4,12 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.driver_class">org.firebirdsql.jdbc.FBDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.FirebirdDialect</property>
                
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:los</property>
-        <property name="hibernate.default_schema">JBOSS</property>
-        <property name="hibernate.connection.username">jboss</property>
-        <property name="hibernate.connection.password">jboss</property>
+        <property name="hibernate.connection.url">jdbc:firebirdsql:localhost/3050:C:/replication/firebird/los.fdb</property>
+        <property name="hibernate.connection.username">SYSDBA</property>
+        <property name="hibernate.connection.password">masterkey</property>
 
 	<property name="hibernate.show.sql">true</property>
                 

@@ -121,7 +121,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 		this.itemDataRef = itemData;
 	}
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getReserved() {
 		return reserved;
 	}
@@ -140,7 +140,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 		return (this.reserved = this.reserved.add(reserved));
 	}
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getAvailable() {
 		return available;
 	}
@@ -160,7 +160,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 	}
 	
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getLocked() {
 		return locked;
 	}
@@ -180,7 +180,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 		return (this.locked = this.locked.add(locked));
 	}
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getAdvised() {
 		return advised;
 	}
@@ -199,7 +199,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 		return (this.advised = this.advised.add(advised));
 	}
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getInStock() {
 		return inStock;
 	}
@@ -227,7 +227,7 @@ public class LOSInventory extends BasicClientAssignedEntity {
 		this.lastIncoming = lastIncoming;
 	}
 
-	@Column(scale=4)
+	@Column(precision=10, scale=4)
 	public BigDecimal getLastAmount() {
 		return lastAmount;
 	}

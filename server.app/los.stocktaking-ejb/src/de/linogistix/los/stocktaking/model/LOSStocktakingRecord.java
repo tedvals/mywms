@@ -10,6 +10,7 @@ package de.linogistix.los.stocktaking.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 

@@ -16,24 +16,24 @@ values(0, 0, 0, current_timestamp, current_timestamp,
 'This is a system used entity. DO NOT REMOVE, LOCK OR RENAME IT! Some processes may use it.');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, password, client_id, 
+name, locale, PASSWR, client_id, 
 additionalcontent) 
 values(0, 0, 0, current_timestamp, current_timestamp, 
 'admin', 'en', jboss.md5hash('admin'), 0,
-'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and password.');
+'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and PASSWR.');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, password, client_id) 
+name, locale, PASSWR, client_id) 
 values(1, 0, 0, current_timestamp, current_timestamp, 
 'deutsch', 'de', jboss.md5hash('deutsch'), 0);
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, password, client_id) 
+name, locale, PASSWR, client_id) 
 values(2, 0, 0, current_timestamp, current_timestamp, 
 'english', 'en', jboss.md5hash('english'), 0);
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, password, client_id) 
+name, locale, PASSWR, client_id) 
 values(4, 0, 0, current_timestamp, current_timestamp, 
 'francais', 'fr', jboss.md5hash('francais'), 0);
 

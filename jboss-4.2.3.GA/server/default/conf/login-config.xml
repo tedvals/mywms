@@ -40,7 +40,7 @@ $Revision: 64598 $
              <module-option 
                name = "dsJndiName">java:/losDS</module-option>
              <!--module-option name = "principalsQuery">SELECT u."password" AS "PASSWD" FROM mywms_user AS u WHERE u.name=? AND u.entity_lock=0</module-option-->
-			 <module-option name = "principalsQuery">SELECT MYWMS_USER.PASSWORD AS "PASSWD" FROM MYWMS_USER WHERE NAME=? AND ENTITY_LOCK=0</module-option>
+			 <module-option name = "principalsQuery">SELECT MYWMS_USER.PASSWR AS "PASSWD" FROM MYWMS_USER WHERE NAME=? AND ENTITY_LOCK=0</module-option>
              <module-option name = "rolesQuery">SELECT MYWMS_ROLE.NAME AS "ROLEID", 'Roles' AS "Roles" FROM MYWMS_USER JOIN MYWMS_USER_MYWMS_ROLE ON MYWMS_USER.ID=MYWMS_USER_MYWMS_ROLE.MYWMS_USER_ID JOIN MYWMS_ROLE ON MYWMS_ROLE.ID=MYWMS_USER_MYWMS_ROLE.ROLES_ID WHERE MYWMS_USER.NAME=?</module-option>
 			 <!--module-option name = "rolesQuery">SELECT r.name AS "ROLEID", 'Roles' AS "Roles" FROM mywms_user AS u, mywms_role AS r, mywms_user_mywms_role AS ur WHERE u.id=ur.mywms_user_id AND r.id=ur.roles_id AND u.name=?</module-option-->
           </login-module>

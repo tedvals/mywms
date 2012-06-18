@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="org.apache.commons">
+    <module_version install_time="1339751844729" last="true" origin="installer" specification_version="1.0">
+        <file crc="2995808420" name="config/Modules/org-apache-commons.xml"/>
+        <file crc="3760647123" name="modules/ext/INFO.TXT"/>
+        <file crc="3880381213" name="modules/ext/commons-beanutils-bean-collections.jar"/>
+        <file crc="3589108201" name="modules/ext/commons-beanutils-core.jar"/>
+        <file crc="350195758" name="modules/ext/commons-beanutils.jar"/>
+        <file crc="860279338" name="modules/ext/commons-collections-3.2.jar"/>
+        <file crc="2909170261" name="modules/ext/commons-digester-1.8.jar"/>
+        <file crc="1712146089" name="modules/ext/commons-javaflow-20060411.jar"/>
+        <file crc="4015045620" name="modules/ext/commons-logging.jar"/>
+        <file crc="4212306341" name="modules/ext/commons-validator-1.1.4.jar"/>
+        <file crc="881613954" name="modules/ext/log4j.jar"/>
+        <file crc="2678907654" name="modules/org-apache-commons.jar"/>
+    </module_version>
+</module>

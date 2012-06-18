@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.inventory">
+    <module_version install_time="1339751895151" last="true" origin="installer" specification_version="1.0">
+        <file crc="3306787682" name="config/Modules/de-linogistix-inventory.xml"/>
+        <file crc="797975937" name="modules/de-linogistix-inventory.jar"/>
+    </module_version>
+</module>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.location">
+    <module_version install_time="1339751888839" last="true" origin="installer" specification_version="1.0">
+        <file crc="4196608517" name="config/Modules/de-linogistix-location.xml"/>
+        <file crc="3441714864" name="modules/de-linogistix-location.jar"/>
+    </module_version>
+</module>

@@ -29,10 +29,10 @@ import org.mywms.globals.SerialNoRecordType;
 import org.mywms.globals.ReparabilityCodeType;
 import org.mywms.service.ConstraintViolatedException;*/
 
-import javax.persistence.MappedSuperclass;
+//import javax.persistence.MappedSuperclass;
 
 
-@MappedSuperclass
+//@MappedSuperclass
 @Entity
 @Table(name="mywms_workvehicle"
 ,uniqueConstraints = {
@@ -150,5 +150,4 @@ public class WorkVehicle
 
 
     }
-
 }

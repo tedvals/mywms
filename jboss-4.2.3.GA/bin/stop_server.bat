@@ -1,0 +1,1 @@
+start shutdown.bat -S

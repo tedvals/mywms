@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="org.mywms">
-    <module_version install_time="1339751874120" last="true" origin="installer" specification_version="1.0">
-        <file crc="133754721" name="config/Modules/org-mywms.xml"/>
-        <file crc="2899089853" name="modules/ext/myWMS-client.jar"/>
-        <file crc="2130978777" name="modules/org-mywms.jar"/>
-    </module_version>
-</module>

@@ -255,8 +255,11 @@
                 <file name="de-linogistix-inventory-browser-bo-BOWorkVehicle.instance">
                     <attr name="position" intvalue="100"/>
                 </file>
-                <file name="de-linogistix-inventory-browser-bo-BOWorkType.instance">
+                <file name="de-linogistix-inventory-browser-bo-BOWorkVehicleHistory.instance">
                     <attr name="position" intvalue="200"/>
+                </file>
+                <file name="de-linogistix-inventory-browser-bo-BOWorkType.instance">
+                    <attr name="position" intvalue="300"/>
                 </file>
 
             </folder>

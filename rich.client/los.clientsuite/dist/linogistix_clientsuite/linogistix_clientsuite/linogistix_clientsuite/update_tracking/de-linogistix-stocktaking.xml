@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.stocktaking">
-    <module_version install_time="1339751887635" last="true" origin="installer" specification_version="1.0">
-        <file crc="480710489" name="config/Modules/de-linogistix-stocktaking.xml"/>
-        <file crc="3951871517" name="modules/de-linogistix-stocktaking.jar"/>
-        <file crc="2017927003" name="modules/docs/de-linogistix-stocktaking.jar"/>
-    </module_version>
-</module>

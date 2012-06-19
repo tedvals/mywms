@@ -24,96 +24,97 @@ import org.openide.util.Lookup;
 import org.openide.util.actions.SystemAction;
 import de.linogistix.common.bobrowser.action.RefreshBOBeanNodeAction;
 import de.linogistix.common.bobrowser.action.BOLockAction;
+import de.linogistix.common.bobrowser.action.CompleteVehicleWorkAction;
 
 public class BOWorkVehicle extends BO {
-	//private ItemUnit itemUnit = null;
-    
+    //private ItemUnit itemUnit = null;
+
     @Override
     public String[] getAllowedRoles() {
         return new String[] {Role.ADMIN_STR,Role.OPERATOR_STR,Role.FOREMAN_STR,Role.INVENTORY_STR,Role.CLEARING_STR};
     }
-    
+
     @Override
     public String[] getAllowedRolesCRUD() {
         return new String[] {Role.ADMIN_STR,Role.INVENTORY_STR};
     }
 
-  protected String initName() {
-    return "WorkVehicles";
-  }
-  
-  protected String initIconBaseWithExtension() {
-	  return "de/linogistix/bobrowser/res/icon/ItemData.png";
-  }
-
-  protected BusinessObjectQueryRemote initQueryService() {
-    
-    BusinessObjectQueryRemote ret = null;
-    
-    try{
-      J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectQueryRemote)loc.getStateless(WorkVehicleQueryRemote.class);
-      
-    } catch (Throwable t){
-      ExceptionAnnotator.annotate(t);
-      return null;
+    protected String initName() {
+        return "WorkVehicles";
     }
-    
-    return ret;
-  }
-  
-  protected BasicEntity initEntityTemplate() {
-    WorkVehicle o;
 
-    o = new WorkVehicle();
-    //o.setLabelId("");
-
-    return o;
-    
-  }
-  
-  protected BusinessObjectCRUDRemote initCRUDService(){
-    BusinessObjectCRUDRemote ret = null;
-    
-    try{
-      J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
-      ret = (BusinessObjectCRUDRemote) loc.getStateless(WorkVehicleCRUDRemote.class);
-      
-    } catch (Throwable t){
-      ExceptionAnnotator.annotate(t);
+    protected String initIconBaseWithExtension() {
+        return "de/linogistix/bobrowser/res/icon/ItemData.png";
     }
-    return ret;
-  }
-  
-   protected String[] initIdentifiableProperties() {
-    return new String[]{"labelId"};
-  }
 
-  @Override
-	  protected List<SystemAction> initMasterActions() {
-		  List<SystemAction> actions = new ArrayList<SystemAction>();
-		  SystemAction action;
+    protected BusinessObjectQueryRemote initQueryService() {
 
-		  action = SystemAction.get(RefreshBOBeanNodeAction.class);
-		  action.setEnabled(true);
-		  actions.add(action);
+        BusinessObjectQueryRemote ret = null;
 
-		  action = SystemAction.get(BOLockAction.class);
-		  action.setEnabled(true);
-		  actions.add(action);
+        try {
+            J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
+            ret = (BusinessObjectQueryRemote)loc.getStateless(WorkVehicleQueryRemote.class);
 
-		  //action = SystemAction.get(BODocumentOpenAction.class);
-		  //action.setEnabled(true);
-		  //actions.add(action);
+        } catch (Throwable t) {
+            ExceptionAnnotator.annotate(t);
+            return null;
+        }
 
-		  return actions;
-	  }
+        return ret;
+    }
+
+    protected BasicEntity initEntityTemplate() {
+        WorkVehicle o;
+
+        o = new WorkVehicle();
+        //o.setLabelId("");
+
+        return o;
+
+    }
+
+    protected BusinessObjectCRUDRemote initCRUDService() {
+        BusinessObjectCRUDRemote ret = null;
+
+        try {
+            J2EEServiceLocator loc = (J2EEServiceLocator)Lookup.getDefault().lookup(J2EEServiceLocator.class);
+            ret = (BusinessObjectCRUDRemote) loc.getStateless(WorkVehicleCRUDRemote.class);
+
+        } catch (Throwable t) {
+            ExceptionAnnotator.annotate(t);
+        }
+        return ret;
+    }
+
+    protected String[] initIdentifiableProperties() {
+        return new String[] {"labelId"};
+    }
+
+    @Override
+    protected List<SystemAction> initMasterActions() {
+        List<SystemAction> actions = new ArrayList<SystemAction>();
+        SystemAction action;
+
+        action = SystemAction.get(RefreshBOBeanNodeAction.class);
+        action.setEnabled(true);
+        actions.add(action);
+
+        action = SystemAction.get(BOLockAction.class);
+        action.setEnabled(true);
+        actions.add(action);
+
+        action = SystemAction.get(CompleteVehicleWorkAction.class);
+        action.setEnabled(true);
+        actions.add(action);
+
+        return actions;
+    }
 
     @Override
     public Class initBundleResolver() {
         return InventoryBundleResolver.class;
     }
-   
+
     @Override
     protected Property[] initBoMasterNodeProperties() {
         return BOWorkVehicleMasterNode.boMasterNodeProperties();

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.reports">
-    <module_version install_time="1339751889901" last="true" origin="installer" specification_version="1.0">
-        <file crc="320515804" name="config/Modules/de-linogistix-reports.xml"/>
-        <file crc="369531572" name="modules/de-linogistix-reports.jar"/>
-    </module_version>
-</module>

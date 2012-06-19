@@ -29,8 +29,8 @@
 	<mapping class="org.mywms.model.WorkType"/>
 	<mapping class="org.mywms.model.WorkVehicle"/>
 	<mapping class="org.mywms.model.WorkItem"/>
-		<mapping class="org.mywms.model.WorkVehicleHistory"/>
-		<mapping class="org.mywms.model.WorkItemHistory"/>
+	<mapping class="org.mywms.model.WorkVehicleHistory"/>
+	<mapping class="org.mywms.model.WorkItemHistory"/>
         <mapping class="org.mywms.model.Zone"/>
         
         <!-- jar-file>los-par.jar</jar-file--> 

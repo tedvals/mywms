@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.los.stocktaking.ejb">
-    <module_version install_time="1339751885792" last="true" origin="installer" specification_version="1.0">
-        <file crc="578400263" name="config/Modules/de-linogistix-los-stocktaking-ejb.xml"/>
-        <file crc="4059712556" name="modules/de-linogistix-los-stocktaking-ejb.jar"/>
-        <file crc="1844927606" name="modules/ext/los.stocktaking-client.jar"/>
-    </module_version>
-</module>

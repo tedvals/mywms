@@ -2,7 +2,7 @@ package de.linogistix.common.bobrowser.action;
 
 import de.linogistix.common.bobrowser.bo.BOMasterNode;
 import de.linogistix.common.bobrowser.bo.BO;
-//import de.linogistix.common.bobrowser.crud.gui.component.BOLockWizard;
+import de.linogistix.common.bobrowser.crud.gui.component.CompleteVehicleWorkWizard;
 import de.linogistix.common.bobrowser.query.BOQueryNode;
 import de.linogistix.common.res.CommonBundleResolver;
 import de.linogistix.common.userlogin.LoginService;
@@ -57,9 +57,10 @@ public class CompleteVehicleWorkAction extends NodeAction {
             BO bo = parent.getModel().getBoNode().getBo();
             BusinessObjectCRUDRemote crud = bo.getCrudService();
             
+	    CompleteVehicleWorkWizard w = new CompleteVehicleWorkWizard(bo);
 	    //BOLockWizard w = new BOLockWizard(bo);
-	    //Dialog d = DialogDisplayer.getDefault().createDialog(w);
-	    //d.setVisible(true);
+	    Dialog d = DialogDisplayer.getDefault().createDialog(w);
+	    d.setVisible(true);
 
 //	    if (w.getValue().equals(NotifyDescriptor.OK_OPTION)) {
 //                CursorControl.showWaitCursor();
@@ -79,6 +80,7 @@ public class CompleteVehicleWorkAction extends NodeAction {
 //                            entity,
 //                            w.getLock(),
 //                            w.getLockCause());
+//				/**  this is get remarks, des sto wizard**/
 //                    }
 //                } catch (Throwable t) {
 //                    ExceptionAnnotator.annotate(t);

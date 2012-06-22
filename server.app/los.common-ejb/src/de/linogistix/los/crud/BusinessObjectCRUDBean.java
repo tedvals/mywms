@@ -301,6 +301,17 @@ public abstract class BusinessObjectCRUDBean<T extends BasicEntity> implements
 		
 	}
 
+
+	@SuppressWarnings("unchecked")
+	public void completeWorkVehicle(T entity, boolean status, String remarks) throws BusinessObjectSecurityException{
+		User user = getCallersUser();
+		if (!checkClient(entity)) {
+			throw new BusinessObjectSecurityException(user);
+		}
+		entity = (T) manager.find(tClass, entity.getId());
+		log.info(user.getName() + " lock state changed: " + entity.toDescriptiveString());
+	}
+
 	/**
 	 * Overide to gain performance. This method uses reflections. In an extended
 	 * class where the type <code><T></code> of BasicEntity is known you can

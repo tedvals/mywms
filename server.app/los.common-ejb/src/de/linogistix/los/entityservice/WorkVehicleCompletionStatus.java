@@ -7,8 +7,8 @@ import java.util.ResourceBundle;
 import de.linogistix.los.res.BundleResolver;
 
 public enum WorkVehicleCompletionStatus implements WorkVehicleComplete{
-	SUCCESSFUL(0),
-	NOT_SUCCESSFUL(1);
+	SUCCESSFUL(false),
+	NOT_SUCCESSFUL(true);
 	
 	//int lock;
 	boolean status;
@@ -22,11 +22,15 @@ public enum WorkVehicleCompletionStatus implements WorkVehicleComplete{
 	}
 	
 	public static WorkVehicleComplete resolve(boolean status){
-		switch (status){
-		case true: return NOT_SUCCESSFUL;
-		case false: return SUCCESSFUL;
-		default: throw new IllegalArgumentException();
-		}
+		if(status==true)
+		return NOT_SUCCESSFUL;
+		else
+		return SUCCESSFUL;
+		//switch (status){
+		//case true: return NOT_SUCCESSFUL;
+		//case false: return SUCCESSFUL;
+		//default: throw new IllegalArgumentException();
+		//}
 	}
 
 	public String getMessage() {

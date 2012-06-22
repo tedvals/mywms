@@ -13,6 +13,7 @@ import org.mywms.facade.FacadeException;
 import org.mywms.model.BasicEntity;
 
 import de.linogistix.los.entityservice.BusinessObjectLockState;
+import de.linogistix.los.entityservice.WorkVehicleCompletionStatus;
 import de.linogistix.los.query.BODTO;
 import de.linogistix.los.query.exception.BusinessObjectNotFoundException;
 import de.linogistix.los.runtime.BusinessObjectSecurityException;
@@ -98,4 +99,7 @@ public interface BusinessObjectCRUDRemote<T extends BasicEntity> {
 	 * @throws BusinessObjectSecurityException
 	 */
 	public void lock(T entity, int lock, String lockCause) throws BusinessObjectSecurityException;
+	
+	
+	public void completeWorkVehicle(T entity, boolean status, String remarks) throws BusinessObjectSecurityException;
 }

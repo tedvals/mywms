@@ -58,45 +58,43 @@ public class CompleteVehicleWorkAction extends NodeAction {
             BusinessObjectCRUDRemote crud = bo.getCrudService();
             
 	    CompleteVehicleWorkWizard w = new CompleteVehicleWorkWizard(bo);
-	    //BOLockWizard w = new BOLockWizard(bo);
 	    Dialog d = DialogDisplayer.getDefault().createDialog(w);
 	    d.setVisible(true);
 
-//	    if (w.getValue().equals(NotifyDescriptor.OK_OPTION)) {
-//                CursorControl.showWaitCursor();
-//                try {
-//                    List<BODTO<BasicEntity>> l = new ArrayList();
-//                    for (Node n : node) {
-//                        l = new ArrayList();
-//                        if (n == null) {
-//                            continue;
-//                        }
-//                        if (!(n instanceof BOMasterNode)) {
-//                            log.warning("Not a BOMasterNodeType: " + n.toString());
-//                        }
-//                        l.add(((BOMasterNode) n).getEntity());
-//                        BasicEntity entity = parent.update(((BOMasterNode) n).getEntity().getId());
-//                        crud.lock(
-//                            entity,
-//                            w.getLock(),
-//                            w.getLockCause());
-//				/**  this is get remarks, des sto wizard**/
-//                    }
-//                } catch (Throwable t) {
-//                    ExceptionAnnotator.annotate(t);
-//                } finally {
-//                    CursorControl.showNormalCursor();
-//                }
-//
-//                if( node.length>0 ) {
-//                    Node n = node[0];
-//                    if (n instanceof BOMasterNode) {
-//                        BOMasterNode ma = (BOMasterNode)n;
-//                        BO bo1 = ma.getBo();
-//                        bo1.fireOutdatedEvent(ma);
-//                    }
-//                }
-//		}
+	    if (w.getValue().equals(NotifyDescriptor.OK_OPTION)) {
+		    CursorControl.showWaitCursor();
+		    try {
+			    List<BODTO<BasicEntity>> l = new ArrayList();
+			    for (Node n : node) {
+				    l = new ArrayList();
+				    if (n == null) {
+					    continue;
+				    }
+				    if (!(n instanceof BOMasterNode)) {
+					    log.warning("Not a BOMasterNodeType: " + n.toString());
+				    }
+				    l.add(((BOMasterNode) n).getEntity());
+				    BasicEntity entity = parent.update(((BOMasterNode) n).getEntity().getId());
+				    crud.completeWorkVehicle(
+						    entity,
+						    w.getCompletionSuccess(),
+						    w.getCompletionRemarks());
+			    }
+		    } catch (Throwable t) {
+			    ExceptionAnnotator.annotate(t);
+		    } finally {
+			    CursorControl.showNormalCursor();
+		    }
+
+		    if( node.length>0 ) {
+			    Node n = node[0];
+			    if (n instanceof BOMasterNode) {
+				    BOMasterNode ma = (BOMasterNode)n;
+				    BO bo1 = ma.getBo();
+				    bo1.fireOutdatedEvent(ma);
+			    }
+		    }
+	    }
         } catch (Throwable t) {
             ExceptionAnnotator.annotate(t);
         }

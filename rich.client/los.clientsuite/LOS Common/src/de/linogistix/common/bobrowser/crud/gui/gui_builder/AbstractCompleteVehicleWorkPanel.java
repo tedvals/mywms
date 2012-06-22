@@ -9,7 +9,7 @@ public abstract class AbstractCompleteVehicleWorkPanel extends javax.swing.JPane
     public AbstractCompleteVehicleWorkPanel(BO bo){
         this.bo = bo;
         initComponents();
-	initCompletionSuccesComboBox();
+	initCompletionSuccessComboBox();
 	//initLockComboBox();
     }
 
@@ -92,7 +92,7 @@ public abstract class AbstractCompleteVehicleWorkPanel extends javax.swing.JPane
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    public abstract void initCompletionSuccesComboBox();
+    public abstract void initCompletionSuccessComboBox();
     
     
     

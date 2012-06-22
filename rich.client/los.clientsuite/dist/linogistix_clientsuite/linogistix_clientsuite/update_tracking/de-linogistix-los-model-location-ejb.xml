@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="de.linogistix.los.model.location.ejb">
+    <module_version install_time="1340360248692" last="true" origin="installer" specification_version="1.0">
+        <file crc="856877839" name="config/Modules/de-linogistix-los-model-location-ejb.xml"/>
+        <file crc="1128774788" name="modules/de-linogistix-los-model-location-ejb.jar"/>
+        <file crc="2861949547" name="modules/ext/los.location-client.jar"/>
+    </module_version>
+</module>

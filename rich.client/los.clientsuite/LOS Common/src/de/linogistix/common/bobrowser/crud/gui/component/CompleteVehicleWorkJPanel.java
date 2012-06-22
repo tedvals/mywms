@@ -27,7 +27,7 @@ public class CompleteVehicleWorkJPanel extends AbstractCompleteVehicleWorkPanel 
     }
 
 
-    public WorkVehicleComplete getSelectedLock() {
+    public WorkVehicleComplete getSelectedStatus() {
 	WorkVehicleComboBox item = (WorkVehicleComboBox) completionSuccessComboBox.getSelectedItem();
 
         return item.complete;
@@ -65,11 +65,13 @@ public class CompleteVehicleWorkJPanel extends AbstractCompleteVehicleWorkPanel 
         CompleteVehicleWorkWizard w = (CompleteVehicleWorkWizard)settings;
     }
 
-    /** HERE **/
     void implStoreSettings(Object settings) {
         CompleteVehicleWorkWizard w = (CompleteVehicleWorkWizard)settings;
 
-        w.setLock(getSelectedLock().getLock());
-        w.setLockCause(getLockCause());
+	//w.setLock(getSelectedLock().getLock());
+	w.setCompletionSuccess(getSelectedStatus().getStatus());
+
+	//w.setLockCause(getLockCause());
+	w.setCompletionRemarks(getCompletionRemarks());
     }
 }

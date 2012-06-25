@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module codename="de.linogistix.common">
-    <module_version install_time="1340360247974" last="true" origin="installer" specification_version="1.0">
+    <module_version install_time="1340614235915" last="true" origin="installer" specification_version="1.0">
         <file crc="306084433" name="config/Modules/de-linogistix-common.xml"/>
-        <file crc="3669897918" name="modules/de-linogistix-common.jar"/>
-        <file crc="2871930314" name="modules/docs/de-linogistix-common.jar"/>
+        <file crc="1826970640" name="modules/de-linogistix-common.jar"/>
+        <file crc="2294087261" name="modules/docs/de-linogistix-common.jar"/>
     </module_version>
 </module>

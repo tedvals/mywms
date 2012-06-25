@@ -7,8 +7,8 @@ import java.util.ResourceBundle;
 import de.linogistix.los.res.BundleResolver;
 
 public enum WorkVehicleCompletionStatus implements WorkVehicleComplete{
-	SUCCESSFUL(false),
-	NOT_SUCCESSFUL(true);
+	NOT_SUCCESSFUL(false),
+	SUCCESSFUL(true);
 	
 	//int lock;
 	boolean status;
@@ -23,9 +23,9 @@ public enum WorkVehicleCompletionStatus implements WorkVehicleComplete{
 	
 	public static WorkVehicleComplete resolve(boolean status){
 		if(status==true)
-		return NOT_SUCCESSFUL;
-		else
 		return SUCCESSFUL;
+		else
+		return NOT_SUCCESSFUL;
 		//switch (status){
 		//case true: return NOT_SUCCESSFUL;
 		//case false: return SUCCESSFUL;

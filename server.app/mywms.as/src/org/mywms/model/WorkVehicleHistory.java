@@ -29,6 +29,8 @@ import org.mywms.globals.SerialNoRecordType;
 import org.mywms.globals.ReparabilityCodeType;
 import org.mywms.service.ConstraintViolatedException;*/
 
+import org.mywms.model.WorkVehicle;
+
 @Entity
 @Table(name="mywms_workvehiclehistory"
 ,uniqueConstraints = {
@@ -51,6 +53,27 @@ public class WorkVehicleHistory
     private boolean completionSuccess = false;
     private Date completionDate;
     private String completionRemarks;
+
+    /*public WorkVehicleHistory(){
+    }
+
+    public WorkVehicleHistory(WorkVehicle wv){
+	setVehicleDataId(wv.getVehicleDataId());
+	setRemarks(wv.getRemarks());
+	setWorkTypeId(wv.getWorkTypeId());
+	setWorkerId(wv.getWorkerId());
+	setUrgent(wv.isUrgent());
+	setScheduleTime(wv.getScheduleTime());
+	setExecuteDeadline(wv.getExecuteDeadline());
+	    //public String getLabelId() {
+	    //public void setLabelId(String labelId) {
+	    //public boolean getCompletionSuccess() {
+	    //public void setCompletionSuccess(boolean completionSuccess) {
+	    //public Date getCompletionDate() {
+	    //public void setCompletionDate(Date completionDate) {
+	    //public String getCompletionRemarks() {
+	    //public void setCompletionRemarks(String completionRemarks) {
+    }*/
 
     @ManyToOne(optional = false)
     public VehicleData getVehicleDataId() {

@@ -101,5 +101,5 @@ public interface BusinessObjectCRUDRemote<T extends BasicEntity> {
 	public void lock(T entity, int lock, String lockCause) throws BusinessObjectSecurityException;
 	
 	
-	public void completeWorkVehicle(T entity, boolean status, String remarks) throws BusinessObjectSecurityException;
+	public void completeWorkVehicle(T entity, boolean status, String remarks) throws BusinessObjectNotFoundException,BusinessObjectDeleteException,BusinessObjectSecurityException;
 }

@@ -25,6 +25,8 @@ import org.mywms.model.BasicEntity;
 import org.mywms.model.User;
 import org.mywms.model.WorkVehicle;
 import org.mywms.model.WorkVehicleHistory;
+import org.mywms.model.WorkItem;
+import org.mywms.model.WorkItemHistory;
 import org.mywms.service.BasicService;
 import org.mywms.service.UserService;
 
@@ -334,7 +336,39 @@ public abstract class BusinessObjectCRUDBean<T extends BasicEntity> implements
         manager.persist(wvh);
         delete(entity);
 
-        log.info(user.getName() + " WorkVehicle completed: " + entity.toDescriptiveString());
+	//log.info(user.getName() + " WorkVehicle completed: " + entity.toDescriptiveString());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void completeWorkItem(T entity, boolean status, String remarks) throws 
+    	BusinessObjectNotFoundException, BusinessObjectDeleteException, BusinessObjectSecurityException {
+
+        User user = getCallersUser();
+        if (!checkClient(entity)) {
+            throw new BusinessObjectSecurityException(user);
+        }
+        entity = (T) manager.find(tClass, entity.getId());
+
+        WorkItemHistory wvh = new WorkItemHistory();
+        WorkItem wv = (WorkItem) entity;
+        wvh.setItemDataId(wv.getItemDataId());
+        wvh.setRemarks(wv.getRemarks());
+        wvh.setWorkTypeId(wv.getWorkTypeId());
+        wvh.setWorkerId(wv.getWorkerId());
+        wvh.setUrgent(wv.isUrgent());
+        wvh.setScheduleTime(wv.getScheduleTime());
+        wvh.setExecuteDeadline(wv.getExecuteDeadline());
+
+        wvh.setCompletionRemarks(remarks);
+        wvh.setCompletionSuccess(status);
+        Date now = new Date();
+        wvh.setCompletionDate(now);
+
+        manager.persist(wvh);
+	delete(entity);
+
+        log.info(user.getName() + " WorkItem completed");
+	//log.info(user.getName() + " WorkItem completed: " + entity.toDescriptiveString());
     }
 
     /**

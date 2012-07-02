@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="StorageLocationLabels" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="61" bottomMargin="61">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StorageLocationLabels" printOrder="Horizontal" pageWidth="595" pageHeight="842" columnWidth="567" leftMargin="14" rightMargin="14" topMargin="61" bottomMargin="61" uuid="de0a0cd0-f59e-4eaa-a1f3-da49e3246df1">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
-	<import value="java.util.*"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
 	<import value="de.linogistix.los.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
 	<parameter name="LOS_LABELID" class="java.lang.String"/>
@@ -19,124 +20,124 @@
 	<field name="amount" class="java.lang.String"/>
 	<field name="serialNo" class="java.lang.String"/>
 	<background>
-		<band/>
+		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band/>
+		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="263">
-			<textField hyperlinkType="None">
-				<reportElement x="435" y="56" width="125" height="20"/>
+		<band height="263" splitType="Stretch">
+			<textField>
+				<reportElement uuid="19b76228-7f38-4dbe-a0e5-d19e2b1837b8" x="435" y="56" width="125" height="20"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{LOS_ORDERNUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{LOS_ORDERNUMBER}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="435" y="93" width="125" height="20"/>
+			<textField>
+				<reportElement uuid="80d2822f-5c2f-4aaf-8884-bec1dbbc1045" x="435" y="93" width="125" height="20"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{LOS_PICKNUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{LOS_PICKNUMBER}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true" hyperlinkType="None">
-				<reportElement x="435" y="129" width="125" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="575dd450-9197-4ffc-a3c5-59ce8dab948d" x="435" y="129" width="125" height="20"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.util.Date"><![CDATA[$P{LOS_DATE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{LOS_DATE}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="360" y="56" width="75" height="20"/>
+				<reportElement uuid="4db6ce00-1922-42b3-8f95-baaaacd58f6c" x="360" y="56" width="75" height="20"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Bestellung]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="360" y="93" width="75" height="20"/>
+				<reportElement uuid="c29e4797-fbe4-4b62-b357-2c48058a0c1b" x="360" y="93" width="75" height="20"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Komm.Auftrag]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="360" y="129" width="75" height="20"/>
+				<reportElement uuid="c69dfa7c-4d14-4aef-9a4d-056f4344d455" x="360" y="129" width="75" height="20"/>
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Datum]]></text>
 			</staticText>
-			<textField hyperlinkType="None">
-				<reportElement x="471" y="172" width="89" height="20"/>
+			<textField>
+				<reportElement uuid="af677f77-b44c-4bf8-9723-a1618f394429" x="471" y="172" width="89" height="20"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$V{PAGE_NUMBER}+" / "+$V{PAGE_COUNT}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" / "+$V{PAGE_COUNT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="249" y="9" width="311" height="34"/>
+				<reportElement uuid="46b6cef9-46a1-44a1-b7fc-da78bb056761" x="249" y="9" width="311" height="34"/>
 				<textElement>
 					<font size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Packliste]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="56" width="37" height="20"/>
+				<reportElement uuid="f61bd07f-238f-46da-908d-026ec3c854bf" x="0" y="56" width="37" height="20"/>
 				<textElement/>
 				<text><![CDATA[LHM]]></text>
 			</staticText>
-			<image scaleImage="RetainShape" hyperlinkType="None">
-				<reportElement x="10" y="76" width="249" height="50"/>
-				<imageExpression class="java.awt.Image"><![CDATA[(de.linogistix.los.util.ImageAndBarcodeHelper.create128A(9999, 34, $P{LOS_LABELID},false,true))]]></imageExpression>
+			<image scaleImage="RetainShape">
+				<reportElement uuid="b61b7874-c3b0-4db6-9bb2-2d5b8a53d17c" x="10" y="76" width="249" height="50"/>
+				<imageExpression><![CDATA[(de.linogistix.los.util.ImageAndBarcodeHelper.create128A(9999, 34, $P{LOS_LABELID},false,true))]]></imageExpression>
 			</image>
-			<textField hyperlinkType="None">
-				<reportElement x="37" y="56" width="212" height="20"/>
+			<textField>
+				<reportElement uuid="aa64b8c2-27da-4f6f-8bb8-e1fe73204a4c" x="37" y="56" width="212" height="20"/>
 				<textElement textAlignment="Left">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{LOS_LABELID}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{LOS_LABELID}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="172" width="100" height="20"/>
+				<reportElement uuid="5bb89acf-cf96-4e39-9fac-67885aaea85b" x="0" y="172" width="100" height="20"/>
 				<textElement/>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="239" width="100" height="20"/>
+				<reportElement uuid="7c111588-4020-491b-981d-a8361573c892" x="0" y="239" width="100" height="20"/>
 				<textElement>
 					<font isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Artikel]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="239" width="160" height="20"/>
+				<reportElement uuid="bb831594-5bde-476d-918a-96e61b4654d8" x="100" y="239" width="160" height="20"/>
 				<textElement>
 					<font isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Artikel Bezeichnung]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="260" y="239" width="100" height="20"/>
+				<reportElement uuid="e26c8bc3-0f9c-4b34-8458-9500d82a031b" x="260" y="239" width="100" height="20"/>
 				<textElement>
 					<font isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Charge]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="360" y="239" width="100" height="20"/>
+				<reportElement uuid="429f9f62-42d7-4492-b9e8-e9db10c7d810" x="360" y="239" width="100" height="20"/>
 				<textElement>
 					<font isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Serial-Nr.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="450" y="239" width="100" height="20"/>
+				<reportElement uuid="715fcbab-5fcc-4c71-866d-42d8e967fdc0" x="450" y="239" width="100" height="20"/>
 				<textElement textAlignment="Right">
 					<font isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Menge]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="258" width="560" height="1"/>
+				<reportElement uuid="80b764ae-e141-457a-92c7-4a15c74bc719" x="0" y="258" width="560" height="1"/>
 			</line>
 			<staticText>
-				<reportElement x="363" y="172" width="72" height="20"/>
+				<reportElement uuid="654692cb-3632-4a01-a4f0-5d1f5dbf2d59" x="363" y="172" width="72" height="20"/>
 				<textElement textAlignment="Right">
 					<font size="10"/>
 				</textElement>
@@ -145,44 +146,44 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band/>
+		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="28">
-			<textField hyperlinkType="None">
-				<reportElement x="0" y="6" width="100" height="20"/>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement uuid="da71b257-7226-441e-98fe-fd9fa40e84bd" x="0" y="6" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{itemNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{itemNo}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true" hyperlinkType="None">
-				<reportElement x="100" y="6" width="160" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="ad75bee4-37cc-45f1-98e6-b222f3740d94" x="100" y="6" width="160" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{itemDesc}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{itemDesc}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="260" y="6" width="100" height="20"/>
+			<textField>
+				<reportElement uuid="cdc7730f-1840-436a-bb0b-3ff98ab7cb1b" x="260" y="6" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{lotNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{lotNo}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="360" y="6" width="140" height="20"/>
+			<textField>
+				<reportElement uuid="5c5f9f3e-1e7f-4524-adef-724b8e9e20f0" x="360" y="6" width="140" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{serialNo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{serialNo}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="450" y="6" width="100" height="20"/>
+			<textField>
+				<reportElement uuid="6f8f0e12-ad39-48ec-8d83-1fa2759f46a1" x="450" y="6" width="100" height="20"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{amount}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band/>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band/>
+		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>

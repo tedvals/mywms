@@ -24,6 +24,8 @@ import de.linogistix.los.entityservice.BusinessObjectLock;
 import de.linogistix.los.entityservice.BusinessObjectLockState;
 import de.linogistix.los.entityservice.WorkVehicleComplete;
 import de.linogistix.los.entityservice.WorkVehicleCompletionStatus;
+import de.linogistix.los.entityservice.WorkItemComplete;
+import de.linogistix.los.entityservice.WorkItemCompletionStatus;
 import de.linogistix.los.query.BusinessObjectQueryRemote;
 import de.linogistix.los.query.QueryDetail;
 import de.linogistix.los.query.TemplateQuery;
@@ -136,6 +138,14 @@ public abstract class BO implements Serializable, FileChangeListener {
         List<WorkVehicleComplete> ret = new ArrayList<WorkVehicleComplete>();
         
         ret.addAll(Arrays.asList(WorkVehicleCompletionStatus.values()));
+        
+        return ret;
+    }
+
+    public List<WorkItemComplete> getWorkItemCompletionStatuses() {
+        List<WorkItemComplete> ret = new ArrayList<WorkItemComplete>();
+        
+        ret.addAll(Arrays.asList(WorkItemCompletionStatus.values()));
         
         return ret;
     }

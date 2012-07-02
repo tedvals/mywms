@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module codename="de.linogistix.logviewer">
-    <module_version install_time="1340614250228" last="true" origin="installer" specification_version="1.0">
-        <file crc="77163337" name="config/Modules/de-linogistix-logviewer.xml"/>
-        <file crc="1299762368" name="modules/de-linogistix-logviewer.jar"/>
-    </module_version>
-</module>

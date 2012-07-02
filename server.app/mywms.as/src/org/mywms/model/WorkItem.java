@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2006 by Fraunhofer IML, Dortmund.
- * All rights reserved.
- *
- * Project: myWMS
- */
 package org.mywms.model;
 
 import java.math.BigDecimal;
@@ -23,25 +17,27 @@ import javax.persistence.ManyToOne;
 //import javax.persistence.PrePersist;
 //import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-//import javax.persistence.UniqueConstraint;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import org.mywms.service.ConstraintViolatedException;
 /*import org.mywms.facade.FacadeException;
 import org.mywms.globals.SerialNoRecordType;
 import org.mywms.globals.ReparabilityCodeType;
 import org.mywms.service.ConstraintViolatedException;*/
-import javax.persistence.MappedSuperclass;
+//import javax.persistence.MappedSuperclass;
 
 
-@MappedSuperclass
 @Entity
-@Table(name="mywms_workitem")
-/*,uniqueConstraints = {
+@Table(name="mywms_workitem"
+,uniqueConstraints = {
     @UniqueConstraint(columnNames = {
-        "client_id", "item_nr"
+        "labelId"
     })
-})*/
+})
 @Inheritance(strategy = InheritanceType.JOINED)
 public class WorkItem
     extends BasicEntity {
@@ -53,6 +49,7 @@ public class WorkItem
     private boolean urgent = false;
     private Date scheduleTime;
     private Date executeDeadline;
+    private String labelId;
 
     @ManyToOne(optional = false)
     public ItemData getItemDataId() {
@@ -117,4 +114,38 @@ public class WorkItem
         this.executeDeadline = executeDeadline;
     }
 
+    @Column(nullable = false)
+    public String getLabelId() {
+        return this.labelId;
+    }
+
+    public void setLabelId(String labelId) {
+        this.labelId = labelId;
+    }
+
+	@Override
+	public String toUniqueString() {
+		if (getLabelId() != null) {
+			return getLabelId();
+		} else {
+			return getId().toString();
+		}
+	}
+
+    @PreUpdate
+    @PrePersist
+    public void sanityCheck() throws BusinessException, ConstraintViolatedException {
+
+        if (getId() != null) {
+            if (( getLabelId() == null || getLabelId().length() == 0 )) {
+                setLabelId(getId().toString());
+            } else {
+                //ok
+            }
+        } else {
+            throw new RuntimeException("Id cannot be retrieved yet - hence labelId cannot be set");
+        }
+
+
+    }
 }

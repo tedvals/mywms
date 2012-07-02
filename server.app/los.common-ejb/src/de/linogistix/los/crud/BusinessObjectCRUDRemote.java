@@ -102,4 +102,5 @@ public interface BusinessObjectCRUDRemote<T extends BasicEntity> {
 	
 	
 	public void completeWorkVehicle(T entity, boolean status, String remarks) throws BusinessObjectNotFoundException,BusinessObjectDeleteException,BusinessObjectSecurityException;
+	public void completeWorkItem(T entity, boolean status, String remarks) throws BusinessObjectNotFoundException,BusinessObjectDeleteException,BusinessObjectSecurityException;
 }

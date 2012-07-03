@@ -15,6 +15,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 --%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,7 +39,10 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                	</p>
                 
                 <div class="space">
-                    <h:messages id="messages"  styleClass="error"/> 
+			<a4j:outputPanel ajaxRendered="true">
+			<h:messages id="messages"  styleClass="error"/> 
+			</a4j:outputPanel>
+
                     
                     <table  width="100%" border="0" cellspacing="0">
 
@@ -52,7 +56,9 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                             <td>
                                	<h:inputText id="input1" 
                              			 value="#{InfoBean.inputCode}" 
-                             			 styleClass="input" /> 
+                             			 styleClass="input"> 
+				<a4j:support event="onkeyup" reRender="messages" action="#{InfoBean.processEnterCode}" />
+				</h:inputText>
                             </td>
                         </tr>
 

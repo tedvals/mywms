@@ -48,7 +48,7 @@ public class LOSSystemPropertyServiceBean extends BasicServiceBean<LOSSystemProp
 		}
 
 		if( value == null ) {
-			value = "";
+			value = "null_val";
 		}
 
 		LOSSystemProperty sysProp = getByKey(client, workstation, key);

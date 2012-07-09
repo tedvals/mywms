@@ -145,6 +145,7 @@ public class LOSStorageLocationServiceBean
         return (List<LOSStorageLocation>) query.getResultList();
 	}
 
+	/* see here */
     @SuppressWarnings("unchecked")
 	public List<LOSStorageLocation> getListByAreaType(Client client, LOSAreaType areaType) {
         StringBuffer qstr = new StringBuffer();

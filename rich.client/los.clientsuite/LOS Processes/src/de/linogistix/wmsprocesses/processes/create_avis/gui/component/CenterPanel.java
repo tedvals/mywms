@@ -1,8 +1,8 @@
 /*
  * Copyright (c) 2006 - 2010 LinogistiX GmbH
- * 
+ *
  *  www.linogistix.com
- *  
+ *
  *  Project myWMS-LOS
  */
 package de.linogistix.wmsprocesses.processes.create_avis.gui.component;
@@ -38,110 +38,107 @@ import org.openide.util.NbBundle;
  *
  * @author artur
  */
-public class CenterPanel extends AbstractCenterPanel implements TopComponentListener{
+public class CenterPanel extends AbstractCenterPanel implements TopComponentListener {
 
     J2EEServiceLocator loc = (J2EEServiceLocator) Lookup.getDefault().lookup(J2EEServiceLocator.class);
     TopComponentPanel topComponentPanel;
-    ClientItemDataLotFilteringComponent clientItemDataLotFilteringComponent = null;     
-    
+    ClientItemDataLotFilteringComponent clientItemDataLotFilteringComponent = null;
+
     private BOAutoFilteringComboBox<Client> clientComboBox = null;
-    
+
     private BOAutoFilteringComboBox<ItemData> itemDataComboBox = null;
-    
+
     private final static Logger log = Logger.getLogger(CenterPanel.class.getName());
 
     private boolean initialized  = false;
 
     public CenterPanel(TopComponentPanel topComponentPanel) {
         this.topComponentPanel = topComponentPanel;
-        
+
 //        getAmountTextField().setEnabled(false);
         getAmountTextField().setMinimumValue(new BigDecimal(0), false);
         getAmountTextField().setMandatory(true);
         getAmountTextField().getTextFieldLabel().setTitleText(
-                NbBundle.getMessage(WMSProcessesBundleResolver.class,"CreateAvisCenterPanel.Amount"));
-        
+            NbBundle.getMessage(WMSProcessesBundleResolver.class,"CreateAvisCenterPanel.Amount"));
+
         getDeliveryTextField().setEnabled(true);
         getDeliveryTextField().setMandatory(true);
         getDeliveryTextField().getTextFieldLabel().setTitleText(
-                NbBundle.getMessage(WMSProcessesBundleResolver.class, "DELIVERY_DATE"));
-        
+            NbBundle.getMessage(WMSProcessesBundleResolver.class, "DELIVERY_DATE"));
+
     }
-    
-    private void initAutofiltering(){
-    
+
+    private void initAutofiltering() {
+
         getClientComboBox().setEnabled(true);
         getClientComboBox().setMandatory(true);
         getClientComboBox().setEditorLabelTitle(NbBundle.getMessage(WMSProcessesBundleResolver.class,"client"));
-        
+
         getLotOptionPanel().initAutofiltering();
-        
+
         getItemDataComboBox().setEnabled(true);
         getItemDataComboBox().setMandatory(true);
         getItemDataComboBox().setEditorLabelTitle(NbBundle.getMessage(WMSProcessesBundleResolver.class,"itemData"));
-        
+
         getItemDataComboBox().addItemChangeListener(new PropertyChangeListener() {
 
             public void propertyChange(PropertyChangeEvent evt) {
-               
+
                 ItemData selItemData = getItemDataComboBox().getSelectedAsEntity();
 
-                if(selItemData != null){
+                if(selItemData != null) {
 //                    getAmountTextField().setEnabled(true);
                     getAmountTextField().setUnitName(selItemData.getHandlingUnit().getUnitName());
                     getAmountTextField().setScale(selItemData.getScale());
-                }
-                else {
+                } else {
 //                    getAmountTextField().setEnabled(false);
                 }
-                
+
             }
         });
-        
+
         getLotComboBox().addItemChangeListener(new PropertyChangeListener() {
 
             public void propertyChange(PropertyChangeEvent evt) {
-                
-                if(getLotComboBox().getSelectedAsEntity() == null){
+
+                if(getLotComboBox().getSelectedAsEntity() == null) {
                     return;
                 }
-                
+
                 ItemData selItemData = getLotComboBox().getSelectedAsEntity().getItemData();
 
-                if(selItemData != null){
+                if(selItemData != null) {
 //                    getAmountTextField().setEnabled(true);
                     getAmountTextField().setUnitName(selItemData.getHandlingUnit().getUnitName());
                     getAmountTextField().setScale(selItemData.getScale());
-                }
-                else {
+                } else {
 //                    getAmountTextField().setEnabled(false);
                 }
-                
+
             }
         });
-        
-        try{
+
+        try {
             clientItemDataLotFilteringComponent = new ClientItemDataLotFilteringComponent(getClientComboBox(), getItemDataComboBox(), getLotComboBox());
         } catch (Exception ex) {
             ExceptionAnnotator.annotate(ex);
-        }    
-        
+        }
+
         validate();
     }
 
     public void createOrder() {
-        
+
         if(!getClientComboBox().checkSanity()
-            || !getItemDataComboBox().checkSanity()
-            || !getAmountTextField().checkSanity()
-            || !getDeliveryTextField().checkSanity()
-            || !getLotOptionPanel().checkSanity())
-        {
+                || !getItemDataComboBox().checkSanity()
+                || !getAmountTextField().checkSanity()
+                || !getDeliveryTextField().checkSanity()
+                || !getLotOptionPanel().checkSanity()) {
             return;
         }
-        
+
         ManageInventoryFacade mi;
-        
+
         try {
             mi = (ManageInventoryFacade) loc.getStateless(ManageInventoryFacade.class);
         } catch (Exception ex) {
@@ -149,34 +146,32 @@ public class CenterPanel extends AbstractCenterPanel implements TopComponentList
             return;
         }
         try {
-            
+
             boolean expire = getLotOptionPanel().getReplaceOldLotCheckBox().isSelected();
-            
+
             Date dExpected = getDeliveryTextField().getDate();
             Date dTill = getValidToTextField().getDate();
             Date dFrom = getValidFromTextField().getDate();
-            
+
             String lotName = null;
-            if(getLotOptionPanel().isLotChoosen() 
-               && getLotOptionPanel().getSelectedLot() != null)
-            {
+            if(getLotOptionPanel().isLotChoosen()
+                    && getLotOptionPanel().getSelectedLot() != null) {
                 lotName = getLotOptionPanel().getSelectedLot().getName();
-            }
-            else if(!getLotOptionPanel().isLotChoosen()){
-                
+            } else if(!getLotOptionPanel().isLotChoosen()) {
+
                 lotName = getLotNumberTextField().getText();
             }
             String comment = getCommentField().getText() == null ? "" : getCommentField().getText();
-            
-            boolean ret = mi.createAvis(getClientComboBox().getSelectedItem().getName(), 
-                                        getItemDataComboBox().getSelectedItem().getName(), 
-                                        lotName, 
-                                        getAmountTextField().getValue(), 
-                                        dExpected, 
-                                        dTill, 
-                                        dFrom, 
+
+            boolean ret = mi.createAvis(getClientComboBox().getSelectedItem().getName(),
+                                        getItemDataComboBox().getSelectedItem().getName(),
+                                        lotName,
+                                        getAmountTextField().getValue(),
+                                        dExpected,
+                                        dTill,
+                                        dFrom,
                                         expire, "", comment);
-            
+
             if (!ret) {
                 ExceptionAnnotator.annotate(new InventoryException(InventoryExceptionKey.CREATE_AVIS_FAILED, ""));
                 return;
@@ -188,52 +183,52 @@ public class CenterPanel extends AbstractCenterPanel implements TopComponentList
             return;
         }
     }
-    
-     protected BOAutoFilteringComboBox<Lot> getLotComboBox() {  
+
+    protected BOAutoFilteringComboBox<Lot> getLotComboBox() {
         return ((LotOptionPanel)lotOptionPanel).getLotComboBox();
     }
 
     protected BOAutoFilteringComboBox<ItemData> getItemDataComboBox() {
-        
-        if(itemDataComboBox == null){
-            
+
+        if(itemDataComboBox == null) {
+
             itemDataComboBox = new BOAutoFilteringComboBox<ItemData>(ItemData.class);
             itemComboBoxPanel.add(itemDataComboBox, BorderLayout.CENTER);
         }
-        
+
         return itemDataComboBox;
     }
-    
+
 
     // Implementation of TopComponentListener
-    
-    public void clear(){
-        if(getItemDataComboBox() != null){
+
+    public void clear() {
+        if(getItemDataComboBox() != null) {
             getItemDataComboBox().clear();
         }
-                
+
         getAmountTextField().setValue(new BigDecimal(0));
         getDeliveryTextField().setText("");
-        
+
         getLotOptionPanel().clear();
-        
+
         initDefaults();
         getClientComboBox().requestFocus();
 
     }
 
     protected BOAutoFilteringComboBox<Client> getClientComboBox() {
-        
-        if(clientComboBox == null){
+
+        if(clientComboBox == null) {
             clientComboBox = new BOAutoFilteringComboBox<Client>(Client.class);
             clientComboBoxPanel.add(clientComboBox, BorderLayout.CENTER);
         }
-        
+
         return clientComboBox;
     }
-    
+
     public void componentOpened() {
-        if (initialized){
+        if (initialized) {
             return;
         }
         initAutofiltering();
@@ -256,10 +251,10 @@ public class CenterPanel extends AbstractCenterPanel implements TopComponentList
 
     public void componentShowing() {
     }
-    
+
     private void initDefaults() {
         LoginService login = Lookup.getDefault().lookup(LoginService.class);
-        
+
         if( getClientComboBox().getSelectedItem() == null ) {
             Client client = login.getUsersClient();
             BODTO<Client> clientTO = null;
@@ -267,8 +262,7 @@ public class CenterPanel extends AbstractCenterPanel implements TopComponentList
                 clientTO = new BODTO<Client>(client.getId(), client.getVersion(), client.getNumber());
                 getClientComboBox().clear();
                 getClientComboBox().addItem(clientTO);
-            }
-            catch( Exception e) {}
+            } catch( Exception e) {}
         }
 
         if( clientItemDataLotFilteringComponent != null ) {

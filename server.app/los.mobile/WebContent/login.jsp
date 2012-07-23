@@ -26,7 +26,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="expires" content="Mon, 01 Jan 1990 00:00:01 GMT">            
-        <title>LOS</title>
+        <title>MELISA</title>
         <jsp:useBean id="JSPLoginBeanID" scope="request" class="de.linogistix.mobile.common.gui.jsp.JSPLoginBean" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/pages/stylesheet.css" type="text/css" />
     </head>

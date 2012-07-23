@@ -37,8 +37,13 @@ name, locale, PASSWR, client_id)
 values(4, 0, 0, current_timestamp, current_timestamp, 
 'francais', 'fr', jboss.md5hash('francais'), 0);
 
+insert into mywms_user(id, version, entity_lock, created, modified, 
+name, locale, PASSWR, client_id) 
+values(5, 0, 0, current_timestamp, current_timestamp, 
+'greek', 'el', jboss.md5hash('greek'), 0);
+
 insert into mywms_user_mywms_role(mywms_user_id, roles_id)
 (select u.id, r.id 
 from mywms_user u , mywms_role r
-where u.name in ('admin','deutsch','english','francais') and
+where u.name in ('admin','deutsch','english','francais','greek') and
 r.name='Admin');

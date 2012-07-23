@@ -24,7 +24,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>LOS</title>
+        <title>MELISA</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/pages/stylesheet.css" type="text/css" />
     </head>
     

@@ -14,5 +14,5 @@ import de.linogistix.los.query.exception.BusinessObjectQueryException;
 @Remote
 public interface VehicleDataQueryRemote extends BusinessObjectQueryRemote<VehicleData>{ 
   
-	public LOSResultList<VehicleData> queryByLabelId(QueryDetail d, String vdId) throws BusinessObjectNotFoundException, BusinessObjectQueryException;
+	public LOSResultList<VehicleData> queryByPlateNumber(QueryDetail d, String vdId) throws BusinessObjectNotFoundException, BusinessObjectQueryException;
 }

@@ -5,40 +5,27 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-/*import java.util.List;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-
-import org.mywms.facade.FacadeException;
-import org.mywms.globals.SerialNoRecordType;
-*/
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.UniqueConstraint;
 import org.mywms.service.ConstraintViolatedException;
 
+import org.mywms.globals.FuelType;
+
 @Entity
 @Table(name="mywms_vehicledata",
 uniqueConstraints = {
     @UniqueConstraint(columnNames = {
-        "labelId"
+        "plateNumber", "labelId"
     })
 })
-/*,uniqueConstraints = {
-    @UniqueConstraint(columnNames = {
-        "client_id", "item_nr"
-    })
-})*/
 @Inheritance(strategy = InheritanceType.JOINED)
 public class VehicleData
     extends BasicEntity {
@@ -46,13 +33,20 @@ public class VehicleData
     private String remarks = "";
     private String manufacturerName = "";
     private String modelName = "";
-    private String plateNumber = "";
+    private String plateNumber;
     private String chassisNumber = "";
     private String engineNumber = "";
     private Date receiptDate;
     private Date storageDate;
     private BigDecimal mileage;
+    private BigDecimal hoursMeter;
+    private BigDecimal categoryId;
+    private BigDecimal typeId;
+    private String stnr;
     private String labelId;
+    private FuelType fuelType = FuelType.S;
+    private String organizationUnit;
+    private boolean workingCondition = false;
 
     public String getRemarks() {
         return this.remarks;
@@ -78,6 +72,7 @@ public class VehicleData
         this.modelName = modelName;
     }
 
+    @Column(nullable=false)
     public String getPlateNumber() {
         return this.plateNumber;
     }
@@ -129,7 +124,41 @@ public class VehicleData
         this.mileage = mileage;
     }
 
-    @Column(nullable=false)
+    @Column(precision=15, scale=2)
+    public BigDecimal getHoursMeter() {
+        return hoursMeter;
+    }
+
+    public void setHoursMeter(BigDecimal hoursMeter) {
+        this.hoursMeter = hoursMeter;
+    }
+
+    @Column(precision=19, scale=2)
+    public BigDecimal getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(BigDecimal categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    @Column(precision=19, scale=2)
+    public BigDecimal getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(BigDecimal typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getStnr() {
+        return stnr;
+    }
+
+    public void setStnr(String stnr) {
+        this.stnr = stnr;
+    }
+
     public String getLabelId() {
         return this.labelId;
     }
@@ -138,27 +167,53 @@ public class VehicleData
         this.labelId = labelId;
     }
 
-	@Override
-	public String toUniqueString() {
-		if (getLabelId() != null) {
-			return getLabelId();
-		} else {
-			return getId().toString();
-		}
-	}
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition="char", nullable=false)
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getOrganizationUnit() {
+        return this.organizationUnit;
+    }
+
+    public void setOrganizationUnit(String organizationUnit) {
+        this.organizationUnit = organizationUnit;
+    }
+
+    public boolean getWorkingCondition() {
+        return workingCondition;
+    }
+
+    public void setWorkingCondition(boolean workingCondition) {
+        this.workingCondition = workingCondition;
+    }
+
+    @Override
+    public String toUniqueString() {
+        if (getPlateNumber() != null) {
+            return getPlateNumber();
+        } else {
+            return getId().toString();
+        }
+    }
 
     @PreUpdate
     @PrePersist
     public void sanityCheck() throws BusinessException, ConstraintViolatedException {
 
         if (getId() != null) {
-            if (( getLabelId() == null || getLabelId().length() == 0 )) {
-                setLabelId(getId().toString());
+            if (( getPlateNumber() == null || getPlateNumber().length() == 0 )) {
+                setPlateNumber(getId().toString());
             } else {
                 //ok
             }
         } else {
-            throw new RuntimeException("Id cannot be retrieved yet - hence labelId cannot be set");
+            throw new RuntimeException("Id cannot be retrieved yet - hence plateNum cannot be set");
         }
 
 

@@ -1,14 +1,3 @@
-/*
- * BONodeUser.java
- *
- * Created on 1. Dezember 2006, 01:17
- *
- * Copyright (c) 2006 LinogistiX GmbH. All rights reserved.
- *
- *<a href="http://www.linogistix.com/">browse for licence information</a>
- *
- */
-
 package de.linogistix.inventory.browser.bo;
 
 import de.linogistix.common.bobrowser.bo.BO;
@@ -74,7 +63,7 @@ public class BOVehicleData extends BO {
     VehicleData o;
 
     o = new VehicleData();
-    o.setLabelId("");
+    o.setPlateNumber("");
 
     return o;
     
@@ -94,7 +83,7 @@ public class BOVehicleData extends BO {
   }
   
    protected String[] initIdentifiableProperties() {
-    return new String[]{"labelId"};
+    return new String[]{"plateNumber"};
   }
 
     @Override

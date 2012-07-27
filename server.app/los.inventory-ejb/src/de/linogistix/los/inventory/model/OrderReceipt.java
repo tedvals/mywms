@@ -15,10 +15,12 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.mywms.model.Document;
+import de.linogistix.los.inventory.model.LOSOrderReceipients;
 
 /**
  *
@@ -50,6 +52,9 @@ public class OrderReceipt extends Document{
 	private LOSOrderRequestState state;
 
 	private List<OrderReceiptPosition> positions;
+
+	private LOSOrderReceipients recipientId;
+	private String mark;
 	
 	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
@@ -123,4 +128,45 @@ public class OrderReceipt extends Document{
 		return destination;
 	}
     
+	
+	/**
+	 * Get recipientId.
+	 *
+	 * @return recipientId as LOSOrderReceipients.
+	 */
+	@ManyToOne(optional = false)
+	public LOSOrderReceipients getRecipientId()
+	{
+	    return recipientId;
+	}
+	
+	/**
+	 * Set recipientId.
+	 *
+	 * @param recipientId the value to set.
+	 */
+	public void setRecipientId(LOSOrderReceipients recipientId)
+	{
+	    this.recipientId = recipientId;
+	}
+	
+	/**
+	 * Get mark.
+	 *
+	 * @return mark as String.
+	 */
+	public String getMark()
+	{
+	    return mark;
+	}
+	
+	/**
+	 * Set mark.
+	 *
+	 * @param mark the value to set.
+	 */
+	public void setMark(String mark)
+	{
+	    this.mark = mark;
+	}
 }

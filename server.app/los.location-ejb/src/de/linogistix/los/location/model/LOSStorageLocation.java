@@ -10,6 +10,7 @@ package de.linogistix.los.location.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,6 +54,13 @@ public class LOSStorageLocation extends BasicClientAssignedEntity{
     private Date stockTakingDate;
     
     private Zone zone = null;
+
+    private BigDecimal xCoordinates;
+    private BigDecimal yCoordinates;
+    private Date checkDate;
+    private Date nextCheckDate;
+    private int pickingSources;
+    private boolean workingCondition = false;
     
     @Column(nullable=false, unique=true)
 	public String getName() {
@@ -140,7 +148,59 @@ public class LOSStorageLocation extends BasicClientAssignedEntity{
 	public void setZone(Zone zone) {
 		this.zone = zone;
 	}
-    
+   	
+	@Column(precision=18, scale=6)
+	public BigDecimal getXCoordinates() {
+		return xCoordinates;
+	}
+
+	public void setXCoordinates(BigDecimal xCoordinates) {
+		this.xCoordinates= xCoordinates;
+	}
+
+	@Column(precision=18, scale=6)
+	public BigDecimal getYCoordinates() {
+		return yCoordinates;
+	}
+
+	public void setYCoordinates(BigDecimal yCoordinates) {
+		this.yCoordinates= yCoordinates;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getCheckDate() {
+		return checkDate;
+	}
+
+	public void setCheckDate(Date checkDate) {
+		this.checkDate = checkDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getNextCheckDate() {
+		return nextCheckDate;
+	}
+
+	public void setNextCheckDate(Date nextCheckDate) {
+		this.nextCheckDate = nextCheckDate;
+	}
+
+	public int getPickingSources() {
+		return pickingSources;
+	}
+
+	public void setPickingSources(int pickingSources) {
+		this.pickingSources = pickingSources;
+	}
+
+    public boolean getWorkingCondition() {
+        return workingCondition;
+    }
+
+    public void setWorkingCondition(boolean workingCondition) {
+        this.workingCondition = workingCondition;
+    }
+
 	@Override
 	public String toShortString() {
 		return super.toShortString() + "[name=" + name + "]";

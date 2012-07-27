@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2006 by Fraunhofer IML, Dortmund.
- * All rights reserved.
- *
- * Project: myWMS
- */
 package org.mywms.service;
 
 //import java.util.ArrayList;
@@ -42,13 +36,13 @@ public class VehicleDataServiceBean
         return vehicleData;
     }
 
-	public VehicleData getByLabelId(String labelId) throws EntityNotFoundException{
+	public VehicleData getByPlateNumber(String plateNumber) throws EntityNotFoundException{
         Query query =
             manager.createQuery("SELECT su FROM "
                 + VehicleData.class.getSimpleName()
                 + " su "
-                + " WHERE su.labelId= :adId");
-        query = query.setParameter("adId", labelId);
+                + " WHERE su.plateNumber= :adId");
+        query = query.setParameter("adId", plateNumber);
 
         try{
         	VehicleData ret = (VehicleData) query.getSingleResult();

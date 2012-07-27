@@ -43,6 +43,8 @@ public class LOSGoodsReceiptPosition extends BasicClientAssignedEntity {
 
 	private BigDecimal amount;
 
+	private BigDecimal delAmount;
+
 	private String itemData;
 	
 	private int scale;
@@ -248,4 +250,26 @@ public class LOSGoodsReceiptPosition extends BasicClientAssignedEntity {
 		this.state = state;
 	}
 
+	
+	/**
+	 * Get delAmount.
+	 *
+	 * @return delAmount as BigDecimal.
+	 */
+
+	@Column(precision=17, scale=4)
+	public BigDecimal getDelAmount()
+	{
+	    return delAmount;
+	}
+	
+	/**
+	 * Set delAmount.
+	 *
+	 * @param delAmount the value to set.
+	 */
+	public void setDelAmount(BigDecimal delAmount)
+	{
+	    this.delAmount = delAmount;
+	}
 }

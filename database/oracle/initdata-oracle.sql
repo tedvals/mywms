@@ -17,30 +17,30 @@ values(0, 0, 0, current_timestamp, current_timestamp,
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
 name, locale, PASSWR, client_id, 
-additionalcontent) 
+additionalcontent,personnelid) 
 values(0, 0, 0, current_timestamp, current_timestamp, 
 'admin', 'en', jboss.md5hash('admin'), 0,
-'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and PASSWR.');
+'This is a system used entity. DO NOT REMOVE OR LOCK IT! Some processes may use it. But feel free to choose a suitable name and PASSWR.','admin');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, PASSWR, client_id) 
+name, locale, PASSWR, client_id,personnelid) 
 values(1, 0, 0, current_timestamp, current_timestamp, 
-'deutsch', 'de', jboss.md5hash('deutsch'), 0);
+'deutsch', 'de', jboss.md5hash('deutsch'), 0,'deutsch');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, PASSWR, client_id) 
+name, locale, PASSWR, client_id,personnelid) 
 values(2, 0, 0, current_timestamp, current_timestamp, 
-'english', 'en', jboss.md5hash('english'), 0);
+'english', 'en', jboss.md5hash('english'), 0,'english');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, PASSWR, client_id) 
+name, locale, PASSWR, client_id,personnelid) 
 values(4, 0, 0, current_timestamp, current_timestamp, 
-'francais', 'fr', jboss.md5hash('francais'), 0);
+'francais', 'fr', jboss.md5hash('francais'), 0,'francais');
 
 insert into mywms_user(id, version, entity_lock, created, modified, 
-name, locale, PASSWR, client_id) 
+name, locale, PASSWR, client_id,personnelid) 
 values(5, 0, 0, current_timestamp, current_timestamp, 
-'greek', 'el', jboss.md5hash('greek'), 0);
+'greek', 'el', jboss.md5hash('greek'), 0,'greek');
 
 insert into mywms_user_mywms_role(mywms_user_id, roles_id)
 (select u.id, r.id 

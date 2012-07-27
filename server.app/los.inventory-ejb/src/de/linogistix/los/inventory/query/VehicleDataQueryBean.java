@@ -33,16 +33,23 @@ public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData>
     }
 
     private static final String[] dtoProps = new String[] { 
-        "id", "version", "labelId",
+        "id", "version", "plateNumber",
         "remarks",
         "manufacturerName",
         "modelName",
-        "plateNumber",
         "chassisNumber",
         "engineNumber",
         "receiptDate",
         "storageDate",
-        "mileage"
+        "mileage",
+	"hoursMeter",
+	"categoryId",
+	"typeId",
+	"stnr",
+	"labelId",
+	"fuelType",
+	"organizationUnit",
+	"workingCondition"
                                                           };
 
     @Override
@@ -65,9 +72,9 @@ public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData>
         //value);
 //idt.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
-        TemplateQueryWhereToken plateNumber = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_LIKE, "plateNumber", value);
-        plateNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
+//TemplateQueryWhereToken plateNumber = new TemplateQueryWhereToken(
+//TemplateQueryWhereToken.OPERATOR_LIKE, "plateNumber", value);
+//plateNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
         TemplateQueryWhereToken chassisNumber = new TemplateQueryWhereToken(
             TemplateQueryWhereToken.OPERATOR_LIKE, "chassisNumber", value);
@@ -78,19 +85,19 @@ public class VehicleDataQueryBean extends BusinessObjectQueryBean<VehicleData>
         engineNumber.setLogicalOperator(TemplateQueryWhereToken.OPERATOR_OR);
 
 //ret.add(idt);
-        ret.add(plateNumber);
+//ret.add(plateNumber);
         ret.add(chassisNumber);
         ret.add(engineNumber);
 
         return ret;
     }
 
-    public LOSResultList<VehicleData> queryByLabelId( QueryDetail detail, String vdId)
+    public LOSResultList<VehicleData> queryByPlateNumber( QueryDetail detail, String vdId)
     throws BusinessObjectNotFoundException, BusinessObjectQueryException {
         TemplateQuery q = new TemplateQuery();
         q.setBoClass(tClass);
         TemplateQueryWhereToken l = new TemplateQueryWhereToken(
-            TemplateQueryWhereToken.OPERATOR_EQUAL, "labelId", vdId);
+            TemplateQueryWhereToken.OPERATOR_EQUAL, "plateNumber", vdId);
         q.addWhereToken(l);
 
         return queryByTemplate(detail, q);

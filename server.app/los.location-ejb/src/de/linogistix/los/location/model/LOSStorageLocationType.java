@@ -36,6 +36,7 @@ public class LOSStorageLocationType extends BasicEntity{
 	private static final long serialVersionUID = 1L;
 	
     private String name;
+    private String type;
     
     private List<LOSTypeCapacityConstraint> typeCapacityConstraints;
 
@@ -43,6 +44,8 @@ public class LOSStorageLocationType extends BasicEntity{
     private BigDecimal width;
     private BigDecimal depth;
     private BigDecimal volume;
+    private BigDecimal lowVolume;
+    private BigDecimal minimumVolume;
     private BigDecimal liftingCapacity;
 
     public LOSStorageLocationType(){
@@ -56,6 +59,14 @@ public class LOSStorageLocationType extends BasicEntity{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @OneToMany(mappedBy="storageLocationType")
@@ -106,6 +117,22 @@ public class LOSStorageLocationType extends BasicEntity{
 	}
 	public void setVolume(BigDecimal volume) {
 		this.volume = volume;
+	}
+
+    @Column(nullable = true, precision=18, scale=6)
+    public BigDecimal getLowVolume() {
+		return lowVolume;
+	}
+	public void setLowVolume(BigDecimal lowVolume) {
+		this.lowVolume = lowVolume;
+	}
+
+    @Column(nullable = true, precision=18, scale=6)
+    public BigDecimal getMinimumVolume() {
+		return minimumVolume;
+	}
+	public void setMinimumVolume(BigDecimal minimumVolume) {
+		this.minimumVolume = minimumVolume;
 	}
 
 	@Column(nullable = true, precision=16, scale=3)

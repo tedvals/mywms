@@ -43,6 +43,11 @@ public class User
 
     private List<Role> roles = new ArrayList<Role>();
 
+    private String personnelId;
+    private String rankAbbr;
+    private String rank;
+    private String organizationUnit;
+
     /**
      * Returns the user name, used to log into the system. The username
      * can be cleartext as well as a number. Please remark, that using
@@ -229,5 +234,87 @@ public class User
     public String toShortString() {
     	return super.toShortString() + "[name=" + name + "]";
 
+    }
+    
+    
+    /**
+     * Get personnelId.
+     *
+     * @return personnelId as String.
+     */
+    @Column(nullable = false, unique = true)
+    public String getPersonnelId()
+    {
+        return personnelId;
+    }
+    
+    /**
+     * Set personnelId.
+     *
+     * @param personnelId the value to set.
+     */
+    public void setPersonnelId(String personnelId)
+    {
+        this.personnelId = personnelId;
+    }
+    
+    /**
+     * Get rankAbbr.
+     *
+     * @return rankAbbr as String.
+     */
+    public String getRankAbbr()
+    {
+        return rankAbbr;
+    }
+    
+    /**
+     * Set rankAbbr.
+     *
+     * @param rankAbbr the value to set.
+     */
+    public void setRankAbbr(String rankAbbr)
+    {
+        this.rankAbbr = rankAbbr;
+    }
+    
+    /**
+     * Get rank.
+     *
+     * @return rank as String.
+     */
+    public String getRank()
+    {
+        return rank;
+    }
+    
+    /**
+     * Set rank.
+     *
+     * @param rank the value to set.
+     */
+    public void setRank(String rank)
+    {
+        this.rank = rank;
+    }
+    
+    /**
+     * Get organizationUnit.
+     *
+     * @return organizationUnit as String.
+     */
+    public String getOrganizationUnit()
+    {
+        return organizationUnit;
+    }
+    
+    /**
+     * Set organizationUnit.
+     *
+     * @param organizationUnit the value to set.
+     */
+    public void setOrganizationUnit(String organizationUnit)
+    {
+        this.organizationUnit = organizationUnit;
     }
 }

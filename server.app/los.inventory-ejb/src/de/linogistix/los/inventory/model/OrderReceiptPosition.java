@@ -36,6 +36,8 @@ public class OrderReceiptPosition extends BasicClientAssignedEntity {
 	private OrderReceipt receipt;
 
 	private int pos;
+
+	private String receiptLocation;
 	
 	public OrderReceiptPosition(){
 		
@@ -109,4 +111,24 @@ public class OrderReceiptPosition extends BasicClientAssignedEntity {
 	}
 	
 	
+	
+	/**
+	 * Get receiptLocation.
+	 *
+	 * @return receiptLocation as String.
+	 */
+	public String getReceiptLocation()
+	{
+	    return receiptLocation;
+	}
+	
+	/**
+	 * Set receiptLocation.
+	 *
+	 * @param receiptLocation the value to set.
+	 */
+	public void setReceiptLocation(String receiptLocation)
+	{
+	    this.receiptLocation = receiptLocation;
+	}
 }

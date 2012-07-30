@@ -10,6 +10,8 @@ package de.linogistix.los.inventory.model;
 import java.util.Date;
 import java.util.List;
 
+import de.linogistix.los.inventory.model.LOSOrderReceipients;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,7 +22,6 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.mywms.model.Document;
-import de.linogistix.los.inventory.model.LOSOrderReceipients;
 
 /**
  *

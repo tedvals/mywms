@@ -24,23 +24,23 @@
         <mapping class="org.mywms.model.ItemData"/>
         <mapping class="org.mywms.model.LogItem"/>
         <mapping class="org.mywms.model.MoveRequest"/>        
-  		<mapping class="org.mywms.model.PickingRequest"/>
-  		<mapping class="org.mywms.model.PickingRequestPosition"/>  
-  		<mapping class="org.mywms.model.PluginConfiguration"/>  
-  		<mapping class="org.mywms.model.Request"/>  
-  		<mapping class="org.mywms.model.Role"/>
+  	<mapping class="org.mywms.model.PickingRequest"/>
+  	<mapping class="org.mywms.model.PickingRequestPosition"/>  
+  	<mapping class="org.mywms.model.PluginConfiguration"/>  
+  	<mapping class="org.mywms.model.Request"/>  
+  	<mapping class="org.mywms.model.Role"/>
         <mapping class="org.mywms.model.StockUnit"/>
         <mapping class="org.mywms.model.StorageLocation"/>
         <mapping class="org.mywms.model.TransportRequest"/>
         <mapping class="org.mywms.model.UnitLoad"/>
         <mapping class="org.mywms.model.UnitLoadType"/>
         <mapping class="org.mywms.model.User"/>
-		<mapping class="org.mywms.model.VehicleData"/>
-		<mapping class="org.mywms.model.WorkType"/>
-		<mapping class="org.mywms.model.WorkVehicle"/>
-		<mapping class="org.mywms.model.WorkItem"/>
-		<mapping class="org.mywms.model.WorkVehicleHistory"/>
-		<mapping class="org.mywms.model.WorkItemHistory"/>
+	<mapping class="org.mywms.model.VehicleData"/>
+	<mapping class="org.mywms.model.WorkType"/>
+	<mapping class="org.mywms.model.WorkVehicle"/>
+	<mapping class="org.mywms.model.WorkItem"/>
+	<mapping class="org.mywms.model.WorkVehicleHistory"/>
+	<mapping class="org.mywms.model.WorkItemHistory"/>
         <mapping class="org.mywms.model.Zone"/>
         
     </session-factory>

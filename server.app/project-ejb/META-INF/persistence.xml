@@ -61,6 +61,8 @@
         <class>de.linogistix.los.inventory.pick.model.LOSPickRequestPosition</class>
         <class>de.linogistix.los.inventory.pick.model.ExtinguishRequest</class>
         <class>de.linogistix.los.inventory.model.StockUnitLabel</class>
+        <class>de.linogistix.los.inventory.model.LOSOrderReceipients</class>
+        <class>de.linogistix.los.inventory.model.LOSFuelOrderLog</class>
         
         <class>de.linogistix.los.stocktaking.model.LOSStockTaking</class>
         <class>de.linogistix.los.stocktaking.model.LOSStocktakingRecord</class>

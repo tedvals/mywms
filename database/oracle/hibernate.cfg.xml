@@ -54,6 +54,8 @@
         <mapping class="de.linogistix.los.inventory.model.OrderReceipt" />
         <mapping class="de.linogistix.los.inventory.model.OrderReceiptPosition" />
         <mapping class="de.linogistix.los.inventory.model.StockUnitLabel" />
+        <mapping class="de.linogistix.los.inventory.model.LOSOrderReceipients" />
+        <mapping class="de.linogistix.los.inventory.model.LOSFuelOrderLog" />
                 
         <mapping class="de.linogistix.los.inventory.pick.model.PickReceipt"/>
         <mapping class="de.linogistix.los.inventory.pick.model.PickReceiptPosition"/>

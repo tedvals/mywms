@@ -12,7 +12,7 @@ import org.mywms.model.BasicEntity;
 @Entity
 @Table(name = "los_orderreceipients", uniqueConstraints = { 
 		@UniqueConstraint(columnNames = {
-				"identity_card", "tokenId"}) })
+				"identityCard", "tokenId"}) })
 public class LOSOrderReceipients extends BasicEntity {
 	
 	private static final long serialVersionUID = 1L;
@@ -53,7 +53,7 @@ public class LOSOrderReceipients extends BasicEntity {
 	 *
 	 * @return identityCard as String.
 	 */
-	@Column(name="\"identity_card\"",nullable=false)
+	@Column(nullable=false)
 	public String getIdentityCard()
 	{
 	    return identityCard;
@@ -177,7 +177,7 @@ public class LOSOrderReceipients extends BasicEntity {
 	 *
 	 * @return phone as BigDecimal.
 	 */
-	@Column(nullable=false)
+	@Column(nullable=false, precision=19)
 	public BigDecimal getPhone()
 	{
 	    return phone;
@@ -198,6 +198,7 @@ public class LOSOrderReceipients extends BasicEntity {
 	 *
 	 * @return vpnPhone as BigDecimal.
 	 */
+	@Column(precision=19)
 	public BigDecimal getVpnPhone()
 	{
 	    return vpnPhone;

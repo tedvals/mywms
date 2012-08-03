@@ -59,6 +59,10 @@
                 <package>de.linogistix.los.util</package>
                 <package>de.linogistix.los.util.businessservice</package>
                 <package>de.linogistix.los.util.entityservice</package>
+                <package>de.linogistix.los.inventory.crud</package>
+                <package>de.linogistix.los.inventory.model</package>
+                <package>de.linogistix.los.inventory.query</package>
+                <package>de.linogistix.los.inventory.query.dto</package>
             </public-packages>
             <class-path-extension>
                 <runtime-relative-path>ext/los.common-client.jar</runtime-relative-path>

@@ -32,11 +32,11 @@ public class LOSOrderReceipientsTO extends BODTO<LOSOrderReceipients> {
 		this.tokenId		 = rec.getTokenId();         
 	}
 	
-	public LOSOrderReceipientsTO(Long id, int version) {
-		super(id, version, id);
+	public LOSOrderReceipientsTO(Long id, int version, String name) {
+		super(id, version, name);
 	}
 	
-	public LOSOrderReceipientsTO(Long id, int version, Long name,
+	public LOSOrderReceipientsTO(Long id, int version, String name,
 		String personnelId, String firstName, String lastName, String rankAbbr, String rank, String organizationUnit,
 		BigDecimal phone, BigDecimal vpnPhone, String tokenId) {
 		super(id, version, name);

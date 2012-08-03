@@ -219,6 +219,7 @@ public class LOSOrderReceipients extends BasicEntity {
 	 *
 	 * @return tokenId as String.
 	 */
+	@Column(nullable=false)
 	public String getTokenId()
 	{
 	    return tokenId;

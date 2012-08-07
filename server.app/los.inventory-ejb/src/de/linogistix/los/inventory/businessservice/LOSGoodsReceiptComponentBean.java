@@ -133,6 +133,11 @@ public class LOSGoodsReceiptComponentBean extends BasicFacadeBean implements
 		List<LOSStorageLocation> slList;
 		slList = slService.getListByAreaType(clientService.getSystemClient(),
 				LOSAreaType.GOODS_IN);
+		/* added for MELISA 6/8/12 */
+		slList.addAll(slService.getListByAreaType(clientService.getSystemClient(), LOSAreaType.GOODS_IN_OUT));
+		slList.addAll(slService.getListByAreaType(clientService.getSystemClient(), LOSAreaType.STORE));
+
+
 
 		if (slList.size() == 0) {
 			// LOSStorageLocation defLoc;

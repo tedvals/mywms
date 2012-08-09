@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 //import org.mywms.facade.FacadeException;
 //import org.mywms.globals.SerialNoRecordType;
 //import org.mywms.model.Client;
-//import org.mywms.model.ItemData;
+import org.mywms.model.ItemData;
 //import org.mywms.model.ItemUnitType;
 //import org.mywms.model.Lot;
 //import org.mywms.model.StockUnit;
@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
 //import de.linogistix.los.inventory.model.LOSGoodsReceiptType;
 //import de.linogistix.los.inventory.service.QueryAdviceServiceRemote;
 //import de.linogistix.los.inventory.service.QueryGoodsReceiptServiceRemote;
-//import de.linogistix.los.inventory.service.QueryItemDataServiceRemote;
+import de.linogistix.los.inventory.service.QueryItemDataServiceRemote;
 //import de.linogistix.los.inventory.service.QueryLotServiceRemote;
 //import de.linogistix.los.inventory.service.QueryStockServiceRemote;
 //import de.linogistix.los.inventory.service.dto.GoodsReceiptTO;
@@ -49,7 +49,7 @@ import org.apache.log4j.Logger;
 //import de.linogistix.los.util.DateHelper;
 //import de.linogistix.los.util.entityservice.LOSSystemPropertyServiceRemote;
 import de.linogistix.mobile.common.gui.bean.BasicDialogBean;
-//import de.linogistix.mobile.common.system.JSFHelper;
+import de.linogistix.mobile.common.system.JSFHelper;
 
 public class FuelBean extends BasicDialogBean {
 	Logger log = Logger.getLogger(FuelBean.class);
@@ -106,7 +106,7 @@ public class FuelBean extends BasicDialogBean {
 	//private BigDecimal currentAmount;
 	//private LOSAdvice currentAdvice;
 	//private Lot currentLot;
-	//private ItemData currentItemData;
+	private ItemData currentItemData;
 	//private UnitLoadType currentUnitLoadType;
 	//private int currentAmountOfProcessedUnitLoads = 0;
 	//private LOSGoodsReceipt currentGoodsReceipt;
@@ -147,7 +147,7 @@ public class FuelBean extends BasicDialogBean {
 
 	//private UnitLoadQueryRemote queryUnitLoadRemote;
 	
-	//private QueryItemDataServiceRemote queryItemData;
+	private QueryItemDataServiceRemote queryItemData;
 	
 	
 	public FuelBean(){
@@ -164,7 +164,7 @@ public class FuelBean extends BasicDialogBean {
 		//locService = super.getStateless(QueryStorageLocationServiceRemote.class);
 		//queryStockService = super.getStateless(QueryStockServiceRemote.class);
 		//queryUnitLoadRemote = super.getStateless(UnitLoadQueryRemote.class);
-		//queryItemData = super.getStateless(QueryItemDataServiceRemote.class);
+		queryItemData = super.getStateless(QueryItemDataServiceRemote.class);
 		
 		//collectUlType = propertyService.getBooleanDefault(getWorkstationName(), GRD_COLLECT_UNITLOAD_TYPE, collectUlType);
 		//log.info(GRD_COLLECT_UNITLOAD_TYPE+"="+collectUlType);
@@ -537,30 +537,30 @@ public class FuelBean extends BasicDialogBean {
 	//// EnterMat.jsp
 	//// ***********************************************************************
 	public String processEnterItem() {
-		//currentMode = MODE_MATERIAL;
+		currentMode = MODE_IN;
 
-		//String code = inputCode == null ? "" : inputCode.trim();
-		//inputCode = "";
+		String code = inputCode == null ? "" : inputCode.trim();
+		inputCode = "";
 		
 		
-		//if( code.length() == 0 ) {
-			//JSFHelper.getInstance().message( resolve("MsgEnterMat") );
-			//return "";
-		//}
+		if( code.length() == 0 ) {
+			JSFHelper.getInstance().message( resolve("MsgEnterMat") );
+			return "";
+		}
 		
-		//ItemData mat = queryItemData.getByItemNumber(code);
-		
-		//if( mat == null ) {
-			//JSFHelper.getInstance().message( resolve("MsgMatNotFound") );
-			//return "";
-		//}
+		ItemData mat = queryItemData.getByItemNumber(code);
 
-		//if( mat.isAdviceMandatory() ) {
-			//JSFHelper.getInstance().message( resolve("MsgMatAdviceMandatory") );
-			//return "";
-		//}
+		if( mat == null ) {
+			JSFHelper.getInstance().message( resolve("MsgMatNotFound") );
+			return "";
+		}
+
+		if( mat.isAdviceMandatory() ) {
+			JSFHelper.getInstance().message( resolve("MsgMatAdviceMandatory") );
+			return "";
+		}
 		
-		//currentItemData = mat;
+		currentItemData = mat;
 		//initPos();
 		
 		//if( collectLotAlways || mat.isLotMandatory() ) {
@@ -1254,9 +1254,9 @@ public class FuelBean extends BasicDialogBean {
 		//return currentGoodsReceipt == null ? "" : currentGoodsReceipt.getGoodsReceiptNumber();
 	//}
 
-	//public String getItemDataNumber() {
-		//return currentItemData == null ? "" : currentItemData.getNumber();
-	//}
+	public String getItemDataNumber() {
+		return currentItemData == null ? "" : currentItemData.getNumber();
+	}
 	
 	//public String getItemDataName() {
 		//return currentItemData == null ? "" : currentItemData.getName();
@@ -1360,6 +1360,12 @@ public class FuelBean extends BasicDialogBean {
 		loc = getUIViewRoot().getLocale();
 		bundle = ResourceBundle.getBundle("de.linogistix.mobile.processes.fuel.FuelBundle", loc);
 		return bundle;
+	}
+
+	@Override
+	public String[] getRolesAllowed () {
+	//return new String[] {Role.ADMIN_STR,Role.OPERATOR_STR,Role.FOREMAN_STR,Role.INVENTORY_STR,Role.CLEARING_STR};
+		return new String[] {"FuelAdmin"};
 	}
 
 }

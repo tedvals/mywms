@@ -1540,7 +1540,6 @@
 	<!--  Fuel -->
     <navigation-rule>
         <from-view-id>/pages/processes/controller/MainMenu.jsp</from-view-id>
-                        
         <navigation-case>
             <from-outcome>FUEL_CHOOSE_VEHICLE</from-outcome>
             <to-view-id>/pages/processes/fuel/EnterVeh.jsp</to-view-id>
@@ -1553,34 +1552,13 @@
 
     <navigation-rule>
         <from-view-id>/pages/processes/fuel/EnterItem.jsp</from-view-id>
-                        
 	<navigation-case>
-		<from-outcome>FUEL_BACK_TO_MENU</from-outcome>
-		<to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
+	    <from-outcome>FUEL_BACK_TO_MENU</from-outcome>
+	    <to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
 	</navigation-case>
         <navigation-case>
-            <from-outcome>GRD_ENTER_UL_TYPE</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterUlType.jsp</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>GRD_ENTER_UL_NO</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterUlNo.jsp</to-view-id>
-        </navigation-case>   
-        <navigation-case>
             <from-outcome>GRD_ENTER_AMOUNT</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterAmount.jsp</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>GRD_ENTER_LOT</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterLot.jsp</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>GRD_ENTER_SERIAL</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterSerial.jsp</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>GRD_ENTER_TARGET_LOC</from-outcome>
-            <to-view-id>/faces/pages/processes/gr_direct/EnterTargetLoc.jsp</to-view-id>
+            <to-view-id>/pages/processes/fuel/EnterAmount.jsp</to-view-id>
         </navigation-case>   
     </navigation-rule>
 

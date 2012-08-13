@@ -25,7 +25,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
             <h:form id="Form" styleClass="form" >
 
                 <p id="pHeader" class="pageheader">
-                	<h:outputText id="pagetitle" value="#{bundle.TitleEnterAmount}" styleClass="pagetitle"/>
+                	<h:outputText id="pagetitle" value="#{bundle.TitleEnterDeliverer}" styleClass="pagetitle"/>
 	                <h:graphicImage id="logo" url="/pics/logo.gif" styleClass="logo"/>
                	</p>
                 
@@ -38,15 +38,15 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 							<col width="80%"/>
 						</colgroup>
                     	
-                    	<%-- <tr>
+                    	<%--<tr>
                             <td nowrap="nowrap" style="padding-right:20px">
                             	<h:outputLabel id="paramOrder" value="#{bundle.LabelOrder}:" styleClass="param" rendered="#{GRDirectBean.showOrder}" /> 
                             </td>
                             <td nowrap="nowrap">
                               	<h:outputLabel id="dataOrder" value="#{GRDirectBean.orderNo}" styleClass="label" rendered="#{GRDirectBean.showOrder}" />
                             </td>
-		    </tr> --%>
-                        
+		    </tr>--%>
+
                         <tr>
                             <td nowrap="nowrap" style="padding-right:20px">
                             	<h:outputLabel id="paramItemData" value="#{bundle.LabelItemData}:" styleClass="param" />
@@ -57,29 +57,47 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                         </tr>
                         <tr>
                             <td nowrap="nowrap" colspan="2" style="padding-right:20px; padding-left:20px; font-size:smaller;">
-                               	<h:outputLabel id="itemDataName" value="#{GRDirectBean.itemDataName}" />
+                               	<h:outputLabel id="itemDataName" value="#{FuelBean.itemDataName}" />
                             </td>
                         </tr>
 
-
-                    	<%--<tr>
-                            <td nowrap="nowrap" style="padding-right:20px">
-                            	<h:outputLabel id="paramAmount" value="#{bundle.LabelAmountAdvice}:" styleClass="param"/> 
-                            </td>
-                            <td nowrap="nowrap">
-                              	<h:outputLabel id="dataAmount" value="#{GRDirectBean.amountPos}" styleClass="label" />
-                            </td>
-                        </tr>
 
                     	<tr>
+                            <td nowrap="nowrap" style="padding-right:20px">
+                            	<h:outputLabel id="paramAmount" value="#{bundle.LabelAmountStock}:" styleClass="param"/> 
+                            </td>
+                            <td nowrap="nowrap">
+                              	<h:outputLabel id="dataAmount" value="#{FuelBean.amount}" styleClass="label" />
+                            </td>
+                        </tr>
+
+                    	<%--<tr>
                             <td nowrap="nowrap" style="padding-right:20px">
                             	<h:outputLabel id="paramLot" value="#{bundle.LabelLot}:" styleClass="param" rendered="#{GRDirectBean.showLot}" /> 
                             </td>
                             <td nowrap="nowrap">
                               	<h:outputLabel id="dataLot" value="#{GRDirectBean.lot}" styleClass="label" rendered="#{GRDirectBean.showLot}" />
                             </td>
-		    </tr>--%>
+		    </tr>
 
+                    	<tr>
+                            <td nowrap="nowrap" style="padding-right:20px">
+                            	<h:outputLabel id="paramLoc" value="#{bundle.LabelLoc}:" styleClass="param" rendered="#{GRDirectBean.hasTargetLocation}" /> 
+                            </td>
+                            <td nowrap="nowrap">
+                              	<h:outputLabel id="dataLoc" value="#{GRDirectBean.targetLocation}" styleClass="label" rendered="#{GRDirectBean.hasTargetLocation}" />
+                            </td>
+                        </tr>
+                        
+                    	<tr>
+                            <td nowrap="nowrap" style="padding-right:20px">
+                            	<h:outputLabel id="paramUl" value="#{bundle.LabelUnitLoad}:" styleClass="param" rendered="#{GRDirectBean.currentUlLabelSelected}" /> 
+                            </td>
+                            <td nowrap="nowrap">
+                              	<h:outputLabel id="dataUl" value="#{GRDirectBean.currentUlLabel}" styleClass="label" rendered="#{GRDirectBean.currentUlLabelSelected}" />
+                            </td>
+                        </tr>--%>
+                        
                   	</table>
                   	
                     <table  width="100%" border="0" cellspacing="0">
@@ -88,21 +106,27 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
 
                         <tr>
                             <td>
-                            	<h:outputLabel id="input1Label" value="#{bundle.LabelEnterAmount}" styleClass="label" />
+                            	<h:outputLabel id="input1Label" value="#{bundle.LabelEnterDriver}" styleClass="label" />
                             </td>
                         </tr><tr>
-                            <td width="80%">
+                            <td>
                                	<h:inputText id="input1" 
-                             			 value="#{FuelBean.inputAmount}" 
+                             			 value="#{FuelBean.driver}" 
                              			 styleClass="input" /> 
                             </td>
-                            <td nowrap="nowrap">
-                            	&nbsp;
-								<h:outputLabel id="unitLabel" value="#{FuelBean.currentUnit}" styleClass="label" />
-                            </td>
-
                         </tr>
 
+                        <tr>
+                            <td>
+                            	<h:outputLabel id="input1Label" value="#{bundle.LabelEnterPlate}" styleClass="label" />
+                            </td>
+                        </tr><tr>
+                            <td>
+                               	<h:inputText id="input1" 
+                             			 value="#{FuelBean.plateNumber}" 
+                             			 styleClass="input" /> 
+                            </td>
+                        </tr>
                     </table>
                     
 					<h:inputText value="IE-Dummy" style="display:none" />
@@ -112,13 +136,26 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                 <div class="buttonbar">  
 	                 <h:commandButton id="forwardButton" 
 	                 				 value="#{bundle.ButtonForward}" 
-	                 				 action="#{FueltBean.processEnterAmount}" 
+	                 				 action="#{FuelBean.processEnterDeliverer}" 
 	                 				 styleClass="commandButton"  />
 	                 				 
 	                 <h:commandButton id="backButton" 
 	                 				 value="#{bundle.ButtonCancel}" 
-	                 				 action="#{FueltBean.processEnterAmountCancel}" 
+	                 				 action="#{FuelBean.processEnterDelivererCancel}" 
 	                 				 styleClass="commandButton"  />
+	                 				 
+	                 <%--<h:commandButton id="addtoButton" 
+	                 				 value="#{bundle.ButtonAddToUl}" 
+	                 				 action="#{GRDirectBean.processEnterTargetAdd}" 
+	                 				 styleClass="commandButton" 
+	                 				 disabled="#{!GRDirectBean.targetHasAddOption}" />
+
+	                 <h:commandButton id="storageButton" 
+	                 				 value="#{bundle.ButtonStorage}" 
+	                 				 action="#{GRDirectBean.processEnterTargetStore}" 
+	                 				 styleClass="commandButton"
+							 disabled="#{!GRDirectBean.targetHasStoreOption}" />--%>
+
                 </div>
                 
             </h:form>
@@ -131,7 +168,6 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
             
             function setFocus() {
                 document.getElementById('Form:input1').focus();
-                document.getElementById('Form:input1').select();
             }    
             
         </script>

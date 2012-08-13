@@ -37,7 +37,7 @@ import de.linogistix.los.inventory.service.QueryItemDataServiceRemote;
 //import de.linogistix.los.inventory.service.QueryStockServiceRemote;
 //import de.linogistix.los.inventory.service.dto.GoodsReceiptTO;
 //import de.linogistix.los.location.model.LOSFixedLocationAssignment;
-//import de.linogistix.los.location.model.LOSStorageLocation;
+import de.linogistix.los.location.model.LOSStorageLocation;
 //import de.linogistix.los.location.model.LOSUnitLoad;
 //import de.linogistix.los.location.query.UnitLoadQueryRemote;
 //import de.linogistix.los.location.service.QueryFixedAssignmentServiceRemote;
@@ -114,7 +114,10 @@ public class FuelBean extends BasicDialogBean {
 	//private String currentAddLocation;
 		
 	private String inputCode;
-	//private String inputAmount;
+	private String inputAmount;
+	private LOSStorageLocation loc;
+	private String driver;
+	private String plateNumber;
 
 	//private ArrayList<SelectItem> goodsReceiptList;
 	//private ArrayList<SelectItem> adviceList;
@@ -757,55 +760,56 @@ public class FuelBean extends BasicDialogBean {
 	//// ***********************************************************************
 	//// EnterAmount.jsp / ConfirmAmount.jsp
 	//// ***********************************************************************
-	//public String processEnterAmount() {
-		//inputAmount = inputAmount == null ? "" : inputAmount.trim();
-		
-		//if( inputAmount.length() == 0 ) {
-			//JSFHelper.getInstance().message( resolve("MsgEnterAmount") );
-			//currentAmount = BigDecimal.ZERO;
-			//return "";
-		//}
-		//try {
-			//currentAmount = new BigDecimal(inputAmount);
-		//}
-		//catch( Throwable t ) {
-			//log.error("Cannot convert to BigDecimal code="+inputAmount);
-			//JSFHelper.getInstance().message( resolve("MsgAmountNotValid") );
-			//return "";
-		//}
-		//if( BigDecimal.ZERO.compareTo(currentAmount) >= 0 ) {
-			//log.error("Amount must be > 0. Amount="+currentAmount);
-			//JSFHelper.getInstance().message( resolve("MsgAmountNotValid") );
-			//currentAmount = BigDecimal.ZERO;
-			//return "";
-		//}
+	public String processEnterAmount() {
+		inputAmount = inputAmount == null ? "" : inputAmount.trim();
 
-		//if( currentAdvice != null ) {
-			//BigDecimal amount = currentAdvice.getNotifiedAmount().subtract(currentAmount).subtract(currentAdvice.getReceiptAmount());
-			//if( BigDecimal.ZERO.compareTo(amount) > 0 ) {
-				//if( limitAmountToNotified ) {
-					//log.error("Amount is limited to notifiedAmount="+currentAdvice.getNotifiedAmount()+". receiptAmount="+currentAdvice.getReceiptAmount()+", enteredAmount="+currentAmount);
-					//JSFHelper.getInstance().message( resolve("MsgAmountLimited") );
-					//currentAmount = BigDecimal.ZERO;
-					//return "";
-				//}
-				//return GRDirectNavigationEnum.GRD_CONFIRM_AMOUNT.name();
-			//}
-		//}
-		
-		//if( currentFixTarget == null && collectUlType ) {
-			//return GRDirectNavigationEnum.GRD_ENTER_UL_TYPE.name();
-		//}
-		//else if( currentFixTarget == null && collectUlNo ) {
-			//return GRDirectNavigationEnum.GRD_ENTER_UL_NO.name();
-		//}
+		if( inputAmount.length() == 0 ) {
+			JSFHelper.getInstance().message( resolve("MsgEnterAmount") );
+			currentAmount = BigDecimal.ZERO;
+			return "";
+		}
+		try {
+			currentAmount = new BigDecimal(inputAmount);
+		}
+		catch( Throwable t ) {
+			log.error("Cannot convert to BigDecimal code="+inputAmount);
+			JSFHelper.getInstance().message( resolve("MsgAmountNotValid") );
+			return "";
+		}
+		if( BigDecimal.ZERO.compareTo(currentAmount) >= 0 ) {
+			log.error("Amount must be > 0. Amount="+currentAmount);
+			JSFHelper.getInstance().message( resolve("MsgAmountNotValid") );
+			currentAmount = BigDecimal.ZERO;
+			return "";
+		}
 
-		//return GRDirectNavigationEnum.GRD_ENTER_TARGET_LOC.name();
-	//}
-	//public String processEnterAmountCancel() {
+		/*if( currentAdvice != null ) {
+			BigDecimal amount = currentAdvice.getNotifiedAmount().subtract(currentAmount).subtract(currentAdvice.getReceiptAmount());
+			if( BigDecimal.ZERO.compareTo(amount) > 0 ) {
+				if( limitAmountToNotified ) {
+					log.error("Amount is limited to notifiedAmount="+currentAdvice.getNotifiedAmount()+". receiptAmount="+currentAdvice.getReceiptAmount()+", enteredAmount="+currentAmount);
+					JSFHelper.getInstance().message( resolve("MsgAmountLimited") );
+					currentAmount = BigDecimal.ZERO;
+					return "";
+				}
+				return GRDirectNavigationEnum.GRD_CONFIRM_AMOUNT.name();
+			}
+		}
+
+		if( currentFixTarget == null && collectUlType ) {
+			return GRDirectNavigationEnum.GRD_ENTER_UL_TYPE.name();
+		}
+		else if( currentFixTarget == null && collectUlNo ) {
+			return GRDirectNavigationEnum.GRD_ENTER_UL_NO.name();
+		}*/
+
+		return FuelNavigationEnum.ENTER_TARGET_IN_LOC.name();
+	}
+	public String processEnterAmountCancel() {
 		//initPos();
 		//return getStartPage2();
-	//}
+		return FuelNavigationEnum.FUEL_BACK_TO_MENU.name();
+	}
 
 	//public String processConfirmAmount() {
 		//if( currentFixTarget == null && collectUlType ) {
@@ -926,79 +930,80 @@ public class FuelBean extends BasicDialogBean {
 	//// ***********************************************************************
 	//// EnterTargetLoc.jsp
 	//// ***********************************************************************
-	//public String processEnterTargetLoc() {
-		//String code = inputCode == null ? "" : inputCode.trim();
-		//inputCode = "";
-		
-		//if( code.length() == 0 ) {
-			//JSFHelper.getInstance().message( resolve("MsgEnterLoc") );
-			//return "";
-		//}
-		
-		//if( currentFixTarget != null ) {
-			//// The mode is to store to the fixed location
-			//// It is alternatively possible to put the material to an already existing stock
-			//if( currentFixTarget.getName().equals(code) ) {
-				//return postUnitLoad( currentFixTarget.getName(), null );
-			//}
+	public String processEnterTargetLoc() {
+		String code = inputCode == null ? "" : inputCode.trim();
+		inputCode = "";
 
-			//LOSUnitLoad targetUl = null;
-			//LOSStorageLocation loc = null;
-			//try {
-				//loc = locService.getByName(code);
-			//}
-			//catch( Exception e ) {
-				//log.error("Cannot select location="+code+". ex="+e.getMessage(), e);
-			//}
-			//if( loc == null ) {
-				//log.error("Wrong location entered. location="+code);
-				//JSFHelper.getInstance().message( resolve("MsgLocNotAccessable") );
-				//return "";
-			//}
+		if( code.length() == 0 ) {
+			JSFHelper.getInstance().message( resolve("MsgEnterLoc") );
+			return "";
+		}
 
-			//StockUnit su = null;
-			//List<StockUnit> stockList = queryStockService.getListByStorageLocation(loc);
-			//for( StockUnit su1 : stockList ) {
-				//if( su1.getItemData().equals(currentItemData) ) {
-					//su = su1;
-					//try {
-						//targetUl = (LOSUnitLoad) queryUnitLoadRemote.queryById(su.getUnitLoad().getId());
-					//} catch (Exception e) {
-					//}
-					//if( targetUl != null && targetUl.getStockUnitList().size() == 1 ) {
-						//break;
-					//}
-					//log.info("More than one stock on UnitLoad="+targetUl.getLabelId());
-					//targetUl = null;
-				//}
-			//}
-			//if( targetUl != null ) {
-				//return postUnitLoad( null, targetUl.getLabelId() );
-			//}
-			
-			//JSFHelper.getInstance().message( resolve("MsgCannotReadStock") );
-			//return "";
-		//}
-		
-		
-		//// The mode is to store not to the fixed location
+		/*if( currentFixTarget != null ) {
+			// The mode is to store to the fixed location
+			// It is alternatively possible to put the material to an already existing stock
+			if( currentFixTarget.getName().equals(code) ) {
+				return postUnitLoad( currentFixTarget.getName(), null );
+			}
 
-		//LOSStorageLocation loc = null;
-		//try {
-			//loc = locService.getByName(code);
-		//}
-		//catch( Exception e ) {
-			//log.error("Cannot select location="+code+". ex="+e.getMessage(), e);
-		//}
-		//if( loc == null ) {
-			//log.error("Wrong location entered. location="+code);
-			//JSFHelper.getInstance().message( resolve("MsgLocNotAccessable") );
-			//return "";
-		//}
+			LOSUnitLoad targetUl = null;
+			LOSStorageLocation loc = null;
+			try {
+				loc = locService.getByName(code);
+			}
+			catch( Exception e ) {
+				log.error("Cannot select location="+code+". ex="+e.getMessage(), e);
+			}
+			if( loc == null ) {
+				log.error("Wrong location entered. location="+code);
+				JSFHelper.getInstance().message( resolve("MsgLocNotAccessable") );
+				return "";
+			}
+
+			StockUnit su = null;
+			List<StockUnit> stockList = queryStockService.getListByStorageLocation(loc);
+			for( StockUnit su1 : stockList ) {
+				if( su1.getItemData().equals(currentItemData) ) {
+					su = su1;
+					try {
+						targetUl = (LOSUnitLoad) queryUnitLoadRemote.queryById(su.getUnitLoad().getId());
+					} catch (Exception e) {
+					}
+					if( targetUl != null && targetUl.getStockUnitList().size() == 1 ) {
+						break;
+					}
+					log.info("More than one stock on UnitLoad="+targetUl.getLabelId());
+					targetUl = null;
+				}
+			}
+			if( targetUl != null ) {
+				return postUnitLoad( null, targetUl.getLabelId() );
+			}
+
+			JSFHelper.getInstance().message( resolve("MsgCannotReadStock") );
+			return "";
+		}*/
+
+
+		// The mode is to store not to the fixed location
+
+		loc = null;
+		try {
+			loc = locService.getByName(code);
+		}
+		catch( Exception e ) {
+			log.error("Cannot select location="+code+". ex="+e.getMessage(), e);
+		}
+		if( loc == null ) {
+			log.error("Wrong location entered. location="+code);
+			JSFHelper.getInstance().message( resolve("MsgLocNotAccessable") );
+			return "";
+		}
 
 		//return postUnitLoad( loc.getName(), null );
-		
-	//}
+		return FuelNavigationEnum.FUEL_ENTER_DELIVERER.name();
+
+	}
 
 	//public String processEnterTargetUl() {
 		//String code = inputCode == null ? "" : inputCode.trim();
@@ -1061,10 +1066,34 @@ public class FuelBean extends BasicDialogBean {
 		//return "";
 	//}
 	
-	//public String processEnterTargetCancel() {
+	public String processEnterTargetCancel() {
 		//initPos();
 		//return getStartPage2();
-	//}
+		return FuelNavigationEnum.FUEL_BACK_TO_MENU.name();
+	}
+
+	public String processEnterDeliverer() {
+
+		String drv = driver == null ? "" : driver.trim();
+		String plate = plateNumber == null ? "" : plateNumber.trim();
+		driver="";
+		plateNumber="";
+
+		if( drv.length() == 0 ) {
+			JSFHelper.getInstance().message( resolve("MsgEnterDrv") );
+			return "";
+		}
+		if( plate.length() == 0 ) {
+			JSFHelper.getInstance().message( resolve("MsgEnterPlate") );
+			return "";
+		}
+
+		return FuelNavigationEnum.FUEL_ENTER_RECEIPIENT.name();
+	}
+
+	public String processEnterDelivererCancel() {
+		return FuelNavigationEnum.FUEL_BACK_TO_MENU.name();
+	}
 
 	//public String processEnterTargetStore() {
 		//// remove the marker to add to fixed location
@@ -1250,6 +1279,26 @@ public class FuelBean extends BasicDialogBean {
 		this.inputCode = inputCode;
 	}
 
+	public String getDriver()
+	{
+	    return driver;
+	}
+	
+	public void setDriver(String driver)
+	{
+	    this.driver = driver;
+	}
+	
+	public String getPlateNumber()
+	{
+	    return plateNumber;
+	}
+	
+	public void setPlateNumber(String plateNumber)
+	{
+	    this.plateNumber = plateNumber;
+	}
+
 	//public String getOrderNo() {
 		//return currentGoodsReceipt == null ? "" : currentGoodsReceipt.getGoodsReceiptNumber();
 	//}
@@ -1258,9 +1307,9 @@ public class FuelBean extends BasicDialogBean {
 		return currentItemData == null ? "" : currentItemData.getNumber();
 	}
 	
-	//public String getItemDataName() {
-		//return currentItemData == null ? "" : currentItemData.getName();
-	//}
+	public String getItemDataName() {
+		return currentItemData == null ? "" : currentItemData.getName();
+	}
 	
 	//public String getAmountPos() {
 		//if( currentAdvice == null ) {
@@ -1269,9 +1318,9 @@ public class FuelBean extends BasicDialogBean {
 		//return "" + currentAdvice.getReceiptAmount() + " / " + currentAdvice.getNotifiedAmount() + " "+ currentAdvice.getItemData().getHandlingUnit();
 	//}
 
-	//public String getAmount() {
-		//return currentAmount == null ? "" : currentAmount.toString() + " "+ getCurrentUnit();
-	//}
+	public String getAmount() {
+		return currentAmount == null ? "" : currentAmount.toString() + " "+ getCurrentUnit();
+	}
 	
 	//public String getTargetLocation() {
 		//if( currentFixTarget != null ) {
@@ -1282,12 +1331,12 @@ public class FuelBean extends BasicDialogBean {
 	//public boolean isHasTargetLocation() {
 		//return currentFixTarget != null;
 	//}
-	//public String getInputAmount() {
-		//return inputAmount;
-	//}
-	//public void setInputAmount(String inputAmount) {
-		//this.inputAmount = inputAmount;
-	//}
+	public String getInputAmount() {
+		return inputAmount;
+	}
+	public void setInputAmount(String inputAmount) {
+		this.inputAmount = inputAmount;
+	}
 	
 	//public String getInputLotName() {
 		//return inputLotName;
@@ -1296,12 +1345,12 @@ public class FuelBean extends BasicDialogBean {
 		//this.inputLotName = inputLotName;
 	//}
 	
-	//public String getCurrentUnit() {
-		//if( currentItemData == null ) {
-			//return "";
-		//}
-		//return currentItemData.getHandlingUnit().getUnitName();
-	//}
+	public String getCurrentUnit() {
+		if( currentItemData == null ) {
+			return "";
+		}
+		return currentItemData.getHandlingUnit().getUnitName();
+	}
 
 	//public String getTargetAddLocation() {
 		//if( currentAddLocation != null ) {
@@ -1368,4 +1417,5 @@ public class FuelBean extends BasicDialogBean {
 		return new String[] {"FuelAdmin"};
 	}
 
+	
 }

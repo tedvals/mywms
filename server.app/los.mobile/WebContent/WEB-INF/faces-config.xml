@@ -1557,12 +1557,46 @@
 	    <to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
 	</navigation-case>
         <navigation-case>
-            <from-outcome>GRD_ENTER_AMOUNT</from-outcome>
+            <from-outcome>FUEL_ENTER_AMOUNT</from-outcome>
             <to-view-id>/pages/processes/fuel/EnterAmount.jsp</to-view-id>
         </navigation-case>   
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/pages/processes/fuel/EnterAmount.jsp</from-view-id>
+	<navigation-case>
+	    <from-outcome>FUEL_BACK_TO_MENU</from-outcome>
+	    <to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
+	</navigation-case>
+        <navigation-case>
+            <from-outcome>ENTER_TARGET_IN_LOC</from-outcome>
+            <to-view-id>/pages/processes/fuel/EnterTargetInLoc.jsp</to-view-id>
+        </navigation-case>   
+    </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/pages/processes/fuel/EnterTargetInLoc.jsp</from-view-id>
+	<navigation-case>
+	    <from-outcome>FUEL_BACK_TO_MENU</from-outcome>
+	    <to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
+	</navigation-case>
+        <navigation-case>
+            <from-outcome>FUEL_ENTER_DELIVERER</from-outcome>
+            <to-view-id>/pages/processes/fuel/EnterDeliverer.jsp</to-view-id>
+        </navigation-case>   
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/pages/processes/fuel/EnterDeliverer.jsp</from-view-id>
+	<navigation-case>
+	    <from-outcome>FUEL_BACK_TO_MENU</from-outcome>
+	    <to-view-id>/pages/processes/controller/MainMenu.jsp</to-view-id>
+	</navigation-case>
+        <navigation-case>
+            <from-outcome>FUEL_ENTER_RECEIPIENT</from-outcome>
+            <to-view-id>/pages/processes/fuel/EnterReceipient.jsp</to-view-id>
+        </navigation-case>   
+    </navigation-rule>
     
     <validator>
         <validator-id>astrologer.EmailValidator</validator-id>

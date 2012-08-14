@@ -57,7 +57,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                         </tr>
                         <tr>
                             <td nowrap="nowrap" colspan="2" style="padding-right:20px; padding-left:20px; font-size:smaller;">
-                               	<h:outputLabel id="itemDataName" value="#{GRDirectBean.itemDataName}" />
+                               	<h:outputLabel id="itemDataName" value="#{FuelBean.itemDataName}" />
                             </td>
                         </tr>
 
@@ -112,12 +112,12 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
                 <div class="buttonbar">  
 	                 <h:commandButton id="forwardButton" 
 	                 				 value="#{bundle.ButtonForward}" 
-	                 				 action="#{FueltBean.processEnterAmount}" 
+	                 				 action="#{FuelBean.processEnterAmount}" 
 	                 				 styleClass="commandButton"  />
 	                 				 
 	                 <h:commandButton id="backButton" 
 	                 				 value="#{bundle.ButtonCancel}" 
-	                 				 action="#{FueltBean.processEnterAmountCancel}" 
+	                 				 action="#{FuelBean.processEnterAmountCancel}" 
 	                 				 styleClass="commandButton"  />
                 </div>
                 

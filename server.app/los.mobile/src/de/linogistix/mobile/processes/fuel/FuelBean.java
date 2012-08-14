@@ -1,6 +1,6 @@
 package de.linogistix.mobile.processes.fuel;
 
-//import java.math.BigDecimal;
+import java.math.BigDecimal;
 //import java.text.DateFormat;
 //import java.util.ArrayList;
 //import java.util.Calendar;
@@ -41,7 +41,7 @@ import de.linogistix.los.location.model.LOSStorageLocation;
 //import de.linogistix.los.location.model.LOSUnitLoad;
 //import de.linogistix.los.location.query.UnitLoadQueryRemote;
 //import de.linogistix.los.location.service.QueryFixedAssignmentServiceRemote;
-//import de.linogistix.los.location.service.QueryStorageLocationServiceRemote;
+import de.linogistix.los.location.service.QueryStorageLocationServiceRemote;
 //import de.linogistix.los.location.service.QueryUnitLoadServiceRemote;
 //import de.linogistix.los.location.service.QueryUnitLoadTypeServiceRemote;
 //import de.linogistix.los.query.BODTO;
@@ -103,7 +103,7 @@ public class FuelBean extends BasicDialogBean {
 	//private Date currentLotDate;
 	//private String currentUlLabel;
 	//private boolean currentUlLabelSelected;
-	//private BigDecimal currentAmount;
+	private BigDecimal currentAmount;
 	//private LOSAdvice currentAdvice;
 	//private Lot currentLot;
 	private ItemData currentItemData;
@@ -140,7 +140,7 @@ public class FuelBean extends BasicDialogBean {
 		
 	//private LOSGoodsReceiptFacade goodsReceiptFacade;
 	
-	//private QueryStorageLocationServiceRemote locService;
+	private QueryStorageLocationServiceRemote locService;
 	
 	//private QueryFixedAssignmentServiceRemote fixService;
 	
@@ -164,7 +164,7 @@ public class FuelBean extends BasicDialogBean {
 		//queryGoodsReceiptService = super.getStateless(QueryGoodsReceiptServiceRemote.class);
 		//goodsReceiptFacade = super.getStateless(LOSGoodsReceiptFacade.class);
 		//fixService = super.getStateless(QueryFixedAssignmentServiceRemote.class);
-		//locService = super.getStateless(QueryStorageLocationServiceRemote.class);
+		locService = super.getStateless(QueryStorageLocationServiceRemote.class);
 		//queryStockService = super.getStateless(QueryStockServiceRemote.class);
 		//queryUnitLoadRemote = super.getStateless(UnitLoadQueryRemote.class);
 		queryItemData = super.getStateless(QueryItemDataServiceRemote.class);
@@ -1409,6 +1409,35 @@ public class FuelBean extends BasicDialogBean {
 		loc = getUIViewRoot().getLocale();
 		bundle = ResourceBundle.getBundle("de.linogistix.mobile.processes.fuel.FuelBundle", loc);
 		return bundle;
+	}
+
+	@Override
+	public boolean isRolesAllowed() {
+		/*String[] allowed;
+		String[] roles;
+
+		allowed = getRolesAllowed();
+		if (allowed == null || allowed.length == 0) {
+			return true;
+		}
+
+		roles = getPrincipalRoles();
+
+		if ((allowed == null || allowed.length == 0)
+				&& (roles == null || roles.length == 0)) {
+			return true;
+		}
+
+		for (String allow : allowed) {
+			for (String role : roles) {
+				if (allow.equals(role)) {
+					return true;
+				}
+			}
+		}*/
+
+		return false;
+
 	}
 
 	@Override
